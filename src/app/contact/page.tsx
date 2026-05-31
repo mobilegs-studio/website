@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactForm from "./contact-form";
 
 export const metadata: Metadata = {
   title: "Contact — Mobile Growth Studio",
@@ -21,48 +22,7 @@ export default function Contact() {
       </p>
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-        {/* Form */}
-        <form className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <label className="text-sm text-[--color-muted]" htmlFor="naam">
-              Naam
-            </label>
-            <input
-              id="naam"
-              type="text"
-              placeholder="Jan de Vries"
-              className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-sm text-[--color-muted]" htmlFor="email">
-              E-mail
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="jan@bedrijf.nl"
-              className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-sm text-[--color-muted]" htmlFor="bericht">
-              Bericht
-            </label>
-            <textarea
-              id="bericht"
-              rows={5}
-              placeholder="Vertel me over je project..."
-              className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors resize-none"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-[--color-accent] text-black font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit"
-          >
-            Verstuur bericht
-          </button>
-        </form>
+        <ContactForm />
 
         {/* Contact info */}
         <div className="flex flex-col gap-8 md:pt-0 pt-8 border-t border-[--color-border] md:border-0">
