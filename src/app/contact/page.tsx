@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import ContactForm from "./contact-form";
 
 export const metadata: Metadata = {
-  title: "Contact — Mobile Growth Studio",
+  title: "Contact",
   description:
-    "Neem contact op met Mobile Growth Studio voor webapps, native apps of AI tooling.",
+    "Neem contact op met Mobile Growth Studio. Vertel ons over je project en we reageren binnen één werkdag. Gevestigd in Hilversum, actief door heel Nederland.",
+  alternates: { canonical: "https://www.mobilegrowthstudio.com/contact" },
+  openGraph: {
+    title: "Contact — Mobile Growth Studio",
+    description:
+      "Vertel ons over je project. We reageren binnen één werkdag.",
+    url: "https://www.mobilegrowthstudio.com/contact",
+    type: "website",
+  },
 };
 
 export default function Contact() {

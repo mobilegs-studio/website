@@ -2,8 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cases — Mobile Growth Studio",
-  description: "Projecten en cases van Mobile Growth Studio.",
+  title: "Cases",
+  description:
+    "Bekijk projecten en cases van Mobile Growth Studio — webapps, native apps en AI tools gebouwd voor Nederlandse MKB-ers en ZZP-ers.",
+  alternates: { canonical: "https://www.mobilegrowthstudio.com/cases" },
+  openGraph: {
+    title: "Cases — Mobile Growth Studio",
+    description:
+      "Projecten en cases: webapps, native apps en AI tools voor Nederlands MKB.",
+    url: "https://www.mobilegrowthstudio.com/cases",
+    type: "website",
+  },
 };
 
 export default function Cases() {

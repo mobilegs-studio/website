@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Over — Mobile Growth Studio",
+  title: "Over",
   description:
-    "Mobile Growth Studio is het freelance label van Hendrik Polinder, gevestigd in Hilversum.",
+    "Mobile Growth Studio is het freelance label van Hendrik Polinder — senior growth manager en digitaal consultant in Hilversum. Bouwt apps, webapps en AI tooling voor MKB en ZZP.",
+  alternates: { canonical: "https://www.mobilegrowthstudio.com/over" },
+  openGraph: {
+    title: "Over — Mobile Growth Studio",
+    description:
+      "Hendrik Polinder — senior growth manager en digitaal consultant in Hilversum. Bouwt apps en webapps voor MKB en ZZP.",
+    url: "https://www.mobilegrowthstudio.com/over",
+    type: "profile",
+  },
 };
 
 export default function Over() {

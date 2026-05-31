@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Diensten — Mobile Growth Studio",
+  title: "Diensten",
   description:
-    "Webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers.",
+    "Webapps, native apps, AI tooling, dashboards en websites voor Nederlandse MKB-ers en ZZP-ers. Maatwerk digitale oplossingen door Mobile Growth Studio in Hilversum.",
+  alternates: { canonical: "https://www.mobilegrowthstudio.com/diensten" },
+  openGraph: {
+    title: "Diensten — Mobile Growth Studio",
+    description:
+      "Webapps, native apps, AI tooling, dashboards en websites. Maatwerk digitale oplossingen voor MKB en ZZP.",
+    url: "https://www.mobilegrowthstudio.com/diensten",
+    type: "website",
+  },
 };
 
 const diensten = [
