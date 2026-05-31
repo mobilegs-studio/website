@@ -33,14 +33,14 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || menuOpen
-            ? "border-b border-[--color-border] bg-[--color-background]"
+            ? "border-b border-(--color-border) bg-(--color-background)"
             : "bg-transparent"
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link
             href="/"
-            className="text-sm font-semibold tracking-widest uppercase hover:text-[--color-accent] transition-colors"
+            className="text-sm font-semibold tracking-widest uppercase hover:text-(--color-accent) transition-colors"
           >
             Mobile Growth Studio
           </Link>
@@ -51,10 +51,10 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`text-sm transition-colors hover:text-[--color-foreground] ${
+                  className={`text-sm transition-colors hover:text-(--color-foreground) ${
                     pathname === href
-                      ? "text-[--color-foreground]"
-                      : "text-[--color-muted]"
+                      ? "text-(--color-foreground)"
+                      : "text-(--color-muted)"
                   }`}
                 >
                   {label}
@@ -65,7 +65,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center text-sm font-semibold bg-[--color-accent] text-black px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex items-center text-sm font-semibold bg-(--color-accent) text-black px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
           >
             Neem contact op
           </Link>
@@ -77,17 +77,17 @@ export default function Navbar() {
             aria-label={menuOpen ? "Menu sluiten" : "Menu openen"}
           >
             <span
-              className={`block w-6 h-0.5 bg-[--color-foreground] transition-transform duration-300 origin-center ${
+              className={`block w-6 h-0.5 bg-(--color-foreground) transition-transform duration-300 origin-center ${
                 menuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-[--color-foreground] transition-opacity duration-300 ${
+              className={`block w-6 h-0.5 bg-(--color-foreground) transition-opacity duration-300 ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-[--color-foreground] transition-transform duration-300 origin-center ${
+              className={`block w-6 h-0.5 bg-(--color-foreground) transition-transform duration-300 origin-center ${
                 menuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             />
@@ -117,8 +117,8 @@ export default function Navbar() {
                   href={href}
                   className={`text-4xl font-bold tracking-tight transition-colors ${
                     pathname === href
-                      ? "text-[--color-accent]"
-                      : "text-[--color-foreground] hover:text-[--color-accent]"
+                      ? "text-(--color-accent)"
+                      : "text-(--color-foreground) hover:text-(--color-accent)"
                   }`}
                 >
                   {label}
@@ -129,12 +129,12 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-auto pt-8 border-t border-[--color-border]"
+              className="mt-auto pt-8 border-t border-(--color-border)"
             >
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center w-full text-sm font-semibold bg-[--color-accent] text-black px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-black px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
               >
                 Neem contact op
               </Link>

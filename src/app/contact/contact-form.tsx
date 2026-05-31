@@ -24,7 +24,7 @@ export default function ContactForm() {
       <div className="flex flex-col gap-4 py-8">
         <span className="text-2xl">✓</span>
         <p className="font-semibold text-lg">Bericht verstuurd.</p>
-        <p className="text-[--color-muted]">
+        <p className="text-(--color-muted)">
           Ik reageer binnen één werkdag.
         </p>
       </div>
@@ -34,7 +34,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <label className="text-sm text-[--color-muted]" htmlFor="naam">
+        <label className="text-sm text-(--color-muted)" htmlFor="naam">
           Naam
         </label>
         <input
@@ -44,11 +44,11 @@ export default function ContactForm() {
           placeholder="Jan de Vries"
           value={form.naam}
           onChange={(e) => setForm({ ...form, naam: e.target.value })}
-          className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors"
+          className="bg-transparent border border-(--color-border) rounded-lg px-4 py-3 text-(--color-foreground) placeholder:text-(--color-muted) focus:outline-none focus:border-(--color-accent) transition-colors"
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="text-sm text-[--color-muted]" htmlFor="email">
+        <label className="text-sm text-(--color-muted)" htmlFor="email">
           E-mail
         </label>
         <input
@@ -58,11 +58,11 @@ export default function ContactForm() {
           placeholder="jan@bedrijf.nl"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors"
+          className="bg-transparent border border-(--color-border) rounded-lg px-4 py-3 text-(--color-foreground) placeholder:text-(--color-muted) focus:outline-none focus:border-(--color-accent) transition-colors"
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="text-sm text-[--color-muted]" htmlFor="bericht">
+        <label className="text-sm text-(--color-muted)" htmlFor="bericht">
           Bericht
         </label>
         <textarea
@@ -72,7 +72,7 @@ export default function ContactForm() {
           placeholder="Vertel me over je project..."
           value={form.bericht}
           onChange={(e) => setForm({ ...form, bericht: e.target.value })}
-          className="bg-transparent border border-[--color-border] rounded-lg px-4 py-3 text-[--color-foreground] placeholder:text-[--color-muted] focus:outline-none focus:border-[--color-accent] transition-colors resize-none"
+          className="bg-transparent border border-(--color-border) rounded-lg px-4 py-3 text-(--color-foreground) placeholder:text-(--color-muted) focus:outline-none focus:border-(--color-accent) transition-colors resize-none"
         />
       </div>
       {status === "error" && (
@@ -83,7 +83,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-[--color-accent] text-black font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit disabled:opacity-50"
+        className="bg-(--color-accent) text-black font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit disabled:opacity-50"
       >
         {status === "loading" ? "Versturen..." : "Verstuur bericht"}
       </button>

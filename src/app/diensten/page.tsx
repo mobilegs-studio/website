@@ -54,10 +54,10 @@ const diensten = [
 export default function Diensten() {
   return (
     <main className="flex flex-1 flex-col px-6 py-32 max-w-5xl mx-auto w-full">
-      <p className="text-sm tracking-widest uppercase text-[--color-muted] mb-6">
+      <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
         Diensten
       </p>
-      <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight max-w-2xl">
+      <h1 className="font-display text-5xl sm:text-6xl leading-tight max-w-2xl">
         Wat we bouwen.
       </h1>
 
@@ -66,30 +66,30 @@ export default function Diensten() {
           <div
             key={dienst.id}
             id={dienst.id}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-[--color-border] pt-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-(--color-border) pt-12"
           >
             <div>
-              <span className="text-xs text-[--color-muted] tracking-widest font-mono">
+              <span className="text-xs text-(--color-muted) tracking-widest font-mono">
                 {dienst.number}
               </span>
               <h2 className="mt-4 text-3xl font-bold tracking-tight">
                 {dienst.title}
               </h2>
-              <p className="mt-2 text-[--color-accent] font-medium text-sm">
+              <p className="mt-2 text-(--color-accent) font-medium text-sm">
                 {dienst.tagline}
               </p>
             </div>
             <div>
-              <p className="text-[--color-muted] leading-relaxed">
+              <p className="text-(--color-muted) leading-relaxed">
                 {dienst.description}
               </p>
               <ul className="mt-8 flex flex-col gap-3">
                 {dienst.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-sm text-[--color-foreground]"
+                    className="flex items-center gap-3 text-sm text-(--color-foreground)"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[--color-accent] shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent) shrink-0" />
                     {item}
                   </li>
                 ))}
