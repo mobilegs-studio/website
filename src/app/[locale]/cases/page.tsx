@@ -23,7 +23,7 @@ export default async function Cases({
       </p>
       <Link
         href={`/${locale}/contact`}
-        className="mt-10 inline-flex items-center gap-2 bg-(--color-accent) text-black font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit"
+        className="mt-10 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit"
       >
         {c.cta}
       </Link>

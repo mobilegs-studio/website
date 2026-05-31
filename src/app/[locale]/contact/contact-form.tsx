@@ -149,7 +149,7 @@ export default function ContactForm({ t }: { t: ContactFormTranslations }) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-(--color-accent) text-black font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit disabled:opacity-50"
+        className="bg-(--color-accent) text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit disabled:opacity-50"
       >
         {status === "loading" ? t.submitLoading : t.submitIdle}
       </button>

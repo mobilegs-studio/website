@@ -64,7 +64,7 @@ export default async function Faq({
           </p>
           <Link
             href={`/${locale}/contact`}
-            className="mt-6 inline-flex items-center gap-2 bg-(--color-accent) text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+            className="mt-6 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
           >
             {f.notFoundCta}
           </Link>

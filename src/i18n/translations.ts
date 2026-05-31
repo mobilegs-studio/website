@@ -19,10 +19,10 @@ export const translations = {
     home: {
       label: "Mobile Growth Studio",
       headline1: "Apps & tools die je",
-      headlineAccent: "bedrijf",
-      headline2: "slimmer maken.",
+      headlineAccent: "performance",
+      headline2: "een boost geven.",
       subtext:
-        "We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers — zonder poespas, met resultaat.",
+        "We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers — zonder poespas, met resultaat, zodat jij je bezig kan houden met waar het echt om draait.",
       cta: "Neem contact op",
       viewServices: "Bekijk diensten",
       whatWeBuild: "Wat we bouwen",
@@ -279,11 +279,11 @@ export const translations = {
     },
     home: {
       label: "Mobile Growth Studio",
-      headline1: "Apps & tools that make your",
-      headlineAccent: "business",
-      headline2: "smarter.",
+      headline1: "Apps & tools that give your",
+      headlineAccent: "performance",
+      headline2: "a boost.",
       subtext:
-        "We build webapps, native apps and AI tooling for Dutch SMEs and freelancers — no nonsense, just results.",
+        "We build webapps, native apps and AI tooling for Dutch SMEs and freelancers — no nonsense, just results, so you can focus on what really matters.",
       cta: "Get in touch",
       viewServices: "View services",
       whatWeBuild: "What we build",
@@ -538,11 +538,11 @@ export const translations = {
     },
     home: {
       label: "Mobile Growth Studio",
-      headline1: "Apps & Tools, die Ihr",
-      headlineAccent: "Unternehmen",
-      headline2: "smarter machen.",
+      headline1: "Apps & Tools, die Ihre",
+      headlineAccent: "Performance",
+      headline2: "ankurbeln.",
       subtext:
-        "Wir entwickeln Webapps, native Apps und KI-Tools für kleine und mittlere Unternehmen — ohne Schnickschnack, mit Ergebnissen.",
+        "Wir entwickeln Webapps, native Apps und KI-Tools für kleine und mittlere Unternehmen — ohne Schnickschnack, mit Ergebnissen, damit Sie sich auf das Wesentliche konzentrieren können.",
       cta: "Kontakt aufnehmen",
       viewServices: "Leistungen ansehen",
       whatWeBuild: "Was wir bauen",

@@ -108,7 +108,7 @@ export default function Navbar({
 
             <Link
               href={`/${locale}/contact`}
-              className="inline-flex items-center text-sm font-semibold bg-(--color-accent) text-black px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+              className="inline-flex items-center text-sm font-semibold bg-(--color-accent) text-white px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
             >
               {t.cta}
             </Link>
@@ -201,7 +201,7 @@ export default function Navbar({
               <Link
                 href={`/${locale}/contact`}
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-black px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-white px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
               >
                 {t.cta}
               </Link>

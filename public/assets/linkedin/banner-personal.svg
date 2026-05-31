@@ -8,7 +8,7 @@
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c1c1c" stroke-width="1"/>
     </pattern>
     <radialGradient id="glow" cx="30%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#e8ff00" stop-opacity="0.08"/>
+      <stop offset="0%" stop-color="#6343f7" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
     </radialGradient>
   </defs>
@@ -16,7 +16,7 @@
   <rect width="1584" height="396" fill="url(#glow)"/>
 
   <!-- Left accent bar -->
-  <rect x="80" y="100" width="3" height="196" fill="#e8ff00" opacity="0.6"/>
+  <rect x="80" y="100" width="3" height="196" fill="#6343f7" opacity="0.6"/>
 
   <!-- Main headline -->
   <text x="110" y="168" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="52" fill="#f0f0f0" letter-spacing="-1">Hendrik Polinder</text>
@@ -28,7 +28,7 @@
   <text x="110" y="268" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="16" fill="#5a5a5a" letter-spacing="2">WEBAPPS  ·  NATIVE APPS  ·  AI TOOLING  ·  DASHBOARDS  ·  WEBSITES</text>
 
   <!-- Accent pill -->
-  <rect x="110" y="295" width="220" height="36" rx="18" fill="#e8ff00"/>
+  <rect x="110" y="295" width="220" height="36" rx="18" fill="#6343f7"/>
   <text x="220" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#0a0a0a" text-anchor="middle" letter-spacing="0.5">mobilegrowthstudio.com</text>
 
   <!-- Right side: MGS mark -->
