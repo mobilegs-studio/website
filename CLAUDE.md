@@ -48,4 +48,16 @@ Wel: "we bouwen apps en tools die je bedrijf slimmer maken"
 ## Contactpersoon
 Hendrik Polinder — hc.polinder@proton.me
 
+## Notion logboek
+Project-log in Notion: "MGS Website Stack — Setup Log & Documentatie"
+(page id 371539fb08af81068eace7543066e6df, onder MGStudio).
+
+Bij het bijwerken van de log:
+- "Laatst bijgewerkt" bovenaan altijd met datum EN tijd (bijv. "31 mei 2026 — 21:49").
+- Nieuwe updates toevoegen als losse inklapbare toggle onder de sectie
+  "Logboek updates" aan het einde van de pagina.
+- Toggle-syntax voor Notion: gebruik `<details><summary>Titel</summary> ... </details>`.
+  De tag `<toggle>` werkt NIET (wordt als platte tekst opgeslagen).
+- Toggle-titel = datum + tijd + korte omschrijving van de sessie.
+
 
