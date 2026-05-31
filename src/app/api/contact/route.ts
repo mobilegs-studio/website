@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  const { naam, email, bericht } = await request.json();
+  const { naam, email, telefoon, interesse, bericht } = await request.json();
 
   if (!naam || !email || !bericht) {
     return NextResponse.json(
@@ -21,6 +21,8 @@ export async function POST(request: Request) {
     html: `
       <p><strong>Naam:</strong> ${naam}</p>
       <p><strong>E-mail:</strong> ${email}</p>
+      ${telefoon ? `<p><strong>Telefoon:</strong> ${telefoon}</p>` : ""}
+      ${interesse ? `<p><strong>Interesse:</strong> ${interesse}</p>` : ""}
       <p><strong>Bericht:</strong></p>
       <p>${bericht.replace(/\n/g, "<br>")}</p>
     `,

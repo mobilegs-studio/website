@@ -7,6 +7,47 @@ import { getTranslations } from "@/i18n/translations";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+const serviceIcons: Record<string, React.ReactNode> = {
+  // Webapps — browser window
+  webapps: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+    </svg>
+  ),
+  // Native apps — phone
+  "native-apps": (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="6" y="2" width="12" height="20" rx="3" />
+      <path d="M11 18h2" />
+    </svg>
+  ),
+  // AI tooling — spark / node
+  "ai-tooling": (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  ),
+  // Dashboarding — bar chart
+  dashboarding: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3v18h18" />
+      <rect x="7" y="12" width="3" height="5" />
+      <rect x="13" y="8" width="3" height="9" />
+      <rect x="19" y="5" width="0.01" height="0.01" />
+      <path d="M19 5v12" />
+    </svg>
+  ),
+  // Websites — globe
+  websites: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+    </svg>
+  ),
+};
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
@@ -130,10 +171,15 @@ export default function Home({
                 href={`/${locale}/diensten#${service.id}`}
                 className="group block p-8 sm:p-10 h-full bg-(--color-background) hover:bg-(--color-surface) transition-colors duration-200"
               >
-                <span className="text-[10px] text-(--color-muted) tracking-[0.2em] font-mono uppercase">
-                  {service.number}
-                </span>
-                <h2 className="mt-5 text-2xl font-semibold tracking-tight group-hover:text-(--color-accent) transition-colors duration-200">
+                <div className="flex items-center justify-between">
+                  <span className="text-(--color-accent)">
+                    {serviceIcons[service.id]}
+                  </span>
+                  <span className="text-[10px] text-(--color-muted) tracking-[0.2em] font-mono uppercase">
+                    {service.number}
+                  </span>
+                </div>
+                <h2 className="mt-6 text-2xl font-semibold tracking-tight group-hover:text-(--color-accent) transition-colors duration-200">
                   {service.title}
                 </h2>
                 <p className="mt-3 text-(--color-muted-light) leading-relaxed text-sm">
