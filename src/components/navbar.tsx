@@ -42,7 +42,7 @@ export default function Navbar() {
             href="/"
             className="text-sm font-semibold tracking-widest uppercase hover:text-[--color-accent] transition-colors"
           >
-            mobilegs studio
+            Mobile Growth Studio
           </Link>
 
           {/* Desktop nav */}

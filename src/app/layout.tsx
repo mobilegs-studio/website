@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,14 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "mobilegs studio — Apps & tools die je bedrijf slimmer maken",
+  title: "Mobile Growth Studio — Apps & tools die je bedrijf slimmer maken",
   description:
-    "mobilegs studio bouwt webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
+    "Mobile Growth Studio bouwt webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
   openGraph: {
-    title: "mobilegs studio",
+    title: "Mobile Growth Studio",
     description: "Apps & tools die je bedrijf slimmer maken.",
-    url: "https://mobilegs.studio",
-    siteName: "mobilegs studio",
+    url: "https://www.mobilegrowthstudio.com",
+    siteName: "Mobile Growth Studio",
     locale: "nl_NL",
     type: "website",
   },
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[--color-background] text-[--color-foreground]">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
