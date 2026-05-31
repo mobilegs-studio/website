@@ -1,0 +1,37 @@
+<svg width="1584" height="396" viewBox="0 0 1584 396" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1584" height="396" fill="#0a0a0a"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c1c1c" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#e8ff00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1584" height="396" fill="url(#grid)"/>
+  <rect width="1584" height="396" fill="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="100" width="3" height="196" fill="#e8ff00" opacity="0.6"/>
+
+  <!-- Main headline -->
+  <text x="110" y="168" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="52" fill="#f0f0f0" letter-spacing="-1">Hendrik Polinder</text>
+
+  <!-- Subline -->
+  <text x="110" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#888888" letter-spacing="0">Freelance app &amp; webapp developer voor MKB</text>
+
+  <!-- Services row -->
+  <text x="110" y="268" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="16" fill="#5a5a5a" letter-spacing="2">WEBAPPS  ·  NATIVE APPS  ·  AI TOOLING  ·  DASHBOARDS  ·  WEBSITES</text>
+
+  <!-- Accent pill -->
+  <rect x="110" y="295" width="220" height="36" rx="18" fill="#e8ff00"/>
+  <text x="220" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#0a0a0a" text-anchor="middle" letter-spacing="0.5">mobilegrowthstudio.com</text>
+
+  <!-- Right side: MGS mark -->
+  <text x="1420" y="220" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="96" fill="#1c1c1c" text-anchor="middle" letter-spacing="-4">MGS</text>
+  <text x="1420" y="260" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="13" fill="#3a3a3a" text-anchor="middle" letter-spacing="4">MOBILE GROWTH STUDIO</text>
+</svg>
