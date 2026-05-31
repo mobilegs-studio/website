@@ -25,6 +25,20 @@ const services = [
       "Slimme tools die repetitief werk automatiseren. Gebouwd op de nieuwste AI-modellen, toegepast op jouw bedrijf.",
     href: "/diensten#ai-tooling",
   },
+  {
+    number: "04",
+    title: "Dashboarding",
+    description:
+      "Inzicht in je cijfers zonder gedoe. We bouwen dashboards die jouw data omzetten naar overzicht en betere beslissingen.",
+    href: "/diensten#dashboarding",
+  },
+  {
+    number: "05",
+    title: "Websites",
+    description:
+      "Snelle, professionele websites die converteren. Van landingspagina tot volledige marketing site.",
+    href: "/diensten#websites",
+  },
 ];
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -131,7 +145,7 @@ export default function Home() {
           <span className="flex-1 h-px bg-(--color-border)" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-(--color-border) border border-(--color-border)">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-(--color-border)">
           {services.map((service, i) => (
             <motion.div
               key={service.number}
@@ -139,6 +153,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.1, duration: 0.5, ease: easeOut }}
+              className="border-r border-b border-(--color-border)"
             >
               <Link
                 href={service.href}

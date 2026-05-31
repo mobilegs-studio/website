@@ -49,6 +49,34 @@ const diensten = [
       "Integraties met GPT, Claude en andere LLMs",
     ],
   },
+  {
+    id: "dashboarding",
+    number: "04",
+    title: "Dashboarding",
+    tagline: "Inzicht in je cijfers, zonder gedoe.",
+    description:
+      "We bouwen dashboards die jouw data omzetten naar overzicht. Of je nu werkt met Google Analytics, een eigen database of externe API's — we maken het inzichtelijk en bruikbaar.",
+    items: [
+      "Real-time data dashboards",
+      "Koppelingen met bestaande databronnen",
+      "KPI-overzichten op maat",
+      "Exporteerbare rapporten",
+    ],
+  },
+  {
+    id: "websites",
+    number: "05",
+    title: "Websites",
+    tagline: "Snel online, professioneel en converteerend.",
+    description:
+      "Van landingspagina tot volledige marketing site. We bouwen websites die er niet alleen goed uitzien, maar ook laden en converteren.",
+    items: [
+      "Marketing- en portfolio sites",
+      "Landingspagina's",
+      "SEO-geoptimaliseerde structuur",
+      "CMS-integratie (indien gewenst)",
+    ],
+  },
 ];
 
 export default function Diensten() {
