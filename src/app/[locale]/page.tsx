@@ -4,49 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { use } from "react";
 import { getTranslations } from "@/i18n/translations";
+import { serviceIcons } from "@/components/service-icons";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-const serviceIcons: Record<string, React.ReactNode> = {
-  // Webapps — browser window
-  webapps: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
-    </svg>
-  ),
-  // Native apps — phone
-  "native-apps": (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="6" y="2" width="12" height="20" rx="3" />
-      <path d="M11 18h2" />
-    </svg>
-  ),
-  // AI tooling — spark / node
-  "ai-tooling": (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  ),
-  // Dashboarding — bar chart
-  dashboarding: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 3v18h18" />
-      <rect x="7" y="12" width="3" height="5" />
-      <rect x="13" y="8" width="3" height="9" />
-      <rect x="19" y="5" width="0.01" height="0.01" />
-      <path d="M19 5v12" />
-    </svg>
-  ),
-  // Websites — globe
-  websites: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
-    </svg>
-  ),
-};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -143,7 +103,7 @@ export default function Home({
       </section>
 
       {/* Services */}
-      <section className="px-6 pb-40 max-w-7xl mx-auto w-full">
+      <section className="px-6 pb-24 max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -182,9 +142,17 @@ export default function Home({
                 <h2 className="mt-6 text-2xl font-semibold tracking-tight group-hover:text-(--color-accent) transition-colors duration-200">
                   {service.title}
                 </h2>
-                <p className="mt-3 text-(--color-muted-light) leading-relaxed text-sm">
-                  {service.description}
-                </p>
+                <ul className="mt-5 flex flex-col gap-2.5">
+                  {service.items.slice(0, 3).map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-center gap-2.5 text-sm text-(--color-muted-light)"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent) shrink-0" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
                 <span className="mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent) transition-colors duration-200">
                   {h.moreInfo}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -200,11 +168,91 @@ export default function Home({
               </Link>
             </motion.div>
           ))}
+
+          {/* 6th tile — fills the grid, invites custom requests */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: 0.4, duration: 0.5, ease: easeOut }}
+            className="border-r border-b border-(--color-border)"
+          >
+            <Link
+              href={`/${locale}/contact`}
+              className="group flex flex-col justify-between p-8 sm:p-10 h-full bg-(--color-accent) text-black"
+            >
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  {h.ctaTileTitle}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-black/70">
+                  {h.ctaTileText}
+                </p>
+              </div>
+              <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold">
+                {h.ctaTileLink}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-1 transition-transform">
+                  <path
+                    d="M3 7h8M7 3l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How it works — contrast band */}
+      <section className="bg-(--color-surface) border-y border-(--color-border) px-6 py-24">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.4 }}
+            className="flex items-center gap-4 mb-14"
+          >
+            <span className="text-xs tracking-[0.2em] uppercase text-(--color-muted)">
+              {h.processLabel}
+            </span>
+            <span className="flex-1 h-px bg-(--color-border)" />
+          </motion.div>
+
+          <h2 className="font-display text-3xl sm:text-4xl leading-tight mb-14">
+            {h.processHeading}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+            {h.processSteps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.1, duration: 0.5, ease: easeOut }}
+                className="border-t border-(--color-border) pt-6"
+              >
+                <span className="font-mono text-sm text-(--color-accent)">
+                  {step.number}
+                </span>
+                <h3 className="mt-4 text-xl font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-(--color-muted-light) leading-relaxed text-sm">
+                  {step.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA strip */}
-      <section className="border-t border-(--color-border) px-6 py-24">
+      <section className="px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

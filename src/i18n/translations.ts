@@ -27,6 +27,28 @@ export const translations = {
       viewServices: "Bekijk diensten",
       whatWeBuild: "Wat we bouwen",
       moreInfo: "Meer info",
+      ctaTileTitle: "Iets anders?",
+      ctaTileText: "Vertel ons je idee. We denken graag mee over de beste aanpak.",
+      ctaTileLink: "Plan een gesprek",
+      processLabel: "Zo werkt het",
+      processHeading: "Van idee naar oplevering.",
+      processSteps: [
+        {
+          number: "01",
+          title: "Kennismaking",
+          text: "We bespreken je idee en doelen in een gratis gesprek. Geen verplichtingen.",
+        },
+        {
+          number: "02",
+          title: "Helder voorstel",
+          text: "Je krijgt een concrete offerte met vaste prijs en planning. Geen verrassingen.",
+        },
+        {
+          number: "03",
+          title: "Bouwen & opleveren",
+          text: "We bouwen met regelmatige updates en zorgen voor een soepele oplevering.",
+        },
+      ],
       ctaHeading: "Klaar om te beginnen?",
       ctaSubtext: "Vertel ons wat je wilt bouwen. We reageren binnen 24 uur.",
     },
@@ -266,6 +288,28 @@ export const translations = {
       viewServices: "View services",
       whatWeBuild: "What we build",
       moreInfo: "More info",
+      ctaTileTitle: "Something else?",
+      ctaTileText: "Tell us your idea. We're happy to think along about the best approach.",
+      ctaTileLink: "Book a call",
+      processLabel: "How it works",
+      processHeading: "From idea to delivery.",
+      processSteps: [
+        {
+          number: "01",
+          title: "Introduction",
+          text: "We discuss your idea and goals in a free call. No obligations.",
+        },
+        {
+          number: "02",
+          title: "Clear proposal",
+          text: "You get a concrete quote with a fixed price and timeline. No surprises.",
+        },
+        {
+          number: "03",
+          title: "Build & deliver",
+          text: "We build with regular updates and ensure a smooth delivery.",
+        },
+      ],
       ctaHeading: "Ready to start?",
       ctaSubtext:
         "Tell us what you want to build. We'll respond within 24 hours.",
@@ -503,6 +547,28 @@ export const translations = {
       viewServices: "Leistungen ansehen",
       whatWeBuild: "Was wir bauen",
       moreInfo: "Mehr erfahren",
+      ctaTileTitle: "Etwas anderes?",
+      ctaTileText: "Erzählen Sie uns Ihre Idee. Wir denken gerne über den besten Ansatz mit.",
+      ctaTileLink: "Gespräch vereinbaren",
+      processLabel: "So funktioniert es",
+      processHeading: "Von der Idee zur Lieferung.",
+      processSteps: [
+        {
+          number: "01",
+          title: "Kennenlernen",
+          text: "Wir besprechen Ihre Idee und Ziele in einem kostenlosen Gespräch. Unverbindlich.",
+        },
+        {
+          number: "02",
+          title: "Klares Angebot",
+          text: "Sie erhalten ein konkretes Angebot mit Festpreis und Zeitplan. Keine Überraschungen.",
+        },
+        {
+          number: "03",
+          title: "Bauen & liefern",
+          text: "Wir bauen mit regelmäßigen Updates und sorgen für eine reibungslose Lieferung.",
+        },
+      ],
       ctaHeading: "Bereit loszulegen?",
       ctaSubtext:
         "Erzählen Sie uns, was Sie bauen möchten. Wir antworten innerhalb von 24 Stunden.",

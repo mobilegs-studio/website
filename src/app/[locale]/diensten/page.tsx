@@ -1,4 +1,5 @@
 import { getTranslations } from "@/i18n/translations";
+import { serviceIcons } from "@/components/service-icons";
 
 export default async function Diensten({
   params,
@@ -26,10 +27,15 @@ export default async function Diensten({
             className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-(--color-border) pt-12"
           >
             <div>
-              <span className="text-xs text-(--color-muted) tracking-widest font-mono">
-                {item.number}
-              </span>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight">
+              <div className="flex items-center justify-between">
+                <span className="text-(--color-accent)">
+                  {serviceIcons[item.id]}
+                </span>
+                <span className="text-xs text-(--color-muted) tracking-widest font-mono">
+                  {item.number}
+                </span>
+              </div>
+              <h2 className="mt-6 text-3xl font-bold tracking-tight">
                 {item.title}
               </h2>
               <p className="mt-2 text-(--color-accent) font-medium text-sm">
