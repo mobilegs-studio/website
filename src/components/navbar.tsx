@@ -5,15 +5,26 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const links = [
-  { href: "/diensten", label: "Diensten" },
-  { href: "/cases", label: "Cases" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/over", label: "Over" },
-  { href: "/contact", label: "Contact" },
-];
+interface NavTranslations {
+  diensten: string;
+  cases: string;
+  faq: string;
+  over: string;
+  contact: string;
+  cta: string;
+  menuOpen: string;
+  menuClose: string;
+}
 
-export default function Navbar() {
+const LOCALES = ["en", "nl", "de"] as const;
+
+export default function Navbar({
+  locale,
+  t,
+}: {
+  locale: string;
+  t: NavTranslations;
+}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -24,10 +35,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  const links = [
+    { href: `/${locale}/diensten`, label: t.diensten },
+    { href: `/${locale}/cases`, label: t.cases },
+    { href: `/${locale}/faq`, label: t.faq },
+    { href: `/${locale}/over`, label: t.over },
+    { href: `/${locale}/contact`, label: t.contact },
+  ];
+
+  function localePath(targetLocale: string) {
+    return pathname.replace(/^\/[a-z]{2}(\/|$)/, `/${targetLocale}$1`) || `/${targetLocale}`;
+  }
 
   return (
     <>
@@ -40,7 +62,7 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="text-sm font-semibold tracking-widest uppercase hover:text-(--color-accent) transition-colors"
           >
             Mobile Growth Studio
@@ -64,18 +86,39 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Link
-            href="/contact"
-            className="hidden md:inline-flex items-center text-sm font-semibold bg-(--color-accent) text-black px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
-          >
-            Neem contact op
-          </Link>
+          <div className="hidden md:flex items-center gap-4">
+            {/* Language switcher */}
+            <div className="flex items-center gap-1.5 text-xs text-(--color-muted)">
+              {LOCALES.map((loc, i) => (
+                <span key={loc} className="flex items-center gap-1.5">
+                  <Link
+                    href={localePath(loc)}
+                    className={`uppercase tracking-wider transition-colors hover:text-(--color-foreground) ${
+                      locale === loc ? "text-(--color-foreground) font-semibold" : ""
+                    }`}
+                  >
+                    {loc}
+                  </Link>
+                  {i < LOCALES.length - 1 && (
+                    <span className="text-(--color-border)">·</span>
+                  )}
+                </span>
+              ))}
+            </div>
+
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center text-sm font-semibold bg-(--color-accent) text-black px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            >
+              {t.cta}
+            </Link>
+          </div>
 
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? "Menu sluiten" : "Menu openen"}
+            aria-label={menuOpen ? t.menuClose : t.menuOpen}
           >
             <span
               className={`block w-6 h-0.5 bg-(--color-foreground) transition-transform duration-300 origin-center ${
@@ -96,7 +139,7 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile menu — full-screen overlay below the header */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -126,6 +169,29 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+
+            {/* Mobile language switcher */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35 }}
+              className="flex items-center gap-3 pt-2"
+            >
+              {LOCALES.map((loc) => (
+                <Link
+                  key={loc}
+                  href={localePath(loc)}
+                  className={`text-sm uppercase tracking-widest transition-colors ${
+                    locale === loc
+                      ? "text-(--color-foreground) font-semibold"
+                      : "text-(--color-muted) hover:text-(--color-foreground)"
+                  }`}
+                >
+                  {loc}
+                </Link>
+              ))}
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -133,11 +199,11 @@ export default function Navbar() {
               className="mt-auto pt-8 border-t border-(--color-border)"
             >
               <Link
-                href="/contact"
+                href={`/${locale}/contact`}
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-black px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
               >
-                Neem contact op
+                {t.cta}
               </Link>
             </motion.div>
           </motion.div>

@@ -1,42 +1,34 @@
-import type { Metadata } from "next";
+import { getTranslations } from "@/i18n/translations";
 import ContactForm from "./contact-form";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Neem contact op met Mobile Growth Studio. Vertel ons over je project en we reageren binnen één werkdag. Gevestigd in Hilversum, actief door heel Nederland.",
-  alternates: { canonical: "https://www.mobilegrowthstudio.com/contact" },
-  openGraph: {
-    title: "Contact — Mobile Growth Studio",
-    description:
-      "Vertel ons over je project. We reageren binnen één werkdag.",
-    url: "https://www.mobilegrowthstudio.com/contact",
-    type: "website",
-  },
-};
+export default async function Contact({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+  const c = t.contact;
 
-export default function Contact() {
   return (
     <main className="flex flex-1 flex-col px-6 py-32 max-w-5xl mx-auto w-full">
       <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
-        Contact
+        {c.label}
       </p>
       <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-tight max-w-2xl">
-        Laten we praten.
+        {c.heading}
       </h1>
       <p className="mt-8 text-lg text-(--color-muted) max-w-xl leading-relaxed">
-        Heb je een project in gedachten? Vertel me wat je nodig hebt en ik
-        reageer binnen één werkdag.
+        {c.subtext}
       </p>
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-        <ContactForm />
+        <ContactForm t={c} />
 
-        {/* Contact info */}
         <div className="flex flex-col gap-8 md:pt-0 pt-8 border-t border-(--color-border) md:border-0">
           <div>
             <p className="text-xs text-(--color-muted) tracking-widest uppercase mb-3">
-              E-mail
+              {c.emailInfoLabel}
             </p>
             <a
               href="mailto:info@mobilegrowthstudio.com"
@@ -47,15 +39,15 @@ export default function Contact() {
           </div>
           <div>
             <p className="text-xs text-(--color-muted) tracking-widest uppercase mb-3">
-              Locatie
+              {c.locationLabel}
             </p>
-            <p className="font-medium">Hilversum, Nederland</p>
+            <p className="font-medium">{c.locationValue}</p>
           </div>
           <div>
             <p className="text-xs text-(--color-muted) tracking-widest uppercase mb-3">
-              Reactietijd
+              {c.responseLabel}
             </p>
-            <p className="font-medium">Binnen één werkdag</p>
+            <p className="font-medium">{c.responseValue}</p>
           </div>
         </div>
       </div>

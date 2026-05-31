@@ -2,44 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const services = [
-  {
-    number: "01",
-    title: "Webapps",
-    description:
-      "Maatwerk webapplicaties die processen automatiseren en je bedrijf schaalbaar maken. Van dashboard tot klantportaal.",
-    href: "/diensten#webapps",
-  },
-  {
-    number: "02",
-    title: "Native apps",
-    description:
-      "iOS en Android apps die je klanten een native ervaring bieden. Snel, intuïtief en gebouwd om te schalen.",
-    href: "/diensten#native-apps",
-  },
-  {
-    number: "03",
-    title: "AI tooling",
-    description:
-      "Slimme tools die repetitief werk automatiseren. Gebouwd op de nieuwste AI-modellen, toegepast op jouw bedrijf.",
-    href: "/diensten#ai-tooling",
-  },
-  {
-    number: "04",
-    title: "Dashboarding",
-    description:
-      "Inzicht in je cijfers zonder gedoe. We bouwen dashboards die jouw data omzetten naar overzicht en betere beslissingen.",
-    href: "/diensten#dashboarding",
-  },
-  {
-    number: "05",
-    title: "Websites",
-    description:
-      "Snelle, professionele websites die converteren. Van landingspagina tot volledige marketing site.",
-    href: "/diensten#websites",
-  },
-];
+import { use } from "react";
+import { getTranslations } from "@/i18n/translations";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -52,12 +16,20 @@ const fadeUp = {
   }),
 };
 
-export default function Home() {
+export default function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = use(params);
+  const t = getTranslations(locale);
+  const h = t.home;
+  const services = t.services.items;
+
   return (
     <main className="flex flex-1 flex-col">
       {/* Hero */}
       <section className="relative flex flex-col items-center justify-center px-6 pt-40 pb-32 sm:pt-52 sm:pb-40 text-center min-h-[90vh] overflow-hidden">
-        {/* Accent glow */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -73,7 +45,7 @@ export default function Home() {
           variants={fadeUp}
           className="text-xs tracking-[0.25em] uppercase text-(--color-muted-light) mb-8"
         >
-          Mobile Growth Studio
+          {h.label}
         </motion.p>
 
         <motion.h1
@@ -83,9 +55,9 @@ export default function Home() {
           variants={fadeUp}
           className="font-display text-[clamp(3rem,9vw,7rem)] leading-[1.05] tracking-tight max-w-4xl"
         >
-          Apps & tools die je{" "}
-          <span className="italic text-(--color-accent)">bedrijf</span> slimmer
-          maken.
+          {h.headline1}{" "}
+          <span className="italic text-(--color-accent)">{h.headlineAccent}</span>{" "}
+          {h.headline2}
         </motion.h1>
 
         <motion.p
@@ -95,8 +67,7 @@ export default function Home() {
           variants={fadeUp}
           className="mt-8 text-base sm:text-lg text-(--color-muted-light) max-w-lg leading-relaxed"
         >
-          We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers
-          en ZZP-ers — zonder poespas, met resultaat.
+          {h.subtext}
         </motion.p>
 
         <motion.div
@@ -107,16 +78,16 @@ export default function Home() {
           className="mt-12 flex items-center gap-4"
         >
           <Link
-            href="/contact"
+            href={`/${locale}/contact`}
             className="inline-flex items-center gap-2 bg-(--color-accent) text-black font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
           >
-            Neem contact op
+            {h.cta}
           </Link>
           <Link
-            href="/diensten"
+            href={`/${locale}/diensten`}
             className="inline-flex items-center gap-2 text-sm text-(--color-muted-light) hover:text-(--color-foreground) transition-colors"
           >
-            Bekijk diensten
+            {h.viewServices}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path
                 d="M3 7h8M7 3l4 4-4 4"
@@ -140,7 +111,7 @@ export default function Home() {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-xs tracking-[0.2em] uppercase text-(--color-muted)">
-            Wat we bouwen
+            {h.whatWeBuild}
           </span>
           <span className="flex-1 h-px bg-(--color-border)" />
         </motion.div>
@@ -156,7 +127,7 @@ export default function Home() {
               className="border-r border-b border-(--color-border)"
             >
               <Link
-                href={service.href}
+                href={`/${locale}/diensten#${service.id}`}
                 className="group block p-8 sm:p-10 h-full bg-(--color-background) hover:bg-(--color-surface) transition-colors duration-200"
               >
                 <span className="text-[10px] text-(--color-muted) tracking-[0.2em] font-mono uppercase">
@@ -169,7 +140,7 @@ export default function Home() {
                   {service.description}
                 </p>
                 <span className="mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent) transition-colors duration-200">
-                  Meer info
+                  {h.moreInfo}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path
                       d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5"
@@ -197,17 +168,17 @@ export default function Home() {
         >
           <div>
             <p className="font-display text-3xl sm:text-4xl leading-tight">
-              Klaar om te beginnen?
+              {h.ctaHeading}
             </p>
             <p className="mt-2 text-(--color-muted-light) text-sm">
-              Vertel ons wat je wilt bouwen. We reageren binnen 24 uur.
+              {h.ctaSubtext}
             </p>
           </div>
           <Link
-            href="/contact"
+            href={`/${locale}/contact`}
             className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-black font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
           >
-            Neem contact op
+            {h.cta}
           </Link>
         </motion.div>
       </section>

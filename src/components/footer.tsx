@@ -30,7 +30,28 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+interface FooterTranslations {
+  location: string;
+  copyright: string;
+}
+
+interface FooterNavTranslations {
+  diensten: string;
+  cases: string;
+  faq: string;
+  over: string;
+  contact: string;
+}
+
+export default function Footer({
+  locale,
+  t,
+  tNav,
+}: {
+  locale: string;
+  t: FooterTranslations;
+  tNav: FooterNavTranslations;
+}) {
   const year = new Date().getFullYear();
 
   return (
@@ -41,16 +62,16 @@ export default function Footer() {
             Mobile Growth Studio
           </p>
           <p className="text-sm text-(--color-muted) mt-1">
-            Hilversum, Nederland
+            {t.location}
           </p>
         </div>
 
         <nav className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-(--color-muted)">
-          <Link href="/diensten" className="hover:text-(--color-foreground) transition-colors">Diensten</Link>
-          <Link href="/cases" className="hover:text-(--color-foreground) transition-colors">Cases</Link>
-          <Link href="/faq" className="hover:text-(--color-foreground) transition-colors">FAQ</Link>
-          <Link href="/over" className="hover:text-(--color-foreground) transition-colors">Over</Link>
-          <Link href="/contact" className="hover:text-(--color-foreground) transition-colors">Contact</Link>
+          <Link href={`/${locale}/diensten`} className="hover:text-(--color-foreground) transition-colors">{tNav.diensten}</Link>
+          <Link href={`/${locale}/cases`} className="hover:text-(--color-foreground) transition-colors">{tNav.cases}</Link>
+          <Link href={`/${locale}/faq`} className="hover:text-(--color-foreground) transition-colors">{tNav.faq}</Link>
+          <Link href={`/${locale}/over`} className="hover:text-(--color-foreground) transition-colors">{tNav.over}</Link>
+          <Link href={`/${locale}/contact`} className="hover:text-(--color-foreground) transition-colors">{tNav.contact}</Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -69,7 +90,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-(--color-muted)">
-          © {year} Mobile Growth Studio
+          © {year} {t.copyright}
         </p>
       </div>
     </footer>

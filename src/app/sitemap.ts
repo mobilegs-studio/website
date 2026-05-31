@@ -1,44 +1,30 @@
 import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://www.mobilegrowthstudio.com";
+const LOCALES = ["en", "nl", "de"] as const;
+
+const pages = [
+  { path: "", changeFrequency: "monthly" as const, priority: 1 },
+  { path: "/diensten", changeFrequency: "monthly" as const, priority: 0.9 },
+  { path: "/faq", changeFrequency: "monthly" as const, priority: 0.8 },
+  { path: "/contact", changeFrequency: "yearly" as const, priority: 0.8 },
+  { path: "/over", changeFrequency: "monthly" as const, priority: 0.7 },
+  { path: "/cases", changeFrequency: "monthly" as const, priority: 0.6 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/diensten`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/over`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/cases`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.8,
-    },
-  ];
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const locale of LOCALES) {
+    for (const page of pages) {
+      entries.push({
+        url: `${BASE_URL}/${locale}${page.path}`,
+        lastModified: new Date(),
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+      });
+    }
+  }
+
+  return entries;
 }
