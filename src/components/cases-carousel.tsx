@@ -69,7 +69,7 @@ export default function CasesCarousel({
             <div className="relative h-56 md:h-full overflow-hidden">
               <Image
                 src={story.image}
-                alt={`${story.name} — ${story.business}`}
+                alt={story.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -106,9 +106,6 @@ export default function CasesCarousel({
 
               <div>
                 <p className="font-semibold">{story.name}</p>
-                <p className="text-sm text-(--color-muted-light)">
-                  {story.business}
-                </p>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <div className="flex-1 rounded-xl bg-[rgba(99,67,247,0.08)] border border-[rgba(99,67,247,0.2)] px-4 py-3">
