@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "@/i18n/translations";
+import CasesCarousel from "@/components/cases-carousel";
 
 export default async function Cases({
   params,
@@ -18,15 +19,27 @@ export default async function Cases({
       <h1 className="font-display text-5xl sm:text-6xl leading-tight max-w-2xl">
         {c.heading}
       </h1>
-      <p className="mt-8 text-lg text-(--color-muted) max-w-xl leading-relaxed">
-        {c.placeholder}
+      <p className="mt-8 text-lg text-(--color-muted-light) max-w-xl leading-relaxed">
+        {c.intro}
       </p>
-      <Link
-        href={`/${locale}/contact`}
-        className="mt-10 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-fit"
-      >
-        {c.cta}
-      </Link>
+
+      <div className="mt-16">
+        <CasesCarousel
+          stories={c.stories}
+          projectLabel={c.projectLabel}
+          resultLabel={c.resultLabel}
+        />
+      </div>
+
+      <div className="mt-20 border-t border-(--color-border) pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <p className="font-display text-2xl sm:text-3xl">{c.ctaHeading}</p>
+        <Link
+          href={`/${locale}/contact`}
+          className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+        >
+          {c.cta}
+        </Link>
+      </div>
     </main>
   );
 }

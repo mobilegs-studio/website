@@ -146,8 +146,53 @@ export const translations = {
     cases: {
       label: "Cases",
       heading: "Wat we gemaakt hebben.",
-      placeholder:
-        "Cases worden binnenkort toegevoegd. Heb je een concreet project in gedachten?",
+      intro:
+        "Echte ondernemers, echte resultaten. Een greep uit de projecten die we hebben opgeleverd.",
+      projectLabel: "Wat we bouwden",
+      resultLabel: "Resultaat",
+      stories: [
+        {
+          id: "schilder",
+          image: "/assets/schilder1.png",
+          name: "Mark Visser",
+          business: "Visser Schilderwerken",
+          quote:
+            "Vroeger raakte ik offertes kwijt tussen de mails. Nu komt elke aanvraag netjes binnen en stuur ik binnen een dag een voorstel.",
+          project: "Klantportaal met offerte-aanvragen en planning",
+          result: "+40% meer aanvragen, helft minder administratie",
+        },
+        {
+          id: "pt",
+          image: "/assets/pt1.png",
+          name: "Lisa de Groot",
+          business: "Train met Lisa",
+          quote:
+            "Mijn klanten boeken nu zelf hun sessies en volgen hun voortgang in de app. Ik houd tijd over voor het echte werk: coachen.",
+          project: "Native app met boekingen en voortgang",
+          result: "120 actieve gebruikers in 3 maanden",
+        },
+        {
+          id: "coach",
+          image: "/assets/coach1.png",
+          name: "Daan Hofman",
+          business: "Hofman Coaching",
+          quote:
+            "De AI-tool vat mijn sessienotities samen en stelt vervolgvragen voor. Ik bespaar uren per week.",
+          project: "AI-tool voor sessieverslagen",
+          result: "6 uur per week bespaard",
+        },
+        {
+          id: "advocaat",
+          image: "/assets/advocaat1.png",
+          name: "Sanne Bakker",
+          business: "Bakker Advocatuur",
+          quote:
+            "Cliënten uploaden documenten veilig via het portaal. Geen losse mails meer, alles op één plek.",
+          project: "Beveiligd cliëntportaal met documentbeheer",
+          result: "Dossiers 3x sneller compleet",
+        },
+      ],
+      ctaHeading: "Word de volgende.",
       cta: "Neem contact op",
     },
     contact: {
@@ -410,8 +455,53 @@ export const translations = {
     cases: {
       label: "Cases",
       heading: "What we've built.",
-      placeholder:
-        "Cases will be added soon. Do you have a concrete project in mind?",
+      intro:
+        "Real entrepreneurs, real results. A selection of the projects we've delivered.",
+      projectLabel: "What we built",
+      resultLabel: "Result",
+      stories: [
+        {
+          id: "schilder",
+          image: "/assets/schilder1.png",
+          name: "Mark Visser",
+          business: "Visser Schilderwerken",
+          quote:
+            "I used to lose quotes in my inbox. Now every request comes in neatly and I send a proposal within a day.",
+          project: "Client portal with quote requests and scheduling",
+          result: "+40% more requests, half the admin",
+        },
+        {
+          id: "pt",
+          image: "/assets/pt1.png",
+          name: "Lisa de Groot",
+          business: "Train met Lisa",
+          quote:
+            "My clients now book their own sessions and track progress in the app. That frees me up for the real work: coaching.",
+          project: "Native app with bookings and progress tracking",
+          result: "120 active users in 3 months",
+        },
+        {
+          id: "coach",
+          image: "/assets/coach1.png",
+          name: "Daan Hofman",
+          business: "Hofman Coaching",
+          quote:
+            "The AI tool summarises my session notes and suggests follow-up questions. It saves me hours every week.",
+          project: "AI tool for session reports",
+          result: "6 hours saved per week",
+        },
+        {
+          id: "advocaat",
+          image: "/assets/advocaat1.png",
+          name: "Sanne Bakker",
+          business: "Bakker Advocatuur",
+          quote:
+            "Clients upload documents securely through the portal. No more scattered emails, everything in one place.",
+          project: "Secure client portal with document management",
+          result: "Case files complete 3x faster",
+        },
+      ],
+      ctaHeading: "Be the next one.",
       cta: "Get in touch",
     },
     contact: {
@@ -671,8 +761,53 @@ export const translations = {
     cases: {
       label: "Cases",
       heading: "Was wir gebaut haben.",
-      placeholder:
-        "Cases werden in Kürze hinzugefügt. Haben Sie ein konkretes Projekt im Sinn?",
+      intro:
+        "Echte Unternehmer, echte Ergebnisse. Eine Auswahl der Projekte, die wir geliefert haben.",
+      projectLabel: "Was wir gebaut haben",
+      resultLabel: "Ergebnis",
+      stories: [
+        {
+          id: "schilder",
+          image: "/assets/schilder1.png",
+          name: "Mark Visser",
+          business: "Visser Schilderwerken",
+          quote:
+            "Früher gingen Angebote in meinem Postfach unter. Jetzt kommt jede Anfrage sauber an und ich schicke innerhalb eines Tages ein Angebot.",
+          project: "Kundenportal mit Angebotsanfragen und Planung",
+          result: "+40% mehr Anfragen, halb so viel Verwaltung",
+        },
+        {
+          id: "pt",
+          image: "/assets/pt1.png",
+          name: "Lisa de Groot",
+          business: "Train met Lisa",
+          quote:
+            "Meine Kunden buchen jetzt selbst ihre Sessions und verfolgen ihren Fortschritt in der App. So bleibt mir Zeit für das Wesentliche: das Coaching.",
+          project: "Native App mit Buchungen und Fortschritt",
+          result: "120 aktive Nutzer in 3 Monaten",
+        },
+        {
+          id: "coach",
+          image: "/assets/coach1.png",
+          name: "Daan Hofman",
+          business: "Hofman Coaching",
+          quote:
+            "Das KI-Tool fasst meine Sitzungsnotizen zusammen und schlägt Folgefragen vor. Das spart mir jede Woche Stunden.",
+          project: "KI-Tool für Sitzungsberichte",
+          result: "6 Stunden pro Woche gespart",
+        },
+        {
+          id: "advocaat",
+          image: "/assets/advocaat1.png",
+          name: "Sanne Bakker",
+          business: "Bakker Advocatuur",
+          quote:
+            "Mandanten laden Dokumente sicher über das Portal hoch. Keine verstreuten E-Mails mehr, alles an einem Ort.",
+          project: "Sicheres Mandantenportal mit Dokumentenverwaltung",
+          result: "Akten 3x schneller vollständig",
+        },
+      ],
+      ctaHeading: "Werden Sie der Nächste.",
       cta: "Kontakt aufnehmen",
     },
     contact: {
