@@ -63,10 +63,10 @@ export default function CasesCarousel({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
             transition={{ duration: 0.5, ease: easeOut }}
-            className="grid grid-cols-1 md:grid-cols-2"
+            className="grid grid-cols-1 md:grid-cols-2 h-[600px] md:h-[440px]"
           >
             {/* Image */}
-            <div className="relative h-64 md:h-auto md:min-h-[420px] overflow-hidden">
+            <div className="relative h-56 md:h-full overflow-hidden">
               <Image
                 src={story.image}
                 alt={`${story.name} — ${story.business}`}
@@ -85,7 +85,7 @@ export default function CasesCarousel({
             </div>
 
             {/* Content */}
-            <div className="flex flex-col justify-between p-8 sm:p-10 gap-8">
+            <div className="flex flex-col justify-between p-7 sm:p-10 gap-5 overflow-hidden">
               <div>
                 <svg
                   width="34"

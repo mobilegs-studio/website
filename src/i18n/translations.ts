@@ -154,7 +154,7 @@ export const translations = {
         {
           id: "schilder",
           image: "/assets/schilder1.png",
-          name: "Mark Visser",
+          name: "Mark",
           business: "Visser Schilderwerken",
           quote:
             "Vroeger raakte ik offertes kwijt tussen de mails. Nu komt elke aanvraag netjes binnen en stuur ik binnen een dag een voorstel.",
@@ -164,8 +164,8 @@ export const translations = {
         {
           id: "pt",
           image: "/assets/pt1.png",
-          name: "Lisa de Groot",
-          business: "Train met Lisa",
+          name: "Sven",
+          business: "Train met Sven",
           quote:
             "Mijn klanten boeken nu zelf hun sessies en volgen hun voortgang in de app. Ik houd tijd over voor het echte werk: coachen.",
           project: "Native app met boekingen en voortgang",
@@ -174,7 +174,7 @@ export const translations = {
         {
           id: "coach",
           image: "/assets/coach1.png",
-          name: "Daan Hofman",
+          name: "Daan",
           business: "Hofman Coaching",
           quote:
             "De AI-tool vat mijn sessienotities samen en stelt vervolgvragen voor. Ik bespaar uren per week.",
@@ -184,7 +184,7 @@ export const translations = {
         {
           id: "advocaat",
           image: "/assets/advocaat1.png",
-          name: "Sanne Bakker",
+          name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
             "Cliënten uploaden documenten veilig via het portaal. Geen losse mails meer, alles op één plek.",
@@ -463,7 +463,7 @@ export const translations = {
         {
           id: "schilder",
           image: "/assets/schilder1.png",
-          name: "Mark Visser",
+          name: "Mark",
           business: "Visser Schilderwerken",
           quote:
             "I used to lose quotes in my inbox. Now every request comes in neatly and I send a proposal within a day.",
@@ -473,8 +473,8 @@ export const translations = {
         {
           id: "pt",
           image: "/assets/pt1.png",
-          name: "Lisa de Groot",
-          business: "Train met Lisa",
+          name: "Sven",
+          business: "Train met Sven",
           quote:
             "My clients now book their own sessions and track progress in the app. That frees me up for the real work: coaching.",
           project: "Native app with bookings and progress tracking",
@@ -483,7 +483,7 @@ export const translations = {
         {
           id: "coach",
           image: "/assets/coach1.png",
-          name: "Daan Hofman",
+          name: "Daan",
           business: "Hofman Coaching",
           quote:
             "The AI tool summarises my session notes and suggests follow-up questions. It saves me hours every week.",
@@ -493,7 +493,7 @@ export const translations = {
         {
           id: "advocaat",
           image: "/assets/advocaat1.png",
-          name: "Sanne Bakker",
+          name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
             "Clients upload documents securely through the portal. No more scattered emails, everything in one place.",
@@ -769,7 +769,7 @@ export const translations = {
         {
           id: "schilder",
           image: "/assets/schilder1.png",
-          name: "Mark Visser",
+          name: "Mark",
           business: "Visser Schilderwerken",
           quote:
             "Früher gingen Angebote in meinem Postfach unter. Jetzt kommt jede Anfrage sauber an und ich schicke innerhalb eines Tages ein Angebot.",
@@ -779,8 +779,8 @@ export const translations = {
         {
           id: "pt",
           image: "/assets/pt1.png",
-          name: "Lisa de Groot",
-          business: "Train met Lisa",
+          name: "Sven",
+          business: "Train met Sven",
           quote:
             "Meine Kunden buchen jetzt selbst ihre Sessions und verfolgen ihren Fortschritt in der App. So bleibt mir Zeit für das Wesentliche: das Coaching.",
           project: "Native App mit Buchungen und Fortschritt",
@@ -789,7 +789,7 @@ export const translations = {
         {
           id: "coach",
           image: "/assets/coach1.png",
-          name: "Daan Hofman",
+          name: "Daan",
           business: "Hofman Coaching",
           quote:
             "Das KI-Tool fasst meine Sitzungsnotizen zusammen und schlägt Folgefragen vor. Das spart mir jede Woche Stunden.",
@@ -799,7 +799,7 @@ export const translations = {
         {
           id: "advocaat",
           image: "/assets/advocaat1.png",
-          name: "Sanne Bakker",
+          name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
             "Mandanten laden Dokumente sicher über das Portal hoch. Keine verstreuten E-Mails mehr, alles an einem Ort.",
