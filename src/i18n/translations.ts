@@ -153,7 +153,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/schilder1.jpg",
+          image: "/assets/Mark.jpg",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -163,7 +163,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/pt1.jpg",
+          image: "/assets/Sven.jpg",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -173,7 +173,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/coach1.jpg",
+          image: "/assets/Daan.jpg",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -183,7 +183,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/advocaat1.jpg",
+          image: "/assets/Sanne.jpg",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
@@ -462,7 +462,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/schilder1.jpg",
+          image: "/assets/Mark.jpg",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -472,7 +472,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/pt1.jpg",
+          image: "/assets/Sven.jpg",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -482,7 +482,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/coach1.jpg",
+          image: "/assets/Daan.jpg",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -492,7 +492,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/advocaat1.jpg",
+          image: "/assets/Sanne.jpg",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
@@ -768,7 +768,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/schilder1.jpg",
+          image: "/assets/Mark.jpg",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -778,7 +778,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/pt1.jpg",
+          image: "/assets/Sven.jpg",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -788,7 +788,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/coach1.jpg",
+          image: "/assets/Daan.jpg",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -798,7 +798,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/advocaat1.jpg",
+          image: "/assets/Sanne.jpg",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
