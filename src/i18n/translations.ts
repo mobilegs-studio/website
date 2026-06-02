@@ -15,6 +15,9 @@ export const translations = {
     footer: {
       location: "Hilversum, Nederland",
       copyright: "Mobile Growth Studio",
+      privacy: "Privacy",
+      terms: "Voorwaarden",
+      cookies: "Cookies",
     },
     home: {
       label: "Mobile Growth Studio",
@@ -323,6 +326,9 @@ export const translations = {
     footer: {
       location: "Hilversum, Netherlands",
       copyright: "Mobile Growth Studio",
+      privacy: "Privacy",
+      terms: "Terms",
+      cookies: "Cookies",
     },
     home: {
       label: "Mobile Growth Studio",
@@ -629,6 +635,9 @@ export const translations = {
     footer: {
       location: "Hilversum, Niederlande",
       copyright: "Mobile Growth Studio",
+      privacy: "Datenschutz",
+      terms: "AGB",
+      cookies: "Cookies",
     },
     home: {
       label: "Mobile Growth Studio",

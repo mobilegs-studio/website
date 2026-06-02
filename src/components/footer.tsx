@@ -42,6 +42,9 @@ const socials = [
 interface FooterTranslations {
   location: string;
   copyright: string;
+  privacy: string;
+  terms: string;
+  cookies: string;
 }
 
 interface FooterNavTranslations {
@@ -97,8 +100,15 @@ export default function Footer({
             </a>
           ))}
         </div>
+      </div>
 
-        <p className="text-sm text-(--color-muted)">
+      <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-(--color-border) flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <nav className="flex flex-wrap gap-5 text-xs text-(--color-muted)">
+          <Link href={`/${locale}/privacy`} className="hover:text-(--color-foreground) transition-colors">{t.privacy}</Link>
+          <Link href={`/${locale}/voorwaarden`} className="hover:text-(--color-foreground) transition-colors">{t.terms}</Link>
+          <Link href={`/${locale}/cookies`} className="hover:text-(--color-foreground) transition-colors">{t.cookies}</Link>
+        </nav>
+        <p className="text-xs text-(--color-muted)">
           © {year} {t.copyright}
         </p>
       </div>
