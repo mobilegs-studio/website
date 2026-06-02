@@ -184,6 +184,8 @@ export const translations = {
       locationValue: "Hilversum, Nederland",
       responseLabel: "Reactietijd",
       responseValue: "Binnen één werkdag",
+      whatsappLabel: "WhatsApp",
+      whatsappCta: "Stuur een WhatsApp",
     },
     faq: {
       label: "FAQ",
@@ -446,6 +448,8 @@ export const translations = {
       locationValue: "Hilversum, Netherlands",
       responseLabel: "Response time",
       responseValue: "Within one business day",
+      whatsappLabel: "WhatsApp",
+      whatsappCta: "Message us on WhatsApp",
     },
     faq: {
       label: "FAQ",
@@ -705,6 +709,8 @@ export const translations = {
       locationValue: "Hilversum, Niederlande",
       responseLabel: "Antwortzeit",
       responseValue: "Innerhalb eines Werktages",
+      whatsappLabel: "WhatsApp",
+      whatsappCta: "Schreib uns auf WhatsApp",
     },
     faq: {
       label: "FAQ",
