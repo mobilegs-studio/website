@@ -35,9 +35,7 @@ export default function Navbar({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const closeMenu = () => setMenuOpen(false);
 
   const links = [
     { href: `/${locale}/diensten`, label: t.diensten },
@@ -167,6 +165,7 @@ export default function Navbar({
               >
                 <Link
                   href={href}
+                  onClick={closeMenu}
                   className={`text-4xl font-bold tracking-tight transition-colors ${
                     pathname === href
                       ? "text-(--color-accent)"
@@ -189,6 +188,7 @@ export default function Navbar({
                 <Link
                   key={loc}
                   href={localePath(loc)}
+                  onClick={closeMenu}
                   className={`text-sm uppercase tracking-widest transition-colors ${
                     locale === loc
                       ? "text-(--color-foreground) font-semibold"
