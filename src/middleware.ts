@@ -4,7 +4,7 @@ const LOCALES = ["en", "nl", "de"] as const;
 type Locale = (typeof LOCALES)[number];
 
 const SKIP_PREFIXES = ["/api/", "/_next/"];
-const SKIP_EXACT = ["/sitemap.xml", "/robots.txt", "/favicon.ico"];
+const SKIP_EXACT = ["/sitemap.xml", "/robots.txt", "/favicon.ico", "/icon"];
 const SKIP_EXTENSIONS = /\.(svg|png|jpg|jpeg|ico|webp)$/;
 
 function getLocaleFromAcceptLanguage(header: string | null): Locale {
