@@ -70,10 +70,15 @@ export default function Footer({
     <footer className="border-t border-(--color-border) px-6 py-10 mt-auto">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
         <div>
-          <p className="text-sm font-semibold tracking-widest uppercase">
-            Mobile Growth Studio
-          </p>
-          <p className="text-sm text-(--color-muted) mt-1">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/logo/lockup.svg"
+            alt="Mobile Growth Studio"
+            width={176}
+            height={42}
+            className="h-9 w-auto"
+          />
+          <p className="text-sm text-(--color-muted) mt-2">
             {t.location}
           </p>
         </div>

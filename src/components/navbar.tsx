@@ -60,12 +60,20 @@ export default function Navbar({
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             href={`/${locale}`}
-            className="text-sm font-semibold tracking-widest uppercase hover:text-(--color-accent) transition-colors"
+            aria-label="Mobile Growth Studio — home"
+            className="inline-flex items-center hover:opacity-80 transition-opacity"
           >
-            Mobile Growth Studio
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo/lockup.svg"
+              alt="Mobile Growth Studio"
+              width={176}
+              height={42}
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}

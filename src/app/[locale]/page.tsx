@@ -36,7 +36,7 @@ export default function Home({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99,67,247,0.18) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,95,232,0.18) 0%, transparent 70%)",
           }}
         />
 
@@ -139,10 +139,10 @@ export default function Home({
                 {/* hover glow */}
                 <div
                   className="pointer-events-none absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-300"
-                  style={{ background: "rgba(99,67,247,0.25)" }}
+                  style={{ background: "rgba(91,95,232,0.25)" }}
                 />
                 <div className="relative flex items-center justify-between">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(99,67,247,0.12)] border border-[rgba(99,67,247,0.25)] text-(--color-accent-light)">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.25)] text-(--color-accent-light)">
                     {serviceIcons[service.id]}
                   </span>
                   <span className="text-[10px] text-(--color-muted) tracking-[0.2em] font-mono uppercase">
@@ -179,7 +179,8 @@ export default function Home({
             </motion.div>
           ))}
 
-          {/* 6th tile — fills the grid, invites custom requests */}
+          {/* 6th tile — fills the grid, invites custom requests.
+              Uses the signature brand gradient: indigo rising into amber. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -188,10 +189,10 @@ export default function Home({
           >
             <Link
               href={`/${locale}/contact`}
-              className="group relative flex flex-col justify-between h-full rounded-2xl p-8 text-white overflow-hidden shadow-[0_16px_50px_-12px_rgba(99,67,247,0.5)] hover:shadow-[0_24px_60px_-12px_rgba(99,67,247,0.65)] transition-shadow"
+              className="group relative flex flex-col justify-between h-full rounded-2xl p-8 text-white overflow-hidden shadow-[0_16px_50px_-12px_rgba(91,95,232,0.45)] hover:shadow-[0_24px_60px_-12px_rgba(91,95,232,0.6)] transition-shadow"
               style={{
                 background:
-                  "linear-gradient(155deg, #8b71ff 0%, #6343f7 55%, #4a2fd0 100%)",
+                  "linear-gradient(155deg, #5B5FE8 0%, #7C7FED 50%, #E0B978 100%)",
               }}
             >
               <div
@@ -256,7 +257,7 @@ export default function Home({
                 transition={{ delay: i * 0.1, duration: 0.5, ease: easeOut }}
                 className="rounded-2xl card-depth p-7"
               >
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[rgba(99,67,247,0.12)] border border-[rgba(99,67,247,0.25)] font-mono text-sm text-(--color-accent-light)">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.25)] font-mono text-sm text-(--color-accent-light)">
                   {step.number}
                 </span>
                 <h3 className="mt-5 text-xl font-semibold tracking-tight">

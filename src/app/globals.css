@@ -3,10 +3,17 @@
 :root {
   --background: #08070d;
   --foreground: #f0f0f0;
-  --accent: #6343f7;
-  --accent-light: #8b71ff;
-  --accent-dark: #4a2fd0;
-  --accent-rgb: 99, 67, 247;
+
+  /* Brand — Indigo anchor + Periwinkle support + Amber warm accent.
+     Replaces the old purple system (#6343f7 / #8b71ff / #4a2fd0). */
+  --accent: #5B5FE8;          /* Indigo — primary action, links, focus */
+  --accent-light: #9BA3F2;    /* Periwinkle — hovers, lighter text, gradient mid */
+  --accent-dark: #3F44C9;     /* deeper Indigo — gradient dark stop */
+  --accent-rgb: 91, 95, 232;
+
+  --warm: #E0B978;            /* Amber — warm decorative accent (human note) */
+  --warm-rgb: 224, 185, 120;
+
   --muted: #5a5a66;
   --muted-light: #8a8a96;
   --border: #1d1b29;
@@ -29,6 +36,9 @@
     0 12px 32px -12px rgba(0, 0, 0, 0.6);
   --shadow-glow: 0 0 0 1px rgba(var(--accent-rgb), 0.25),
     0 16px 50px -12px rgba(var(--accent-rgb), 0.45);
+
+  /* Signature brand gradient — cool indigo rising into warm amber */
+  --brand-gradient: linear-gradient(92deg, #5B5FE8 0%, #9BA3F2 55%, #E0B978 100%);
 }
 
 @theme inline {
@@ -37,6 +47,7 @@
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-dark: var(--accent-dark);
+  --color-warm: var(--warm);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --color-border: var(--border);
@@ -54,7 +65,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Subtiele diepte op de achtergrond */
+  /* Subtiele diepte: cool indigo bovenaan, warme amber whisper rechts */
   background-image: radial-gradient(
       ellipse 80% 50% at 50% -10%,
       rgba(var(--accent-rgb), 0.12) 0%,
@@ -62,7 +73,7 @@ body {
     ),
     radial-gradient(
       ellipse 60% 40% at 90% 10%,
-      rgba(var(--accent-rgb), 0.06) 0%,
+      rgba(var(--warm-rgb), 0.05) 0%,
       transparent 50%
     );
   background-attachment: fixed;
