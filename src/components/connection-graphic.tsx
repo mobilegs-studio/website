@@ -1,20 +1,164 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-// Decoratieve hero-visual: verbindt jouw diensten (links) via de studio (midden)
-// met de klant (rechts). Taal-onafhankelijk, dus puur iconisch.
+// Hero-visual: ruwe input (ideeën, vragen, brainstorm) gaat links de studio in,
+// komt rechts uit als concreet werk — een cyclus door de vijf diensten.
 //
-// Kleur-verhaal: links = indigo (tech-stack), midden = indigo→amber gradient orb
-// (de studio waar tech mens wordt), rechts = amber (de menselijke klant).
+// Kleur-verhaal: links = indigo input, midden = indigo→amber studio-orb,
+// rechts = amber output (waar tech mens wordt).
+
+const inputs = [
+  {
+    id: "idee",
+    label: "Idee",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.6 1 1.4 1 2.3v1h6v-1c0-.9.4-1.7 1-2.3A7 7 0 0 0 12 2z" />
+      </g>
+    ),
+  },
+  {
+    id: "vraag",
+    label: "Vraag",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9.5 9a2.5 2.5 0 0 1 4.8-.4c.4 1.4-1.3 2.4-1.8 3.2-.3.5-.5 1-.5 1.5M12 17.5v.01" />
+      </g>
+    ),
+  },
+  {
+    id: "brainstorm",
+    label: "Brainstorm",
+    icon: (
+      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 12c0 4.5-4 8-9 8-1.4 0-2.7-.3-4-.8L3 21l1-4c-1-1.5-1-3-1-5 0-4.5 4-8 9-8s9 3.5 9 8z" />
+        <circle cx="8.5" cy="12" r="0.6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
+        <circle cx="15.5" cy="12" r="0.6" fill="currentColor" stroke="none" />
+      </g>
+    ),
+  },
+];
+
+const outputs = [
+  {
+    id: "webapp",
+    label: "Webapp",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+      </g>
+    ),
+  },
+  {
+    id: "native",
+    label: "Native app",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="6" y="2" width="12" height="20" rx="3" />
+        <path d="M11 18h2" />
+      </g>
+    ),
+  },
+  {
+    id: "ai",
+    label: "AI tooling",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+        <circle cx="12" cy="12" r="3" />
+      </g>
+    ),
+  },
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 3v18h18" />
+        <rect x="7" y="12" width="3" height="5" />
+        <rect x="13" y="8" width="3" height="9" />
+        <path d="M19 5v12" />
+      </g>
+    ),
+  },
+  {
+    id: "website",
+    label: "Website",
+    icon: (
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+      </g>
+    ),
+  },
+];
+
 export default function ConnectionGraphic() {
-  // Paden van de drie dienst-nodes naar de studio, en van studio naar klant.
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % outputs.length);
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  // Input chip rechterrand zit op x=235, studio-orb op (420, 160), output-device
+  // linkerrand op x=600.
   const servicePaths = [
-    "M150 70 C 260 70, 300 150, 392 150",
-    "M150 150 C 250 150, 300 150, 392 150",
-    "M150 230 C 260 230, 300 150, 392 150",
+    "M235 75 C 300 75, 350 160, 392 160",
+    "M235 160 C 310 160, 350 160, 392 160",
+    "M235 245 C 300 245, 350 160, 392 160",
   ];
-  const clientPath = "M448 150 C 540 150, 590 150, 660 150";
+  const outputPath = "M448 160 C 520 160, 560 160, 600 160";
+  const inputYs = [75, 160, 245];
 
   return (
     <motion.div
@@ -35,29 +179,29 @@ export default function ConnectionGraphic() {
 
       <div className="relative rounded-3xl card-depth overflow-hidden">
         <svg
-          viewBox="0 0 810 300"
+          viewBox="0 0 810 320"
           className="w-full h-auto"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Studio orb — indigo center fading to warm amber edge */}
+            {/* Studio orb — indigo center fading to deep indigo edge */}
             <radialGradient id="cg-orb" cx="50%" cy="40%" r="70%">
               <stop offset="0%" stopColor="#9BA3F2" />
               <stop offset="55%" stopColor="#5B5FE8" />
               <stop offset="100%" stopColor="#3F44C9" />
             </radialGradient>
-            {/* Service lines — indigo travelling left → middle */}
+            {/* Input lines — indigo */}
             <linearGradient id="cg-line" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.15" />
+              <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.2" />
               <stop offset="50%" stopColor="#9BA3F2" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#5B5FE8" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#5B5FE8" stopOpacity="0.2" />
             </linearGradient>
-            {/* Client line — the tech→human handoff: indigo fading into amber */}
+            {/* Output line — tech → human handoff: indigo → amber */}
             <linearGradient id="cg-line-warm" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.6" />
-              <stop offset="60%" stopColor="#9BA3F2" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#E0B978" stopOpacity="0.5" />
+              <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.7" />
+              <stop offset="60%" stopColor="#9BA3F2" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#E0B978" stopOpacity="0.85" />
             </linearGradient>
             <filter id="cg-glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="6" result="b" />
@@ -68,7 +212,7 @@ export default function ConnectionGraphic() {
             </filter>
           </defs>
 
-          {/* Verbindingslijnen + bewegende stippen (services → studio) */}
+          {/* Input → studio lijnen + bewegende stippen */}
           {servicePaths.map((d, i) => (
             <g key={i}>
               <path d={d} stroke="url(#cg-line)" strokeWidth="1.5" />
@@ -82,41 +226,58 @@ export default function ConnectionGraphic() {
               </circle>
             </g>
           ))}
-          {/* Studio → klant (warm handoff) */}
-          <path d={clientPath} stroke="url(#cg-line-warm)" strokeWidth="1.5" />
+
+          {/* Studio → output (warm handoff) */}
+          <path d={outputPath} stroke="url(#cg-line-warm)" strokeWidth="1.5" />
           <circle r="3.5" fill="#E0B978">
-            <animateMotion
-              dur="2.2s"
-              repeatCount="indefinite"
-              path={clientPath}
-            />
+            <animateMotion dur="2s" repeatCount="indefinite" path={outputPath} />
           </circle>
 
-          {/* Dienst-nodes (links) — indigo accent */}
-          {[70, 150, 230].map((cy) => (
-            <g key={cy}>
-              <circle
-                cx="120"
-                cy={cy}
-                r="26"
-                fill="#161229"
-                stroke="#2a2540"
-                strokeWidth="1"
-              />
-              <circle cx="120" cy={cy} r="6" fill="#9BA3F2" />
-            </g>
-          ))}
+          {/* Input chips (links) — ideeën, vragen, brainstorm */}
+          {inputs.map((input, i) => {
+            const cy = inputYs[i];
+            return (
+              <g key={input.id}>
+                <rect
+                  x="55"
+                  y={cy - 22}
+                  width="180"
+                  height="44"
+                  rx="22"
+                  fill="#161229"
+                  stroke="#2a2540"
+                  strokeWidth="1"
+                  strokeDasharray="3 3"
+                />
+                <g
+                  transform={`translate(72 ${cy - 10}) scale(0.85)`}
+                  style={{ color: "#9BA3F2" }}
+                >
+                  {input.icon}
+                </g>
+                <text
+                  x="103"
+                  y={cy + 5}
+                  fill="#cfd2f5"
+                  fontSize="14"
+                  fontFamily="Inter, system-ui, -apple-system, sans-serif"
+                  fontWeight="500"
+                >
+                  {input.label}
+                </text>
+              </g>
+            );
+          })}
 
-          {/* Studio-orb (midden) — brand gradient */}
+          {/* Studio-orb (midden) — brand gradient met Ascent mark */}
           <circle
             cx="420"
-            cy="150"
+            cy="160"
             r="46"
             fill="url(#cg-orb)"
             filter="url(#cg-glow)"
           />
-          {/* Mini Ascent mark inside the orb */}
-          <g transform="translate(420 150) scale(0.55) translate(-52 -52)">
+          <g transform="translate(420 160) scale(0.55) translate(-52 -52)">
             <path
               d="M86 84 L86 30"
               fill="none"
@@ -144,20 +305,97 @@ export default function ConnectionGraphic() {
             />
           </g>
 
-          {/* Klant-node (rechts) — amber, de menselijke kant */}
-          <circle
-            cx="690"
-            cy="150"
-            r="40"
-            fill="#1f1814"
-            stroke="#3a2c1f"
-            strokeWidth="1"
-          />
-          <circle cx="690" cy="138" r="11" fill="#E0B978" />
-          <path
-            d="M672 172 a18 16 0 0 1 36 0"
-            fill="#E0B978"
-          />
+          {/* Output device (rechts) — cycling carousel van diensten */}
+          <g>
+            {/* Device frame */}
+            <rect
+              x="600"
+              y="80"
+              width="140"
+              height="160"
+              rx="16"
+              fill="#1a1722"
+              stroke="rgba(224,185,120,0.45)"
+              strokeWidth="1.2"
+            />
+            {/* Subtle amber glow rim */}
+            <rect
+              x="600"
+              y="80"
+              width="140"
+              height="160"
+              rx="16"
+              fill="none"
+              stroke="rgba(224,185,120,0.15)"
+              strokeWidth="3"
+            />
+            {/* Notch */}
+            <rect
+              x="650"
+              y="87"
+              width="40"
+              height="4"
+              rx="2"
+              fill="#0e0c18"
+            />
+            {/* Inner screen tint */}
+            <rect
+              x="612"
+              y="100"
+              width="116"
+              height="100"
+              rx="8"
+              fill="rgba(224,185,120,0.04)"
+            />
+
+            {/* Stacked service icons — alleen de actieve is zichtbaar */}
+            {outputs.map((output, i) => (
+              <g
+                key={output.id}
+                transform="translate(670 150) scale(2) translate(-12 -12)"
+                style={{
+                  color: "#E0B978",
+                  opacity: active === i ? 1 : 0,
+                  transition: "opacity 400ms ease",
+                }}
+              >
+                {output.icon}
+              </g>
+            ))}
+
+            {/* Label onder het scherm */}
+            {outputs.map((output, i) => (
+              <text
+                key={`${output.id}-label`}
+                x="670"
+                y="220"
+                textAnchor="middle"
+                fill="#E0B978"
+                fontSize="11"
+                fontFamily="Inter, system-ui, -apple-system, sans-serif"
+                fontWeight="600"
+                letterSpacing="1"
+                style={{
+                  opacity: active === i ? 1 : 0,
+                  transition: "opacity 400ms ease",
+                }}
+              >
+                {output.label.toUpperCase()}
+              </text>
+            ))}
+
+            {/* Pagina-indicators */}
+            {outputs.map((_, i) => (
+              <circle
+                key={i}
+                cx={642 + i * 14}
+                cy={258}
+                r="2.5"
+                fill={active === i ? "#E0B978" : "rgba(224,185,120,0.25)"}
+                style={{ transition: "fill 400ms ease" }}
+              />
+            ))}
+          </g>
         </svg>
       </div>
     </motion.div>
