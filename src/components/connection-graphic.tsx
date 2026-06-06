@@ -1,156 +1,140 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
-// Hero-visual: ruwe input (ideeën, vragen, brainstorm) gaat links de studio in,
-// komt rechts uit als concreet werk — een cyclus door de vijf diensten.
-//
-// Kleur-verhaal: links = indigo input, midden = indigo→amber studio-orb,
-// rechts = amber output (waar tech mens wordt).
+// Hero-visual: pijnpunten van de ondernemer (admin, trage processen, geen tijd)
+// gaan links de studio in, komen rechts uit als concrete oplossingen — een
+// cyclus door de vijf diensten.
 
-const inputs = [
-  {
-    id: "idee",
-    label: "Idee",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.6 1 1.4 1 2.3v1h6v-1c0-.9.4-1.7 1-2.3A7 7 0 0 0 12 2z" />
-      </g>
-    ),
-  },
-  {
-    id: "vraag",
-    label: "Vraag",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path d="M9.5 9a2.5 2.5 0 0 1 4.8-.4c.4 1.4-1.3 2.4-1.8 3.2-.3.5-.5 1-.5 1.5M12 17.5v.01" />
-      </g>
-    ),
-  },
-  {
-    id: "brainstorm",
-    label: "Brainstorm",
-    icon: (
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 12c0 4.5-4 8-9 8-1.4 0-2.7-.3-4-.8L3 21l1-4c-1-1.5-1-3-1-5 0-4.5 4-8 9-8s9 3.5 9 8z" />
-        <circle cx="8.5" cy="12" r="0.6" fill="currentColor" stroke="none" />
-        <circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" />
-        <circle cx="15.5" cy="12" r="0.6" fill="currentColor" stroke="none" />
-      </g>
-    ),
-  },
-];
+const inputIcons: Record<string, ReactNode> = {
+  // Te veel admin — klembord met lijntjes
+  admin: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="6" y="4" width="12" height="17" rx="2" />
+      <rect x="9" y="2" width="6" height="4" rx="1" />
+      <path d="M9 11h6M9 14.5h6M9 18h4" />
+    </g>
+  ),
+  // Trage processen — cyclische pijlen
+  process: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 12a9 9 0 1 1-3.5-7.1" />
+      <path d="M21 4v5h-5" />
+    </g>
+  ),
+  // Geen tijd — klok
+  time: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </g>
+  ),
+};
 
-const outputs = [
-  {
-    id: "webapp",
-    label: "Webapp",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
-      </g>
-    ),
-  },
-  {
-    id: "native",
-    label: "Native app",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="6" y="2" width="12" height="20" rx="3" />
-        <path d="M11 18h2" />
-      </g>
-    ),
-  },
-  {
-    id: "ai",
-    label: "AI tooling",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
-        <circle cx="12" cy="12" r="3" />
-      </g>
-    ),
-  },
-  {
-    id: "dashboard",
-    label: "Dashboard",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M3 3v18h18" />
-        <rect x="7" y="12" width="3" height="5" />
-        <rect x="13" y="8" width="3" height="9" />
-        <path d="M19 5v12" />
-      </g>
-    ),
-  },
-  {
-    id: "website",
-    label: "Website",
-    icon: (
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
-      </g>
-    ),
-  },
-];
+const outputIcons: Record<string, ReactNode> = {
+  webapp: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+    </g>
+  ),
+  native: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="6" y="2" width="12" height="20" rx="3" />
+      <path d="M11 18h2" />
+    </g>
+  ),
+  ai: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+      <circle cx="12" cy="12" r="3" />
+    </g>
+  ),
+  dashboard: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 3v18h18" />
+      <rect x="7" y="12" width="3" height="5" />
+      <rect x="13" y="8" width="3" height="9" />
+      <path d="M19 5v12" />
+    </g>
+  ),
+  website: (
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+    </g>
+  ),
+};
 
-export default function ConnectionGraphic() {
+interface ConnectionGraphicTranslations {
+  inputs: { id: string; label: string }[];
+  outputs: { id: string; label: string }[];
+}
+
+export default function ConnectionGraphic({
+  t,
+}: {
+  t: ConnectionGraphicTranslations;
+}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setActive((i) => (i + 1) % outputs.length);
+      setActive((i) => (i + 1) % t.outputs.length);
     }, 2200);
     return () => clearInterval(id);
-  }, []);
+  }, [t.outputs.length]);
 
-  // Input chip rechterrand zit op x=235, studio-orb op (420, 160), output-device
+  // Input chip rechterrand op x=235, studio-orb op (420, 160), output-device
   // linkerrand op x=600.
   const servicePaths = [
     "M235 75 C 300 75, 350 160, 392 160",
@@ -185,19 +169,16 @@ export default function ConnectionGraphic() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Studio orb — indigo center fading to deep indigo edge */}
             <radialGradient id="cg-orb" cx="50%" cy="40%" r="70%">
               <stop offset="0%" stopColor="#9BA3F2" />
               <stop offset="55%" stopColor="#5B5FE8" />
               <stop offset="100%" stopColor="#3F44C9" />
             </radialGradient>
-            {/* Input lines — indigo */}
             <linearGradient id="cg-line" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.2" />
               <stop offset="50%" stopColor="#9BA3F2" stopOpacity="0.7" />
               <stop offset="100%" stopColor="#5B5FE8" stopOpacity="0.2" />
             </linearGradient>
-            {/* Output line — tech → human handoff: indigo → amber */}
             <linearGradient id="cg-line-warm" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#5B5FE8" stopOpacity="0.7" />
               <stop offset="60%" stopColor="#9BA3F2" stopOpacity="0.8" />
@@ -212,7 +193,7 @@ export default function ConnectionGraphic() {
             </filter>
           </defs>
 
-          {/* Input → studio lijnen + bewegende stippen */}
+          {/* Pijnpunten → studio lijnen + bewegende stippen */}
           {servicePaths.map((d, i) => (
             <g key={i}>
               <path d={d} stroke="url(#cg-line)" strokeWidth="1.5" />
@@ -233,8 +214,8 @@ export default function ConnectionGraphic() {
             <animateMotion dur="2s" repeatCount="indefinite" path={outputPath} />
           </circle>
 
-          {/* Input chips (links) — ideeën, vragen, brainstorm */}
-          {inputs.map((input, i) => {
+          {/* Pijnpunt-chips (links) — admin, processen, tijd */}
+          {t.inputs.slice(0, 3).map((input, i) => {
             const cy = inputYs[i];
             return (
               <g key={input.id}>
@@ -253,7 +234,7 @@ export default function ConnectionGraphic() {
                   transform={`translate(72 ${cy - 10}) scale(0.85)`}
                   style={{ color: "#9BA3F2" }}
                 >
-                  {input.icon}
+                  {inputIcons[input.id]}
                 </g>
                 <text
                   x="103"
@@ -307,7 +288,6 @@ export default function ConnectionGraphic() {
 
           {/* Output device (rechts) — cycling carousel van diensten */}
           <g>
-            {/* Device frame */}
             <rect
               x="600"
               y="80"
@@ -318,7 +298,6 @@ export default function ConnectionGraphic() {
               stroke="rgba(224,185,120,0.45)"
               strokeWidth="1.2"
             />
-            {/* Subtle amber glow rim */}
             <rect
               x="600"
               y="80"
@@ -329,16 +308,7 @@ export default function ConnectionGraphic() {
               stroke="rgba(224,185,120,0.15)"
               strokeWidth="3"
             />
-            {/* Notch */}
-            <rect
-              x="650"
-              y="87"
-              width="40"
-              height="4"
-              rx="2"
-              fill="#0e0c18"
-            />
-            {/* Inner screen tint */}
+            <rect x="650" y="87" width="40" height="4" rx="2" fill="#0e0c18" />
             <rect
               x="612"
               y="100"
@@ -348,8 +318,7 @@ export default function ConnectionGraphic() {
               fill="rgba(224,185,120,0.04)"
             />
 
-            {/* Stacked service icons — alleen de actieve is zichtbaar */}
-            {outputs.map((output, i) => (
+            {t.outputs.map((output, i) => (
               <g
                 key={output.id}
                 transform="translate(670 150) scale(2) translate(-12 -12)"
@@ -359,12 +328,11 @@ export default function ConnectionGraphic() {
                   transition: "opacity 400ms ease",
                 }}
               >
-                {output.icon}
+                {outputIcons[output.id]}
               </g>
             ))}
 
-            {/* Label onder het scherm */}
-            {outputs.map((output, i) => (
+            {t.outputs.map((output, i) => (
               <text
                 key={`${output.id}-label`}
                 x="670"
@@ -384,8 +352,7 @@ export default function ConnectionGraphic() {
               </text>
             ))}
 
-            {/* Pagina-indicators */}
-            {outputs.map((_, i) => (
+            {t.outputs.map((_, i) => (
               <circle
                 key={i}
                 cx={642 + i * 14}

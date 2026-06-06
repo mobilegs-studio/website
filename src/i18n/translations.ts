@@ -54,6 +54,20 @@ export const translations = {
       ],
       ctaHeading: "Klaar om te beginnen?",
       ctaSubtext: "Vertel ons wat je wilt bouwen. We reageren binnen 24 uur.",
+      connectionGraphic: {
+        inputs: [
+          { id: "admin", label: "Te veel admin" },
+          { id: "process", label: "Trage processen" },
+          { id: "time", label: "Geen tijd" },
+        ],
+        outputs: [
+          { id: "webapp", label: "Webapp" },
+          { id: "native", label: "Native app" },
+          { id: "ai", label: "AI tooling" },
+          { id: "dashboard", label: "Dashboard" },
+          { id: "website", label: "Website" },
+        ],
+      },
     },
     services: {
       label: "Diensten",
@@ -366,6 +380,20 @@ export const translations = {
       ctaHeading: "Ready to start?",
       ctaSubtext:
         "Tell us what you want to build. We'll respond within 24 hours.",
+      connectionGraphic: {
+        inputs: [
+          { id: "admin", label: "Too much admin" },
+          { id: "process", label: "Slow processes" },
+          { id: "time", label: "No time" },
+        ],
+        outputs: [
+          { id: "webapp", label: "Web app" },
+          { id: "native", label: "Native app" },
+          { id: "ai", label: "AI tooling" },
+          { id: "dashboard", label: "Dashboard" },
+          { id: "website", label: "Website" },
+        ],
+      },
     },
     services: {
       label: "Services",
@@ -675,6 +703,20 @@ export const translations = {
       ctaHeading: "Bereit loszulegen?",
       ctaSubtext:
         "Erzählen Sie uns, was Sie bauen möchten. Wir antworten innerhalb von 24 Stunden.",
+      connectionGraphic: {
+        inputs: [
+          { id: "admin", label: "Zu viel Admin" },
+          { id: "process", label: "Langsame Abläufe" },
+          { id: "time", label: "Keine Zeit" },
+        ],
+        outputs: [
+          { id: "webapp", label: "Webapp" },
+          { id: "native", label: "Native App" },
+          { id: "ai", label: "KI-Tools" },
+          { id: "dashboard", label: "Dashboard" },
+          { id: "website", label: "Website" },
+        ],
+      },
     },
     services: {
       label: "Leistungen",

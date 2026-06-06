@@ -104,7 +104,7 @@ export default function Home({
 
         {/* Connection hero banner */}
         <div className="relative z-10 w-full mt-20 sm:mt-24">
-          <ConnectionGraphic />
+          <ConnectionGraphic t={h.connectionGraphic} />
         </div>
       </section>
 
