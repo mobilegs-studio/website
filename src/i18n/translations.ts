@@ -25,7 +25,7 @@ export const translations = {
       headlineAccent: "performance",
       headline2: "een boost geven.",
       subtext:
-        "We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers — zonder poespas, met resultaat, zodat jij je bezig kan houden met waar het echt om draait.",
+        "We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers — zonder poespas, met resultaat.",
       cta: "Neem contact op",
       viewServices: "Bekijk diensten",
       whatWeBuild: "Wat we bouwen",
@@ -350,7 +350,7 @@ export const translations = {
       headlineAccent: "performance",
       headline2: "a boost.",
       subtext:
-        "We build webapps, native apps and AI tooling for Dutch SMEs and freelancers — no nonsense, just results, so you can focus on what really matters.",
+        "We build webapps, native apps and AI tooling for Dutch SMEs and freelancers — no nonsense, just results.",
       cta: "Get in touch",
       viewServices: "View services",
       whatWeBuild: "What we build",
@@ -673,7 +673,7 @@ export const translations = {
       headlineAccent: "Performance",
       headline2: "ankurbeln.",
       subtext:
-        "Wir entwickeln Webapps, native Apps und KI-Tools für kleine und mittlere Unternehmen — ohne Schnickschnack, mit Ergebnissen, damit Sie sich auf das Wesentliche konzentrieren können.",
+        "Wir entwickeln Webapps, native Apps und KI-Tools für kleine und mittlere Unternehmen — ohne Schnickschnack, mit Ergebnissen.",
       cta: "Kontakt aufnehmen",
       viewServices: "Leistungen ansehen",
       whatWeBuild: "Was wir bauen",

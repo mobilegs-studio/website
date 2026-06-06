@@ -32,11 +32,20 @@ export default function Home({
     <main className="flex flex-1 flex-col">
       {/* Hero */}
       <section className="relative flex flex-col items-center justify-center px-6 pt-40 pb-24 sm:pt-52 sm:pb-28 text-center overflow-hidden">
+        {/* Cool indigo glow — top center (tech anchor) */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
               "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,95,232,0.18) 0%, transparent 70%)",
+          }}
+        />
+        {/* Warm amber glow — bottom left (one human note) */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 45% 45% at 10% 100%, rgba(224,185,120,0.12) 0%, transparent 60%)",
           }}
         />
 
@@ -55,10 +64,15 @@ export default function Home({
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="font-display text-[clamp(3rem,9vw,7rem)] leading-[1.05] tracking-tight max-w-4xl"
+          className="font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight max-w-4xl"
         >
           {h.headline1}{" "}
-          <span className="italic text-(--color-accent)">{h.headlineAccent}</span>{" "}
+          <span
+            className="text-transparent bg-clip-text"
+            style={{ backgroundImage: "var(--brand-gradient)" }}
+          >
+            {h.headlineAccent}
+          </span>{" "}
           {h.headline2}
         </motion.h1>
 
@@ -87,7 +101,7 @@ export default function Home({
           </Link>
           <Link
             href={`/${locale}/diensten`}
-            className="inline-flex items-center gap-2 text-sm text-(--color-muted-light) hover:text-(--color-foreground) transition-colors"
+            className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm"
           >
             {h.viewServices}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
