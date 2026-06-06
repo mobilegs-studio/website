@@ -144,6 +144,15 @@ export default function ConnectionGraphic({
   const outputPath = "M448 160 C 520 160, 560 160, 600 160";
   const inputYs = [75, 160, 245];
 
+  // Doorlopende route per pijnpunt: chip → achter de orb door → device.
+  // De stip reist de hele reis af, verdwijnt achter de orb (waar 'tech mens
+  // wordt') en komt er aan de andere kant amber uit.
+  const flowPaths = servicePaths.map(
+    (d) => `${d} C 410 160, 430 160, 448 160 C 520 160, 560 160, 600 160`
+  );
+  // Gelijkmatige verdeling van de drie stippen over de cyclus.
+  const flowDur = 4.2;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -193,32 +202,52 @@ export default function ConnectionGraphic({
             </filter>
           </defs>
 
-          {/* Pijnpunten → studio lijnen + bewegende stippen */}
+          {/* Pijnpunt → studio lijnen (statisch) */}
           {servicePaths.map((d, i) => (
-            <g key={i}>
-              {/* Middelste lijn is de duidelijke indigo hoofdlijn; de andere blijven subtiel */}
-              <path
-                d={d}
-                stroke={i === 1 ? "#9BA3F2" : "url(#cg-line)"}
-                strokeWidth={i === 1 ? 2 : 1.5}
-                strokeOpacity={i === 1 ? 0.9 : 1}
-              />
-              <circle r="3.5" fill="#9BA3F2">
-                <animateMotion
-                  dur={`${2.4 + i * 0.3}s`}
-                  repeatCount="indefinite"
-                  path={d}
-                  begin={`${i * 0.4}s`}
-                />
-              </circle>
-            </g>
+            <path
+              key={i}
+              d={d}
+              stroke={i === 1 ? "#9BA3F2" : "url(#cg-line)"}
+              strokeWidth={i === 1 ? 2 : 1.5}
+              strokeOpacity={i === 1 ? 0.9 : 1}
+            />
           ))}
 
           {/* Studio → output (warm handoff) — duidelijke gelige hoofdlijn */}
           <path d={outputPath} stroke="#E0B978" strokeWidth="2" strokeOpacity="0.9" />
-          <circle r="3.5" fill="#E0B978">
-            <animateMotion dur="2s" repeatCount="indefinite" path={outputPath} />
-          </circle>
+
+          {/* Doorlopende stroom: elke stip reist van pijnpunt, achter de orb
+              door, naar het device. Soepele easing, fade aan de uiteinden en
+              een kleurovergang indigo → amber tijdens de transformatie. */}
+          {flowPaths.map((d, i) => (
+            <circle key={i} r="3.5" fill="#9BA3F2">
+              <animateMotion
+                dur={`${flowDur}s`}
+                repeatCount="indefinite"
+                path={d}
+                begin={`-${(i * flowDur) / flowPaths.length}s`}
+                calcMode="spline"
+                keyTimes="0;1"
+                keySplines="0.45 0 0.55 1"
+              />
+              <animate
+                attributeName="fill"
+                dur={`${flowDur}s`}
+                repeatCount="indefinite"
+                begin={`-${(i * flowDur) / flowPaths.length}s`}
+                values="#9BA3F2;#9BA3F2;#E0B978;#E0B978"
+                keyTimes="0;0.46;0.6;1"
+              />
+              <animate
+                attributeName="opacity"
+                dur={`${flowDur}s`}
+                repeatCount="indefinite"
+                begin={`-${(i * flowDur) / flowPaths.length}s`}
+                values="0;1;1;0"
+                keyTimes="0;0.08;0.9;1"
+              />
+            </circle>
+          ))}
 
           {/* Pijnpunt-chips (links) — admin, processen, tijd */}
           {t.inputs.slice(0, 3).map((input, i) => {
