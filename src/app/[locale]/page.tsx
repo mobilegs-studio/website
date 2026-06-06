@@ -64,7 +64,9 @@ export default function Home({
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight max-w-4xl"
+          className={`font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight ${
+            locale === "en" ? "max-w-6xl" : "max-w-4xl"
+          }`}
         >
           {h.headline1}{" "}
           <span
