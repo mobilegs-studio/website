@@ -116,8 +116,8 @@ const outputIcons: Record<string, ReactNode> = {
 };
 
 interface ConnectionGraphicTranslations {
-  inputs: { id: string; label: string }[];
-  outputs: { id: string; label: string }[];
+  inputs: readonly { readonly id: string; readonly label: string }[];
+  outputs: readonly { readonly id: string; readonly label: string }[];
 }
 
 export default function ConnectionGraphic({
