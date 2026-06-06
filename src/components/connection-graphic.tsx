@@ -196,7 +196,13 @@ export default function ConnectionGraphic({
           {/* Pijnpunten → studio lijnen + bewegende stippen */}
           {servicePaths.map((d, i) => (
             <g key={i}>
-              <path d={d} stroke="url(#cg-line)" strokeWidth="1.5" />
+              {/* Middelste lijn is de duidelijke indigo hoofdlijn; de andere blijven subtiel */}
+              <path
+                d={d}
+                stroke={i === 1 ? "#9BA3F2" : "url(#cg-line)"}
+                strokeWidth={i === 1 ? 2 : 1.5}
+                strokeOpacity={i === 1 ? 0.9 : 1}
+              />
               <circle r="3.5" fill="#9BA3F2">
                 <animateMotion
                   dur={`${2.4 + i * 0.3}s`}
@@ -208,8 +214,8 @@ export default function ConnectionGraphic({
             </g>
           ))}
 
-          {/* Studio → output (warm handoff) */}
-          <path d={outputPath} stroke="url(#cg-line-warm)" strokeWidth="1.5" />
+          {/* Studio → output (warm handoff) — duidelijke gelige hoofdlijn */}
+          <path d={outputPath} stroke="#E0B978" strokeWidth="2" strokeOpacity="0.9" />
           <circle r="3.5" fill="#E0B978">
             <animateMotion dur="2s" repeatCount="indefinite" path={outputPath} />
           </circle>
