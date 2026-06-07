@@ -7,9 +7,18 @@ export async function updateSession(
   request: NextRequest,
   response: NextResponse
 ) {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  // Supabase nog niet geconfigureerd (bijv. preview-deploy zonder env-vars):
+  // sla de sessie-refresh over zodat de rest van de site gewoon werkt.
+  if (!url || !anonKey) {
+    return response;
+  }
+
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    url,
+    anonKey,
     {
       cookies: {
         getAll() {
