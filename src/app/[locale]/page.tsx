@@ -259,7 +259,7 @@ export default function Home({
             <span className="flex-1 h-px bg-(--color-border)" />
           </motion.div>
 
-          <h2 className="font-display text-3xl sm:text-4xl leading-tight mb-14">
+          <h2 className="font-sans font-bold tracking-tight text-3xl sm:text-4xl leading-tight mb-14">
             {h.processHeading}
           </h2>
 
@@ -298,7 +298,7 @@ export default function Home({
           className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8"
         >
           <div>
-            <p className="font-display text-3xl sm:text-4xl leading-tight">
+            <p className="font-sans font-bold tracking-tight text-3xl sm:text-4xl leading-tight">
               {h.ctaHeading}
             </p>
             <p className="mt-2 text-(--color-muted-light) text-sm">

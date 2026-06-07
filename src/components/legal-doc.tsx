@@ -17,7 +17,7 @@ export default function LegalDocView({
 
   return (
     <main className="flex flex-1 flex-col px-6 py-32 max-w-3xl mx-auto w-full">
-      <h1 className="font-display text-4xl sm:text-5xl leading-tight">
+      <h1 className="font-sans font-bold tracking-tight text-4xl sm:text-5xl leading-tight">
         {doc.title}
       </h1>
       <p className="mt-4 text-sm text-(--color-muted)">

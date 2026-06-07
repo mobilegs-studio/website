@@ -15,7 +15,7 @@ export default async function Diensten({
       <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
         {s.label}
       </p>
-      <h1 className="font-display text-5xl sm:text-6xl leading-tight max-w-2xl">
+      <h1 className="font-sans font-bold tracking-tight text-5xl sm:text-6xl leading-tight max-w-2xl">
         {s.heading}
       </h1>
 

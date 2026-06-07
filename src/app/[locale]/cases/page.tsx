@@ -16,7 +16,7 @@ export default async function Cases({
       <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
         {c.label}
       </p>
-      <h1 className="font-display text-5xl sm:text-6xl leading-tight max-w-2xl">
+      <h1 className="font-sans font-bold tracking-tight text-5xl sm:text-6xl leading-tight max-w-2xl">
         {c.heading}
       </h1>
       <p className="mt-8 text-lg text-(--color-muted-light) max-w-xl leading-relaxed">
@@ -32,7 +32,7 @@ export default async function Cases({
       </div>
 
       <div className="mt-20 border-t border-(--color-border) pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <p className="font-display text-2xl sm:text-3xl">{c.ctaHeading}</p>
+        <p className="font-sans font-bold tracking-tight text-2xl sm:text-3xl">{c.ctaHeading}</p>
         <Link
           href={`/${locale}/contact`}
           className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"

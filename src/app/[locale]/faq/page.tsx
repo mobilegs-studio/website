@@ -18,7 +18,7 @@ export default async function Faq({
         <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
           {f.label}
         </p>
-        <h1 className="font-display text-5xl sm:text-6xl leading-tight">
+        <h1 className="font-sans font-bold tracking-tight text-5xl sm:text-6xl leading-tight">
           {f.heading}
         </h1>
         <p className="mt-6 text-(--color-muted-light) leading-relaxed max-w-xl">
@@ -58,7 +58,7 @@ export default async function Faq({
         </div>
 
         <div className="mt-20 border-t border-(--color-border) pt-12">
-          <p className="font-display text-2xl">{f.notFoundHeading}</p>
+          <p className="font-sans font-bold tracking-tight text-2xl">{f.notFoundHeading}</p>
           <p className="mt-3 text-(--color-muted-light) text-sm">
             {f.notFoundSubtext}
           </p>
