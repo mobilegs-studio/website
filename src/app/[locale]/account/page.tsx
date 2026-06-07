@@ -99,12 +99,24 @@ export default async function AccountPage({
               >
                 <span className="text-sm font-medium">{item.title}</span>
                 {item.owned ? (
-                  <span className="inline-flex items-center gap-2 text-sm text-(--color-accent-light)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    {t.owned}
-                  </span>
+                  item.file_path ? (
+                    <a
+                      href={`/api/download?slug=${item.slug}`}
+                      className="inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" />
+                      </svg>
+                      {t.downloadCta}
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 text-sm text-(--color-accent-light)">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      {t.owned}
+                    </span>
+                  )
                 ) : (
                   <BuyButton slug={item.slug} locale={locale} label={t.buyCta} />
                 )}
