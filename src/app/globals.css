@@ -57,6 +57,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Zorg dat koppen niet onder de vaste navbar (~69px) landen bij anker-
+     navigatie, scrollIntoView of "zoek op pagina". */
+  scroll-padding-top: 88px;
 }
 
 body {
