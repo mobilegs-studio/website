@@ -18,6 +18,11 @@ export interface AuthStrings {
   downloadsEmpty: string;
   subscriptionTitle: string;
   subscriptionNone: string;
+  buyCta: string;
+  owned: string;
+  downloadCta: string;
+  purchaseSuccess: string;
+  purchaseCancelled: string;
 }
 
 export const authStrings: Record<string, AuthStrings> = {
@@ -39,6 +44,11 @@ export const authStrings: Record<string, AuthStrings> = {
     downloadsEmpty: "Je hebt nog geen downloads.",
     subscriptionTitle: "Abonnement",
     subscriptionNone: "Je hebt geen actief abonnement.",
+    buyCta: "Kopen",
+    owned: "Je hebt toegang",
+    downloadCta: "Download",
+    purchaseSuccess: "Betaling gelukt. Je toegang staat klaar.",
+    purchaseCancelled: "Betaling geannuleerd.",
   },
   en: {
     loginTitle: "Log in",
@@ -58,6 +68,11 @@ export const authStrings: Record<string, AuthStrings> = {
     downloadsEmpty: "You have no downloads yet.",
     subscriptionTitle: "Subscription",
     subscriptionNone: "You have no active subscription.",
+    buyCta: "Buy",
+    owned: "You have access",
+    downloadCta: "Download",
+    purchaseSuccess: "Payment successful. Your access is ready.",
+    purchaseCancelled: "Payment cancelled.",
   },
   de: {
     loginTitle: "Anmelden",
@@ -77,6 +92,11 @@ export const authStrings: Record<string, AuthStrings> = {
     downloadsEmpty: "Du hast noch keine Downloads.",
     subscriptionTitle: "Abonnement",
     subscriptionNone: "Du hast kein aktives Abonnement.",
+    buyCta: "Kaufen",
+    owned: "Du hast Zugriff",
+    downloadCta: "Download",
+    purchaseSuccess: "Zahlung erfolgreich. Dein Zugriff ist bereit.",
+    purchaseCancelled: "Zahlung abgebrochen.",
   },
 };
 
