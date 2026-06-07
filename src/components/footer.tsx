@@ -85,7 +85,7 @@ export default function Footer({
 
         <nav className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-(--color-muted)">
           <Link href={`/${locale}/diensten`} className="hover:text-(--color-foreground) transition-colors">{tNav.diensten}</Link>
-          <Link href={`/${locale}/cases`} className="hover:text-(--color-foreground) transition-colors">{tNav.cases}</Link>
+          <Link href={`/${locale}/portfolio`} className="hover:text-(--color-foreground) transition-colors">{tNav.cases}</Link>
           <Link href={`/${locale}/faq`} className="hover:text-(--color-foreground) transition-colors">{tNav.faq}</Link>
           <Link href={`/${locale}/over`} className="hover:text-(--color-foreground) transition-colors">{tNav.over}</Link>
           <Link href={`/${locale}/contact`} className="hover:text-(--color-foreground) transition-colors">{tNav.contact}</Link>

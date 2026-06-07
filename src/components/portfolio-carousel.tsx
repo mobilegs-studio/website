@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ProductMockup from "@/components/product-mockup";
 
 interface Story {
   id: string;
-  image: string;
+  mockup: string;
   name: string;
   business: string;
   quote: string;
@@ -16,7 +16,7 @@ interface Story {
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-export default function CasesCarousel({
+export default function PortfolioCarousel({
   stories,
   projectLabel,
   resultLabel,
@@ -65,23 +65,9 @@ export default function CasesCarousel({
             transition={{ duration: 0.5, ease: easeOut }}
             className="grid grid-cols-1 md:grid-cols-2 h-[600px] md:h-[440px]"
           >
-            {/* Image */}
-            <div className="relative h-56 md:h-full overflow-hidden">
-              <Image
-                src={story.image}
-                alt={story.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                priority={index === 0}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(120deg, transparent 40%, rgba(8,7,13,0.55) 100%)",
-                }}
-              />
+            {/* Product mockup */}
+            <div className="relative h-56 md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-(--color-border)">
+              <ProductMockup type={story.mockup} />
             </div>
 
             {/* Content */}
@@ -108,13 +94,13 @@ export default function CasesCarousel({
                 <p className="font-semibold">{story.name}</p>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <div className="flex-1 rounded-xl bg-[rgba(99,67,247,0.08)] border border-[rgba(99,67,247,0.2)] px-4 py-3">
+                  <div className="flex-1 rounded-xl bg-[rgba(91,95,232,0.08)] border border-[rgba(91,95,232,0.2)] px-4 py-3">
                     <p className="text-[10px] tracking-[0.18em] uppercase text-(--color-muted)">
                       {projectLabel}
                     </p>
                     <p className="mt-1 text-sm">{story.project}</p>
                   </div>
-                  <div className="flex-1 rounded-xl bg-[rgba(99,67,247,0.14)] border border-[rgba(99,67,247,0.3)] px-4 py-3">
+                  <div className="flex-1 rounded-xl bg-[rgba(91,95,232,0.14)] border border-[rgba(91,95,232,0.3)] px-4 py-3">
                     <p className="text-[10px] tracking-[0.18em] uppercase text-(--color-muted)">
                       {resultLabel}
                     </p>

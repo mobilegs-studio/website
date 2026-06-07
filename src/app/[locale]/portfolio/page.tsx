@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getTranslations } from "@/i18n/translations";
-import CasesCarousel from "@/components/cases-carousel";
+import PortfolioCarousel from "@/components/portfolio-carousel";
 
-export default async function Cases({
+export default async function Portfolio({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -24,7 +24,7 @@ export default async function Cases({
       </p>
 
       <div className="mt-16">
-        <CasesCarousel
+        <PortfolioCarousel
           stories={c.stories}
           projectLabel={c.projectLabel}
           resultLabel={c.resultLabel}

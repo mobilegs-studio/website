@@ -4,7 +4,7 @@ export const translations = {
   nl: {
     nav: {
       diensten: "Diensten",
-      cases: "Cases",
+      cases: "Portfolio",
       faq: "FAQ",
       over: "Over",
       contact: "Contact",
@@ -162,7 +162,7 @@ export const translations = {
       contactCta: "Stuur een bericht →",
     },
     cases: {
-      label: "Cases",
+      label: "Portfolio",
       heading: "Wat we gemaakt hebben.",
       intro:
         "Echte ondernemers, echte resultaten. Een greep uit de projecten die we hebben opgeleverd.",
@@ -171,7 +171,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/Mark.jpg",
+          mockup: "browser",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -181,7 +181,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/Sven.jpg",
+          mockup: "mobile",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -191,7 +191,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/Daan.jpg",
+          mockup: "ai",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -201,7 +201,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/Sanne.jpg",
+          mockup: "browser",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
@@ -330,7 +330,7 @@ export const translations = {
   en: {
     nav: {
       diensten: "Services",
-      cases: "Cases",
+      cases: "Portfolio",
       faq: "FAQ",
       over: "About",
       contact: "Contact",
@@ -489,7 +489,7 @@ export const translations = {
       contactCta: "Send a message →",
     },
     cases: {
-      label: "Cases",
+      label: "Portfolio",
       heading: "What we've built.",
       intro:
         "Real entrepreneurs, real results. A selection of the projects we've delivered.",
@@ -498,7 +498,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/Mark.jpg",
+          mockup: "browser",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -508,7 +508,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/Sven.jpg",
+          mockup: "mobile",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -518,7 +518,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/Daan.jpg",
+          mockup: "ai",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -528,7 +528,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/Sanne.jpg",
+          mockup: "browser",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:
@@ -654,7 +654,7 @@ export const translations = {
   de: {
     nav: {
       diensten: "Leistungen",
-      cases: "Cases",
+      cases: "Portfolio",
       faq: "FAQ",
       over: "Über uns",
       contact: "Kontakt",
@@ -813,7 +813,7 @@ export const translations = {
       contactCta: "Nachricht senden →",
     },
     cases: {
-      label: "Cases",
+      label: "Portfolio",
       heading: "Was wir gebaut haben.",
       intro:
         "Echte Unternehmer, echte Ergebnisse. Eine Auswahl der Projekte, die wir geliefert haben.",
@@ -822,7 +822,7 @@ export const translations = {
       stories: [
         {
           id: "schilder",
-          image: "/assets/Mark.jpg",
+          mockup: "browser",
           name: "Mark",
           business: "Visser Schilderwerken",
           quote:
@@ -832,7 +832,7 @@ export const translations = {
         },
         {
           id: "pt",
-          image: "/assets/Sven.jpg",
+          mockup: "mobile",
           name: "Sven",
           business: "Train met Sven",
           quote:
@@ -842,7 +842,7 @@ export const translations = {
         },
         {
           id: "coach",
-          image: "/assets/Daan.jpg",
+          mockup: "ai",
           name: "Daan",
           business: "Hofman Coaching",
           quote:
@@ -852,7 +852,7 @@ export const translations = {
         },
         {
           id: "advocaat",
-          image: "/assets/Sanne.jpg",
+          mockup: "browser",
           name: "Sanne",
           business: "Bakker Advocatuur",
           quote:

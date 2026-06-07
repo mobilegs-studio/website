@@ -60,7 +60,7 @@ export default function Navbar({
 
   const links = [
     { href: `/${locale}/diensten`, label: t.diensten },
-    { href: `/${locale}/cases`, label: t.cases },
+    { href: `/${locale}/portfolio`, label: t.cases },
     { href: `/${locale}/faq`, label: t.faq },
     { href: `/${locale}/over`, label: t.over },
     { href: `/${locale}/contact`, label: t.contact },
