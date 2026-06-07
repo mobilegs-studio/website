@@ -305,12 +305,30 @@ export default function Home({
               {h.ctaSubtext}
             </p>
           </div>
-          <Link
-            href={`/${locale}/contact`}
-            className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
-          >
-            {h.cta}
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href={`/${locale}/contact`}
+              className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+            >
+              {h.cta}
+            </Link>
+            <a
+              href="/mobilegs-studio-pitch.pdf"
+              download
+              className="shrink-0 inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M7 2v7M4 7l3 3 3-3M2 11h10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              {h.downloadPitch}
+            </a>
+          </div>
         </motion.div>
       </section>
     </main>

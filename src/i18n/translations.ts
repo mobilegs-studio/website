@@ -54,6 +54,7 @@ export const translations = {
       ],
       ctaHeading: "Klaar om te beginnen?",
       ctaSubtext: "Vertel ons wat je wilt bouwen. We reageren binnen 24 uur.",
+      downloadPitch: "Download pitch",
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Te veel admin" },
@@ -380,6 +381,7 @@ export const translations = {
       ctaHeading: "Ready to start?",
       ctaSubtext:
         "Tell us what you want to build. We'll respond within 24 hours.",
+      downloadPitch: "Download pitch",
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Too much admin" },
@@ -703,6 +705,7 @@ export const translations = {
       ctaHeading: "Bereit loszulegen?",
       ctaSubtext:
         "Erzählen Sie uns, was Sie bauen möchten. Wir antworten innerhalb von 24 Stunden.",
+      downloadPitch: "Pitch herunterladen",
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Zu viel Admin" },
