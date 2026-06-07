@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
+import { getAuthStrings } from "@/i18n/auth";
 
 interface NavTranslations {
   diensten: string;
@@ -28,11 +30,30 @@ export default function Navbar({
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+  const ta = getAuthStrings(locale);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Sessie-status: bepaalt of we "Inloggen" of het account-icoon tonen.
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return;
+    let unsub: { unsubscribe: () => void } | undefined;
+    try {
+      const supabase = createClient();
+      supabase.auth.getUser().then(({ data }) => setLoggedIn(!!data.user));
+      const { data } = supabase.auth.onAuthStateChange((_event, session) =>
+        setLoggedIn(!!session?.user)
+      );
+      unsub = data.subscription;
+    } catch {
+      // Supabase niet geconfigureerd — laat de knop gewoon weg.
+    }
+    return () => unsub?.unsubscribe();
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
@@ -111,6 +132,27 @@ export default function Navbar({
                 </span>
               ))}
             </div>
+
+            {/* Account / inloggen */}
+            {loggedIn ? (
+              <Link
+                href={`/${locale}/account`}
+                aria-label={ta.accountTitle}
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-(--color-border) text-(--color-foreground) hover:bg-(--color-surface) transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21a8 8 0 0 1 16 0" />
+                </svg>
+              </Link>
+            ) : (
+              <Link
+                href={`/${locale}/login`}
+                className="inline-flex items-center text-sm font-semibold text-(--color-muted) hover:text-(--color-foreground) transition-colors"
+              >
+                {ta.loginTitle}
+              </Link>
+            )}
 
             <Link
               href={`/${locale}/contact`}
@@ -204,11 +246,18 @@ export default function Navbar({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-auto pt-8 border-t border-(--color-border)"
+              className="mt-auto pt-8 border-t border-(--color-border) flex flex-col gap-3"
             >
               <Link
+                href={loggedIn ? `/${locale}/account` : `/${locale}/login`}
+                onClick={closeMenu}
+                className="inline-flex items-center justify-center w-full text-sm font-semibold border border-(--color-border) px-5 py-4 rounded-full hover:bg-(--color-surface) transition-colors"
+              >
+                {loggedIn ? ta.accountTitle : ta.loginTitle}
+              </Link>
+              <Link
                 href={`/${locale}/contact`}
-                onClick={() => setMenuOpen(false)}
+                onClick={closeMenu}
                 className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-white px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
               >
                 {t.cta}
