@@ -110,8 +110,8 @@ export const legal: Record<"nl" | "en" | "de", LegalContent> = {
           heading: "1. Definities",
           body: [
             `${COMPANY}: de eenmanszaak en handelsnaam van ${OWNER}, gevestigd in Hilversum.`,
-            "Opdrachtgever: de partij die met ${COMPANY} een overeenkomst aangaat.",
-            "Overeenkomst: elke afspraak tussen ${COMPANY} en opdrachtgever over het leveren van diensten.",
+            `Opdrachtgever: de partij die met ${COMPANY} een overeenkomst aangaat.`,
+            `Overeenkomst: elke afspraak tussen ${COMPANY} en opdrachtgever over het leveren van diensten.`,
           ],
         },
         {
@@ -150,7 +150,7 @@ export const legal: Record<"nl" | "en" | "de", LegalContent> = {
         {
           heading: "7. Intellectueel eigendom",
           body: [
-            "Na volledige betaling draagt ${COMPANY} de gebruiksrechten op het opgeleverde werk over aan de opdrachtgever, voor zover overeengekomen.",
+            `Na volledige betaling draagt ${COMPANY} de gebruiksrechten op het opgeleverde werk over aan de opdrachtgever, voor zover overeengekomen.`,
             `${COMPANY} mag het opgeleverde werk gebruiken voor eigen promotie en portfolio, tenzij schriftelijk anders afgesproken.`,
           ],
         },
