@@ -167,6 +167,7 @@ export const translations = {
         "Echte ondernemers, echte resultaten. Een greep uit de projecten die we hebben opgeleverd.",
       projectLabel: "Wat we bouwden",
       resultLabel: "Resultaat",
+      visitLabel: "Bekijk de site",
       stories: [
         {
           id: "schilder",
@@ -207,6 +208,30 @@ export const translations = {
             "Cliënten uploaden documenten veilig via het portaal. Geen losse mails meer, alles op één plek.",
           project: "Beveiligd cliëntportaal met documentbeheer",
           result: "Dossiers 3x sneller compleet",
+        },
+        {
+          id: "oreq",
+          mockup: "browser",
+          name: "Eric van der Zwan",
+          business: "OREQ",
+          quote:
+            "De site laat nu in één oogopslag zien wat OREQ doet. Sinds de livegang komen aanvragen voor coaching en trainingen veel vaker binnen.",
+          project: "Website met heldere propositie voor coaching en trainingen",
+          result: "Meer aanvragen voor coaching en trainingen",
+          image: "/cases/oreq.png",
+          url: "https://oreq.nl",
+        },
+        {
+          id: "ericsweder",
+          mockup: "browser",
+          name: "Eric Sweder",
+          business: "By Eric Sweder",
+          quote:
+            "Mijn werk is persoonlijk en dat moest de site ook uitstralen. Bezoekers boeken nu zelf een consult en melden zich direct aan voor de opleiding.",
+          project: "Website met consult-aanvragen en aanmeldingen voor de opleiding",
+          result: "Boekingen en aanmeldingen lopen via de site",
+          image: "/cases/ericsweder.png",
+          url: "https://ericsweder.com",
         },
       ],
       ctaHeading: "Word de volgende.",
@@ -493,6 +518,7 @@ export const translations = {
         "Real entrepreneurs, real results. A selection of the projects we've delivered.",
       projectLabel: "What we built",
       resultLabel: "Result",
+      visitLabel: "Visit the site",
       stories: [
         {
           id: "schilder",
@@ -533,6 +559,30 @@ export const translations = {
             "Clients upload documents securely through the portal. No more scattered emails, everything in one place.",
           project: "Secure client portal with document management",
           result: "Case files complete 3x faster",
+        },
+        {
+          id: "oreq",
+          mockup: "browser",
+          name: "Eric van der Zwan",
+          business: "OREQ",
+          quote:
+            "The site now shows at a glance what OREQ does. Since launch, requests for coaching and training come in far more often.",
+          project: "Website with a clear proposition for coaching and training",
+          result: "More requests for coaching and training",
+          image: "/cases/oreq.png",
+          url: "https://oreq.nl",
+        },
+        {
+          id: "ericsweder",
+          mockup: "browser",
+          name: "Eric Sweder",
+          business: "By Eric Sweder",
+          quote:
+            "My work is personal and the site had to reflect that. Visitors now book a session themselves and sign up for the training right away.",
+          project: "Website with session bookings and training sign-ups",
+          result: "Bookings and sign-ups run through the site",
+          image: "/cases/ericsweder.png",
+          url: "https://ericsweder.com",
         },
       ],
       ctaHeading: "Be the next one.",
@@ -816,6 +866,7 @@ export const translations = {
         "Echte Unternehmer, echte Ergebnisse. Eine Auswahl der Projekte, die wir geliefert haben.",
       projectLabel: "Was wir gebaut haben",
       resultLabel: "Ergebnis",
+      visitLabel: "Zur Website",
       stories: [
         {
           id: "schilder",
@@ -856,6 +907,30 @@ export const translations = {
             "Mandanten laden Dokumente sicher über das Portal hoch. Keine verstreuten E-Mails mehr, alles an einem Ort.",
           project: "Sicheres Mandantenportal mit Dokumentenverwaltung",
           result: "Akten 3x schneller vollständig",
+        },
+        {
+          id: "oreq",
+          mockup: "browser",
+          name: "Eric van der Zwan",
+          business: "OREQ",
+          quote:
+            "Die Seite zeigt jetzt auf einen Blick, was OREQ macht. Seit dem Launch kommen Anfragen für Coaching und Trainings deutlich häufiger rein.",
+          project: "Website mit klarer Positionierung für Coaching und Trainings",
+          result: "Mehr Anfragen für Coaching und Trainings",
+          image: "/cases/oreq.png",
+          url: "https://oreq.nl",
+        },
+        {
+          id: "ericsweder",
+          mockup: "browser",
+          name: "Eric Sweder",
+          business: "By Eric Sweder",
+          quote:
+            "Meine Arbeit ist persönlich und das sollte die Seite ausstrahlen. Besucher buchen jetzt selbst eine Sitzung und melden sich direkt für die Ausbildung an.",
+          project: "Website mit Sitzungsbuchungen und Anmeldungen zur Ausbildung",
+          result: "Buchungen und Anmeldungen laufen über die Seite",
+          image: "/cases/ericsweder.png",
+          url: "https://ericsweder.com",
         },
       ],
       ctaHeading: "Werden Sie der Nächste.",

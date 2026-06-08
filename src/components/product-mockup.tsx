@@ -1,5 +1,12 @@
 // Statische mockup van het eindproduct, per type. Vervangt de klantfoto's in
 // de portfolio. Puur SVG in de huisstijl (indigo + amber op donker glas).
+// Als er een echte screenshot is meegegeven (image), tonen we die in plaats
+// van de mockup, met fallback naar de SVG zodra het bestand ontbreekt.
+
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 
 function Browser() {
   return (
@@ -95,7 +102,18 @@ function Ai() {
   );
 }
 
-export default function ProductMockup({ type }: { type: string }) {
+export default function ProductMockup({
+  type,
+  image,
+  alt,
+}: {
+  type: string;
+  image?: string;
+  alt?: string;
+}) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const showImage = image && !imageFailed;
+
   return (
     <div className="relative h-full w-full overflow-hidden">
       {/* Brand-gradient backdrop */}
@@ -113,9 +131,20 @@ export default function ProductMockup({ type }: { type: string }) {
             "radial-gradient(ellipse 70% 60% at 50% 42%, rgba(91,95,232,0.28) 0%, transparent 70%)",
         }}
       />
-      <div className="relative flex h-full w-full items-center justify-center p-7 sm:p-9">
-        {type === "mobile" ? <Mobile /> : type === "ai" ? <Ai /> : <Browser />}
-      </div>
+      {showImage ? (
+        <Image
+          src={image}
+          alt={alt ?? ""}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-top"
+          onError={() => setImageFailed(true)}
+        />
+      ) : (
+        <div className="relative flex h-full w-full items-center justify-center p-7 sm:p-9">
+          {type === "mobile" ? <Mobile /> : type === "ai" ? <Ai /> : <Browser />}
+        </div>
+      )}
     </div>
   );
 }

@@ -28,6 +28,7 @@ export default async function Portfolio({
           stories={c.stories}
           projectLabel={c.projectLabel}
           resultLabel={c.resultLabel}
+          visitLabel={c.visitLabel}
         />
       </div>
 

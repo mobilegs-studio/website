@@ -12,6 +12,8 @@ interface Story {
   quote: string;
   project: string;
   result: string;
+  image?: string;
+  url?: string;
 }
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -20,10 +22,12 @@ export default function PortfolioCarousel({
   stories,
   projectLabel,
   resultLabel,
+  visitLabel,
 }: {
   stories: readonly Story[];
   projectLabel: string;
   resultLabel: string;
+  visitLabel: string;
 }) {
   const [[index, direction], setState] = useState<[number, number]>([0, 0]);
   const [paused, setPaused] = useState(false);
@@ -67,7 +71,11 @@ export default function PortfolioCarousel({
           >
             {/* Product mockup */}
             <div className="relative h-56 md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-(--color-border)">
-              <ProductMockup type={story.mockup} />
+              <ProductMockup
+                type={story.mockup}
+                image={story.image}
+                alt={story.business}
+              />
             </div>
 
             {/* Content */}
@@ -91,7 +99,28 @@ export default function PortfolioCarousel({
               </div>
 
               <div>
-                <p className="font-semibold">{story.name}</p>
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-semibold">{story.name}</p>
+                  {story.url && (
+                    <a
+                      href={story.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 inline-flex items-center gap-1 text-sm text-(--color-accent-light) hover:text-(--color-foreground) transition-colors"
+                    >
+                      {visitLabel}
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M5 11l6-6m0 0H6m5 0v5"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  )}
+                </div>
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <div className="flex-1 rounded-xl bg-[rgba(91,95,232,0.08)] border border-[rgba(91,95,232,0.2)] px-4 py-3">
