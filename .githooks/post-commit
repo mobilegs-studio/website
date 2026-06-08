@@ -1,0 +1,22 @@
+#!/bin/sh
+# Reminder: keep the Notion sitemap & architecture pages in sync.
+# Fires when a commit touches files that define routes, stack, data model,
+# components or brand tokens. The actual Notion update happens in a Claude
+# session (MCP), this only flags that a sync is due.
+#
+# Notion pages (parent: MGS):
+#   Sitemap       https://app.notion.com/p/379539fb08af81f99d59db0cc80e3ebc
+#   Architectuur  https://app.notion.com/p/379539fb08af81bfa994fa60994c4f38
+
+watched='^(src/app/|src/components/|src/lib/supabase/|src/i18n/|src/content/|supabase/migrations/|src/middleware\.ts|src/app/globals\.css|package\.json|docs/SETUP-AND-ARCHITECTURE\.md)'
+
+changed=$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E "$watched")
+
+if [ -n "$changed" ]; then
+  printf '\n\033[33m⚠  Sitemap/architectuur kan gewijzigd zijn — werk de Notion-pagina'\''s bij:\033[0m\n'
+  printf '   Sitemap       https://app.notion.com/p/379539fb08af81f99d59db0cc80e3ebc\n'
+  printf '   Architectuur  https://app.notion.com/p/379539fb08af81bfa994fa60994c4f38\n'
+  printf '   Gewijzigde relevante bestanden:\n'
+  printf '%s\n' "$changed" | sed 's/^/     /'
+  printf '\n'
+fi
