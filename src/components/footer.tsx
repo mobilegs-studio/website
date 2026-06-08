@@ -97,7 +97,7 @@ export default function Footer({
               key={label}
               href={href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               aria-label={label}
               className="text-(--color-muted) hover:text-(--color-foreground) transition-colors"
             >

@@ -105,7 +105,7 @@ export default function PortfolioCarousel({
                     <a
                       href={story.url}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="shrink-0 inline-flex items-center gap-1 text-sm text-(--color-accent-light) hover:text-(--color-foreground) transition-colors"
                     >
                       {visitLabel}

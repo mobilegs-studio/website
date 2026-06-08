@@ -33,7 +33,7 @@ export default async function Contact({
             <a
               href="https://wa.me/31613827164"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="inline-flex items-center gap-2.5 bg-[#25D366] text-black font-semibold px-5 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
