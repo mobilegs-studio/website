@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTranslations } from "@/i18n/translations";
+import { getCasesContent } from "@/lib/content";
 import PortfolioCarousel from "@/components/portfolio-carousel";
 
 export default async function Portfolio({
@@ -8,8 +8,7 @@ export default async function Portfolio({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = getTranslations(locale);
-  const c = t.cases;
+  const c = await getCasesContent(locale);
 
   return (
     <main className="flex flex-1 flex-col px-6 py-32 max-w-5xl mx-auto w-full">

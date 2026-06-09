@@ -4,7 +4,7 @@ import { updateSession } from "@/lib/supabase/middleware";
 const LOCALES = ["en", "nl", "de"] as const;
 type Locale = (typeof LOCALES)[number];
 
-const SKIP_PREFIXES = ["/api/", "/_next/", "/auth/"];
+const SKIP_PREFIXES = ["/api/", "/_next/", "/auth/", "/lab/"];
 const SKIP_EXACT = ["/sitemap.xml", "/robots.txt", "/favicon.ico", "/icon"];
 const SKIP_EXTENSIONS = /\.(svg|png|jpg|jpeg|ico|webp)$/;
 
@@ -24,6 +24,12 @@ export async function middleware(request: NextRequest) {
   if (SKIP_EXACT.includes(pathname)) return NextResponse.next();
   for (const prefix of SKIP_PREFIXES) {
     if (pathname.startsWith(prefix)) return NextResponse.next();
+  }
+
+  // Admin-portaal: niet gelokaliseerd. Geen locale-redirect, wel de sessie
+  // verversen zodat de auth-cookies kloppen.
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return updateSession(request, NextResponse.next());
   }
 
   // Build the i18n response (next or redirect) exactly as before.
