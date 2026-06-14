@@ -29,6 +29,12 @@ export const translations = {
       cta: "Neem contact op",
       viewServices: "Bekijk diensten",
       whatWeBuild: "Wat we bouwen",
+      featuredLabel: "Onze focus",
+      examplesTitle: "Voorbeelden van ons werk",
+      viewExamples: "Bekijk voorbeelden",
+      hideExamples: "Verberg voorbeelden",
+      examplesSoon: "Binnenkort",
+      closeLabel: "Sluiten",
       moreInfo: "Meer info",
       ctaTileTitle: "Iets anders?",
       ctaTileText: "Vertel ons je idee. We denken graag mee over de beste aanpak.",
@@ -74,36 +80,8 @@ export const translations = {
       heading: "Wat we bouwen.",
       items: [
         {
-          id: "webapps",
-          number: "01",
-          title: "Webapps",
-          tagline: "Van idee naar werkende applicatie.",
-          description:
-            "We bouwen maatwerk webapplicaties die jouw bedrijfsprocessen digitaliseren en automatiseren. Of het nu gaat om een klantportaal, een intern dashboard of een volledig SaaS-product — we bouwen het van begin tot eind.",
-          items: [
-            "Next.js webapplicaties",
-            "Klantportalen en dashboards",
-            "API-integraties",
-            "SaaS-producten",
-          ],
-        },
-        {
-          id: "native-apps",
-          number: "02",
-          title: "Native apps",
-          tagline: "iOS en Android, goed gedaan.",
-          description:
-            "We bouwen native mobiele apps die je klanten graag gebruiken. Strak design, soepele performance en een ervaring die aanvoelt alsof hij thuishoort op het platform.",
-          items: [
-            "iOS apps (Swift / SwiftUI)",
-            "Android apps",
-            "Cross-platform (React Native)",
-            "App Store & Play Store publicatie",
-          ],
-        },
-        {
           id: "ai-tooling",
-          number: "03",
+          number: "01",
           title: "AI tooling",
           tagline: "Automatiseer wat jou tijd kost.",
           description:
@@ -117,7 +95,7 @@ export const translations = {
         },
         {
           id: "dashboarding",
-          number: "04",
+          number: "02",
           title: "Dashboarding",
           tagline: "Inzicht in je cijfers, zonder gedoe.",
           description:
@@ -131,7 +109,7 @@ export const translations = {
         },
         {
           id: "websites",
-          number: "05",
+          number: "03",
           title: "Websites",
           tagline: "Snel online, professioneel en converteerend.",
           description:
@@ -141,6 +119,34 @@ export const translations = {
             "Landingspagina's",
             "SEO-geoptimaliseerde structuur",
             "CMS-integratie (indien gewenst)",
+          ],
+        },
+        {
+          id: "webapps",
+          number: "04",
+          title: "Webapps",
+          tagline: "Van idee naar werkende applicatie.",
+          description:
+            "We bouwen maatwerk webapplicaties die jouw bedrijfsprocessen digitaliseren en automatiseren. Of het nu gaat om een klantportaal, een intern dashboard of een volledig SaaS-product — we bouwen het van begin tot eind.",
+          items: [
+            "Next.js webapplicaties",
+            "Klantportalen en dashboards",
+            "API-integraties",
+            "SaaS-producten",
+          ],
+        },
+        {
+          id: "native-apps",
+          number: "05",
+          title: "Native apps",
+          tagline: "iOS en Android, goed gedaan.",
+          description:
+            "We bouwen native mobiele apps die je klanten graag gebruiken. Strak design, soepele performance en een ervaring die aanvoelt alsof hij thuishoort op het platform.",
+          items: [
+            "iOS apps (Swift / SwiftUI)",
+            "Android apps",
+            "Cross-platform (React Native)",
+            "App Store & Play Store publicatie",
           ],
         },
       ],
@@ -379,6 +385,12 @@ export const translations = {
       cta: "Get in touch",
       viewServices: "View services",
       whatWeBuild: "What we build",
+      featuredLabel: "Our focus",
+      examplesTitle: "Examples of our work",
+      viewExamples: "View examples",
+      hideExamples: "Hide examples",
+      examplesSoon: "Coming soon",
+      closeLabel: "Close",
       moreInfo: "More info",
       ctaTileTitle: "Something else?",
       ctaTileText: "Tell us your idea. We're happy to think along about the best approach.",
@@ -425,36 +437,8 @@ export const translations = {
       heading: "What we build.",
       items: [
         {
-          id: "webapps",
-          number: "01",
-          title: "Webapps",
-          tagline: "From idea to working application.",
-          description:
-            "We build custom web applications that digitise and automate your business processes. Whether it's a client portal, an internal dashboard or a full SaaS product — we build it from start to finish.",
-          items: [
-            "Next.js web applications",
-            "Client portals and dashboards",
-            "API integrations",
-            "SaaS products",
-          ],
-        },
-        {
-          id: "native-apps",
-          number: "02",
-          title: "Native apps",
-          tagline: "iOS and Android, done right.",
-          description:
-            "We build native mobile apps your customers love to use. Clean design, smooth performance and an experience that feels right at home on the platform.",
-          items: [
-            "iOS apps (Swift / SwiftUI)",
-            "Android apps",
-            "Cross-platform (React Native)",
-            "App Store & Play Store publishing",
-          ],
-        },
-        {
           id: "ai-tooling",
-          number: "03",
+          number: "01",
           title: "AI tooling",
           tagline: "Automate what costs you time.",
           description:
@@ -468,7 +452,7 @@ export const translations = {
         },
         {
           id: "dashboarding",
-          number: "04",
+          number: "02",
           title: "Dashboarding",
           tagline: "Clarity on your numbers, without the hassle.",
           description:
@@ -482,7 +466,7 @@ export const translations = {
         },
         {
           id: "websites",
-          number: "05",
+          number: "03",
           title: "Websites",
           tagline: "Online fast, professional and converting.",
           description:
@@ -492,6 +476,34 @@ export const translations = {
             "Landing pages",
             "SEO-optimised structure",
             "CMS integration (if desired)",
+          ],
+        },
+        {
+          id: "webapps",
+          number: "04",
+          title: "Webapps",
+          tagline: "From idea to working application.",
+          description:
+            "We build custom web applications that digitise and automate your business processes. Whether it's a client portal, an internal dashboard or a full SaaS product — we build it from start to finish.",
+          items: [
+            "Next.js web applications",
+            "Client portals and dashboards",
+            "API integrations",
+            "SaaS products",
+          ],
+        },
+        {
+          id: "native-apps",
+          number: "05",
+          title: "Native apps",
+          tagline: "iOS and Android, done right.",
+          description:
+            "We build native mobile apps your customers love to use. Clean design, smooth performance and an experience that feels right at home on the platform.",
+          items: [
+            "iOS apps (Swift / SwiftUI)",
+            "Android apps",
+            "Cross-platform (React Native)",
+            "App Store & Play Store publishing",
           ],
         },
       ],
@@ -727,6 +739,12 @@ export const translations = {
       cta: "Kontakt aufnehmen",
       viewServices: "Leistungen ansehen",
       whatWeBuild: "Was wir bauen",
+      featuredLabel: "Unser Fokus",
+      examplesTitle: "Beispiele unserer Arbeit",
+      viewExamples: "Beispiele ansehen",
+      hideExamples: "Beispiele ausblenden",
+      examplesSoon: "In Kürze",
+      closeLabel: "Schließen",
       moreInfo: "Mehr erfahren",
       ctaTileTitle: "Etwas anderes?",
       ctaTileText: "Erzählen Sie uns Ihre Idee. Wir denken gerne über den besten Ansatz mit.",
@@ -773,36 +791,8 @@ export const translations = {
       heading: "Was wir bauen.",
       items: [
         {
-          id: "webapps",
-          number: "01",
-          title: "Webapps",
-          tagline: "Von der Idee zur fertigen Anwendung.",
-          description:
-            "Wir entwickeln maßgeschneiderte Webanwendungen, die Ihre Geschäftsprozesse digitalisieren und automatisieren. Ob Kundenportal, internes Dashboard oder vollständiges SaaS-Produkt — wir bauen es von Anfang bis Ende.",
-          items: [
-            "Next.js Webanwendungen",
-            "Kundenportale und Dashboards",
-            "API-Integrationen",
-            "SaaS-Produkte",
-          ],
-        },
-        {
-          id: "native-apps",
-          number: "02",
-          title: "Native Apps",
-          tagline: "iOS und Android, richtig gemacht.",
-          description:
-            "Wir entwickeln native mobile Apps, die Ihre Kunden gerne nutzen. Klares Design, flüssige Performance und ein Erlebnis, das sich auf der Plattform zu Hause fühlt.",
-          items: [
-            "iOS Apps (Swift / SwiftUI)",
-            "Android Apps",
-            "Cross-platform (React Native)",
-            "App Store & Play Store Veröffentlichung",
-          ],
-        },
-        {
           id: "ai-tooling",
-          number: "03",
+          number: "01",
           title: "KI-Tools",
           tagline: "Automatisieren Sie, was Sie Zeit kostet.",
           description:
@@ -816,7 +806,7 @@ export const translations = {
         },
         {
           id: "dashboarding",
-          number: "04",
+          number: "02",
           title: "Dashboarding",
           tagline: "Klarheit über Ihre Zahlen, ohne Aufwand.",
           description:
@@ -830,7 +820,7 @@ export const translations = {
         },
         {
           id: "websites",
-          number: "05",
+          number: "03",
           title: "Websites",
           tagline: "Schnell online, professionell und konvertierend.",
           description:
@@ -840,6 +830,34 @@ export const translations = {
             "Landing Pages",
             "SEO-optimierte Struktur",
             "CMS-Integration (auf Wunsch)",
+          ],
+        },
+        {
+          id: "webapps",
+          number: "04",
+          title: "Webapps",
+          tagline: "Von der Idee zur fertigen Anwendung.",
+          description:
+            "Wir entwickeln maßgeschneiderte Webanwendungen, die Ihre Geschäftsprozesse digitalisieren und automatisieren. Ob Kundenportal, internes Dashboard oder vollständiges SaaS-Produkt — wir bauen es von Anfang bis Ende.",
+          items: [
+            "Next.js Webanwendungen",
+            "Kundenportale und Dashboards",
+            "API-Integrationen",
+            "SaaS-Produkte",
+          ],
+        },
+        {
+          id: "native-apps",
+          number: "05",
+          title: "Native Apps",
+          tagline: "iOS und Android, richtig gemacht.",
+          description:
+            "Wir entwickeln native mobile Apps, die Ihre Kunden gerne nutzen. Klares Design, flüssige Performance und ein Erlebnis, das sich auf der Plattform zu Hause fühlt.",
+          items: [
+            "iOS Apps (Swift / SwiftUI)",
+            "Android Apps",
+            "Cross-platform (React Native)",
+            "App Store & Play Store Veröffentlichung",
           ],
         },
       ],

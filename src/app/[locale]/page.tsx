@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { use } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { use, useEffect, useState } from "react";
 import { getTranslations } from "@/i18n/translations";
 import { serviceIcons } from "@/components/service-icons";
 import ConnectionGraphic from "@/components/connection-graphic";
+import SitePreview from "@/components/site-preview";
+import DummyDashboard from "@/components/dummy-dashboard";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -18,6 +20,31 @@ const fadeUp = {
   }),
 };
 
+type ServiceExample = { label: string; href?: string; image?: string };
+
+// Voorbeelden van geleverd werk per dienst. AI tooling & Dashboarding zijn
+// placeholders tot er echte cases zijn; Websites toont al opgeleverd werk.
+const serviceExamples: Record<string, ServiceExample[]> = {
+  "ai-tooling": [
+    { label: "AI-offertegenerator" },
+    { label: "Document-classificatie pipeline" },
+    { label: "Support-chatbot op maat" },
+  ],
+  dashboarding: [
+    { label: "Realtime sales-dashboard" },
+    { label: "KPI-cockpit voor directie" },
+    { label: "Marketing-attributie overzicht" },
+  ],
+  websites: [
+    { label: "OREQ", href: "https://oreq.nl", image: "/cases/oreq.png" },
+    {
+      label: "By Eric Sweder",
+      href: "https://ericsweder.com",
+      image: "/cases/ericsweder.png",
+    },
+  ],
+};
+
 export default function Home({
   params,
 }: {
@@ -27,6 +54,25 @@ export default function Home({
   const t = getTranslations(locale);
   const h = t.home;
   const services = t.services.items;
+  const [openCard, setOpenCard] = useState<string | null>(null);
+  const activeService = services.find((s) => s.id === openCard) ?? null;
+  const activeExamples = openCard ? serviceExamples[openCard] : undefined;
+  const activeFeatured =
+    openCard === "ai-tooling" || openCard === "dashboarding";
+
+  // Sluit met Escape en zet body-scroll vast zolang de modal open is.
+  useEffect(() => {
+    if (!openCard) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenCard(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [openCard]);
 
   return (
     <main className="flex flex-1 flex-col">
@@ -140,31 +186,39 @@ export default function Home({
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.08, duration: 0.5, ease: easeOut }}
-            >
-              <Link
-                href={`/${locale}/diensten#${service.id}`}
-                className="group relative flex flex-col h-full rounded-2xl card-depth p-8 overflow-hidden"
-              >
-                {/* hover glow */}
-                <div
-                  className="pointer-events-none absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-300"
-                  style={{ background: "rgba(91,95,232,0.25)" }}
-                />
-                <div className="relative flex items-center justify-between">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.25)] text-(--color-accent-light)">
-                    {serviceIcons[service.id]}
+          {services.map((service, i) => {
+            const featured =
+              service.id === "ai-tooling" || service.id === "dashboarding";
+            const examples = serviceExamples[service.id];
+            const expandable = !!examples;
+
+            const glow = (
+              <div
+                className={`pointer-events-none absolute -top-16 -right-16 w-40 h-40 rounded-full blur-2xl transition-opacity duration-300 ${
+                  featured ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                }`}
+                style={{ background: "rgba(91,95,232,0.25)" }}
+              />
+            );
+            const topRow = (
+              <div className="relative flex items-center justify-between">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.25)] text-(--color-accent-light)">
+                  {serviceIcons[service.id]}
+                </span>
+                {featured ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.3)] px-2.5 py-1 text-[10px] font-semibold tracking-[0.15em] uppercase text-(--color-accent-light)">
+                    <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent)" />
+                    {h.featuredLabel}
                   </span>
+                ) : (
                   <span className="text-[10px] text-(--color-muted) tracking-[0.2em] font-mono uppercase">
                     {service.number}
                   </span>
-                </div>
+                )}
+              </div>
+            );
+            const titleAndBullets = (
+              <>
                 <h2 className="relative mt-6 text-2xl font-semibold tracking-tight group-hover:text-(--color-accent-light) transition-colors duration-200">
                   {service.title}
                 </h2>
@@ -179,21 +233,68 @@ export default function Home({
                     </li>
                   ))}
                 </ul>
-                <span className="relative mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent-light) transition-colors duration-200">
-                  {h.moreInfo}
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-0.5 transition-transform">
-                    <path
-                      d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5"
-                      stroke="currentColor"
-                      strokeWidth="1.3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </Link>
-            </motion.div>
-          ))}
+              </>
+            );
+
+            return (
+              <motion.div
+                key={service.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.08, duration: 0.5, ease: easeOut }}
+              >
+                {expandable ? (
+                  <button
+                    type="button"
+                    onClick={() => setOpenCard(service.id)}
+                    className={`group relative flex flex-col h-full w-full text-left rounded-2xl card-depth p-8 overflow-hidden cursor-pointer ${
+                      featured
+                        ? "border-[rgba(var(--accent-rgb),0.55)] shadow-[0_16px_50px_-18px_rgba(var(--accent-rgb),0.5)]"
+                        : ""
+                    }`}
+                  >
+                    {glow}
+                    {topRow}
+                    {titleAndBullets}
+                    <span className="relative mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-accent-light)">
+                      {h.viewExamples}
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-0.5 transition-transform">
+                        <path
+                          d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5"
+                          stroke="currentColor"
+                          strokeWidth="1.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                ) : (
+                  <Link
+                    href={`/${locale}/diensten#${service.id}`}
+                    className="group relative flex flex-col h-full rounded-2xl card-depth p-8 overflow-hidden"
+                  >
+                    {glow}
+                    {topRow}
+                    {titleAndBullets}
+                    <span className="relative mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent-light) transition-colors duration-200">
+                      {h.moreInfo}
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-0.5 transition-transform">
+                        <path
+                          d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5"
+                          stroke="currentColor"
+                          strokeWidth="1.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
 
           {/* 6th tile — fills the grid, invites custom requests.
               Uses the signature brand gradient: indigo rising into amber. */}
@@ -242,6 +343,183 @@ export default function Home({
           </motion.div>
         </div>
       </section>
+
+      {/* Focus-dienst modal — bijna-fullscreen, sluit via kruisje of backdrop */}
+      <AnimatePresence>
+        {activeService && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Backdrop — klik sluit */}
+            <div
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={() => setOpenCard(null)}
+            />
+
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label={activeService.title}
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 24 }}
+              transition={{ duration: 0.3, ease: easeOut }}
+              className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-3xl border border-(--color-border) bg-(--color-surface) p-8 sm:p-12"
+            >
+              {/* Sluitknop rechtsboven */}
+              <button
+                type="button"
+                onClick={() => setOpenCard(null)}
+                aria-label={h.closeLabel}
+                className="absolute top-5 right-5 z-10 inline-flex items-center justify-center w-10 h-10 rounded-full border border-(--color-border) text-(--color-muted-light) hover:text-(--color-foreground) hover:border-(--color-muted) hover:bg-(--color-surface-hover) transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M4 4l8 8M12 4l-8 8"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+
+              {/* Decoratieve glow */}
+              <div
+                className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-60"
+                style={{ background: "rgba(91,95,232,0.25)" }}
+              />
+
+              {/* Header */}
+              <div className="relative flex items-center gap-3">
+                <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.25)] text-(--color-accent-light)">
+                  {serviceIcons[activeService.id]}
+                </span>
+                {activeFeatured && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(91,95,232,0.12)] border border-[rgba(91,95,232,0.3)] px-2.5 py-1 text-[10px] font-semibold tracking-[0.15em] uppercase text-(--color-accent-light)">
+                    <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent)" />
+                    {h.featuredLabel}
+                  </span>
+                )}
+              </div>
+
+              <p className="relative mt-6 text-sm uppercase tracking-[0.18em] text-(--color-accent-light)">
+                {activeService.tagline}
+              </p>
+              <h2 className="relative mt-3 font-sans font-bold tracking-tight text-3xl sm:text-5xl leading-tight">
+                {activeService.title}
+              </h2>
+              <p className="relative mt-6 max-w-2xl text-base sm:text-lg text-(--color-muted-light) leading-relaxed">
+                {activeService.description}
+              </p>
+
+              {/* Wat we leveren — volledige lijst */}
+              <ul className="relative mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {activeService.items.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex items-center gap-3 rounded-xl border border-(--color-border) bg-(--color-background)/40 px-4 py-3 text-sm text-(--color-foreground)"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent) shrink-0" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Dashboarding: interactief dummy-dashboard */}
+              {activeService.id === "dashboarding" && (
+                <div className="relative mt-12">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-(--color-muted) mb-4">
+                    {h.examplesTitle}
+                  </p>
+                  <DummyDashboard />
+                </div>
+              )}
+
+              {/* Overige diensten: carousel met voorbeelden */}
+              {activeExamples && activeService.id !== "dashboarding" && (
+                <div className="relative mt-12">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-(--color-muted) mb-4">
+                    {h.examplesTitle}
+                  </p>
+                  <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 -mx-1 px-1">
+                    {activeExamples.map((ex) => {
+                      const media = ex.image ? (
+                        // Live ingebedde site met screenshot-fallback
+                        <SitePreview url={ex.href!} image={ex.image} alt={ex.label} />
+                      ) : (
+                        // Placeholder tot er een echte case is
+                        <div className="relative aspect-video overflow-hidden rounded-xl border border-(--color-border) bg-[linear-gradient(150deg,rgba(91,95,232,0.28)_0%,rgba(124,127,237,0.12)_45%,rgba(224,185,120,0.14)_100%)]">
+                          <div
+                            className="absolute inset-0 opacity-40"
+                            style={{
+                              background:
+                                "radial-gradient(circle at 75% 15%, rgba(255,255,255,0.35) 0%, transparent 45%)",
+                            }}
+                          />
+                          <span className="absolute inset-0 flex items-center justify-center text-(--color-foreground)/70">
+                            {serviceIcons[activeService.id]}
+                          </span>
+                          <span className="absolute top-3 right-3 rounded-full bg-black/40 backdrop-blur-sm border border-white/15 px-2 py-0.5 text-[9px] uppercase tracking-wider text-white/80">
+                            {h.examplesSoon}
+                          </span>
+                        </div>
+                      );
+                      const tile = (
+                        <>
+                          {media}
+                          <p className="mt-3 flex items-center gap-1.5 text-sm font-medium text-(--color-foreground)">
+                            {ex.label}
+                            {ex.href && (
+                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-(--color-accent-light)">
+                                <path
+                                  d="M3.5 8.5l5-5M4.5 3.5h4v4"
+                                  stroke="currentColor"
+                                  strokeWidth="1.3"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            )}
+                          </p>
+                        </>
+                      );
+                      return ex.href ? (
+                        <a
+                          key={ex.label}
+                          href={ex.href}
+                          target="_blank"
+                          rel="noopener"
+                          className="group/ex shrink-0 w-72 snap-start"
+                        >
+                          {tile}
+                        </a>
+                      ) : (
+                        <div key={ex.label} className="shrink-0 w-72 snap-start">
+                          {tile}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* CTA */}
+              <div className="relative mt-10">
+                <Link
+                  href={`/${locale}/contact`}
+                  className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+                >
+                  {h.cta}
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* How it works — contrast band */}
       <section className="bg-(--color-surface) border-y border-(--color-border) px-6 py-24">
