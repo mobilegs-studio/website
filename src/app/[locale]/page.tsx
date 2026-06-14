@@ -449,7 +449,7 @@ export default function Home({
                     {activeExamples.map((ex) => {
                       const media = ex.image ? (
                         // Live ingebedde site met screenshot-fallback
-                        <SitePreview url={ex.href!} image={ex.image} alt={ex.label} />
+                        <SitePreview image={ex.image} alt={ex.label} />
                       ) : (
                         // Placeholder tot er een echte case is
                         <div className="relative aspect-video overflow-hidden rounded-xl border border-(--color-border) bg-[linear-gradient(150deg,rgba(91,95,232,0.28)_0%,rgba(124,127,237,0.12)_45%,rgba(224,185,120,0.14)_100%)]">
