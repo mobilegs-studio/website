@@ -25,7 +25,7 @@ export const translations = {
       headlineAccent: "performance",
       headline2: "een boost geven.",
       subtext:
-        "We bouwen webapps, native apps en AI tooling voor Nederlandse MKB-ers en ZZP-ers — zonder poespas, met resultaat, zodat jij je bezig kan houden met waar het echt om draait.",
+        "We bouwen webapps, native apps en AI tooling voor MKB-ers en ZZP-ers — zonder poespas, met resultaat, zodat jij je bezig kan houden met waar het echt om draait.",
       cta: "Neem contact op",
       viewServices: "Bekijk diensten",
       whatWeBuild: "Wat we bouwen",
@@ -159,7 +159,7 @@ export const translations = {
       heading: "Hendrik Polinder.",
       bio: [
         "Mobile Growth Studio is het freelance label van Hendrik Polinder — senior growth manager en digitaal consultant gevestigd in Hilversum.",
-        "Ik help Nederlandse MKB-ers en ZZP-ers met het bouwen van digitale producten die echt werken. Geen overbodig advies, geen ingewikkelde trajecten — gewoon bouwen wat je nodig hebt.",
+        "Ik help MKB-ers en ZZP-ers met het bouwen van digitale producten die echt werken. Geen overbodig advies, geen ingewikkelde trajecten — gewoon bouwen wat je nodig hebt.",
         "Van webapp tot native app tot AI-tooling: ik neem het technische gedeelte uit handen zodat jij je kunt focussen op je bedrijf.",
       ],
       locationLabel: "Locatie",
@@ -296,12 +296,22 @@ export const translations = {
         {
           question: "Wat doet Mobile Growth Studio?",
           answer:
-            "Mobile Growth Studio bouwt digitale producten voor Nederlandse MKB-ers en ZZP-ers: webapplicaties, native iOS- en Android-apps, AI-tools, dashboards en websites. We nemen het technische gedeelte volledig uit handen zodat jij je kunt focussen op je bedrijf.",
+            "Mobile Growth Studio bouwt digitale producten voor MKB-ers en ZZP-ers: webapplicaties, native iOS- en Android-apps, AI-tools, dashboards en websites. We nemen het technische gedeelte volledig uit handen zodat jij je kunt focussen op je bedrijf.",
         },
         {
           question: "Voor wie is Mobile Growth Studio bedoeld?",
           answer:
-            "Onze klanten zijn Nederlandse MKB-bedrijven en ZZP-ers die een digitale oplossing nodig hebben maar geen eigen developers in dienst hebben. We werken voor bedrijven uit alle sectoren — van sportscholen en coachingspraktijken tot webwinkels en dienstverleners.",
+            "Onze klanten zijn MKB-bedrijven en ZZP-ers die een digitale oplossing nodig hebben maar geen eigen developers in dienst hebben. We werken voor bedrijven uit alle sectoren — van sportscholen en coachingspraktijken tot webwinkels en dienstverleners.",
+        },
+        {
+          question: "Wat maken jullie anders?",
+          answer:
+            "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit. Jij profiteert van de snelheid en de scherpe prijs, wij doen het zware werk.",
+        },
+        {
+          question: "Wat voor dingen kunnen jullie zoal bouwen?",
+          answer:
+            "Bijna alles wat digitaal is. Een greep uit wat we maken: klantportalen en boekingssystemen, interne tools en planningssoftware, complete SaaS-producten, native iOS- en Android-apps, AI-assistenten en automatiseringen, realtime dashboards, webshops met betaalmuren of members-only content, en snelle marketing- of portfoliosites. Heb je een idee dat hier niet tussen staat? Grote kans dat het toch kan — vertel het ons en we denken mee.",
         },
         {
           question: "Wat kost het om een webapp te laten bouwen?",
@@ -327,7 +337,7 @@ export const translations = {
         {
           question: "Wat is AI tooling en hoe kan het mijn bedrijf helpen?",
           answer:
-            "AI tooling zijn op maat gemaakte softwaretools die gebruik maken van kunstmatige intelligentie om repetitieve taken te automatiseren. Denk aan automatische documentverwerking, slimme klantcommunicatie of datanalyse. We koppelen bestaande AI-modellen (zoals GPT of Claude) aan jouw specifieke bedrijfsprocessen.",
+            "AI tooling zijn op maat gemaakte tools die kunstmatige intelligentie inzetten om werk uit handen te nemen dat normaal veel tijd of mensen kost. Geen generieke chatbot, maar een oplossing die precies op jouw processen past. Voorbeelden die we bouwen: een assistent die offertes, contracten of e-mails automatisch opstelt uit je eigen sjablonen; documentverwerking die facturen, bonnen of formulieren uitleest en direct in je systeem zet; een support-chatbot getraind op jouw handleidingen en veelgestelde vragen; binnenkomende tickets en mails die automatisch worden gecategoriseerd en beantwoord; of een tool die lange rapporten en databergen samenvat tot heldere inzichten. We koppelen modellen als GPT en Claude aan jouw eigen data en software, met de juiste waarborgen voor privacy.",
         },
         {
           question:
@@ -338,7 +348,7 @@ export const translations = {
         {
           question: "Wat is dashboarding en waarom heb ik het nodig?",
           answer:
-            "Een dashboard visualiseert jouw bedrijfsdata op één centrale plek — denk aan omzetcijfers, websitetraffic, klantendata of voorraadstatus. In plaats van losse Excel-bestanden of meerdere tools heb je alles realtime en overzichtelijk bij de hand. Wij bouwen dashboards op maat, gekoppeld aan jouw databronnen.",
+            "Een dashboard brengt al je bedrijfsdata samen op één plek, realtime en overzichtelijk — in plaats van losse Excel-bestanden en een wirwar aan tools. We bouwen dashboards op maat, gekoppeld aan jouw bronnen: Google Analytics, je eigen database, je boekhouding, CRM of externe API's. Voorbeelden: een directie-cockpit met omzet, marge en KPI's; een realtime sales- of marketingoverzicht; voorraad- en logistiekrapportages; of klant- en projectdashboards die je kunt exporteren. Met AI gaan we een stap verder: het dashboard signaleert trends, licht afwijkingen uit en legt in gewone taal uit wát je cijfers betekenen en wat je beste volgende stap is.",
         },
         {
           question: "Hoe werkt het proces bij Mobile Growth Studio?",
@@ -384,7 +394,7 @@ export const translations = {
       headlineAccent: "performance",
       headline2: "a boost.",
       subtext:
-        "We build webapps, native apps and AI tooling for Dutch SMEs and freelancers — no nonsense, just results, so you can focus on what really matters.",
+        "We build webapps, native apps and AI tooling for SMEs and freelancers — no nonsense, just results, so you can focus on what really matters.",
       cta: "Get in touch",
       viewServices: "View services",
       whatWeBuild: "What we build",
@@ -519,7 +529,7 @@ export const translations = {
       heading: "Hendrik Polinder.",
       bio: [
         "Mobile Growth Studio is the freelance label of Hendrik Polinder — senior growth manager and digital consultant based in Hilversum, Netherlands.",
-        "I help Dutch SMEs and freelancers build digital products that actually work. No unnecessary advice, no complicated processes — just building what you need.",
+        "I help SMEs and freelancers build digital products that actually work. No unnecessary advice, no complicated processes — just building what you need.",
         "From webapp to native app to AI tooling: I handle the technical side so you can focus on your business.",
       ],
       locationLabel: "Location",
@@ -656,12 +666,22 @@ export const translations = {
         {
           question: "What does Mobile Growth Studio do?",
           answer:
-            "Mobile Growth Studio builds digital products for Dutch SMEs and freelancers: web applications, native iOS and Android apps, AI tools, dashboards and websites. We take the technical side completely off your hands so you can focus on your business.",
+            "Mobile Growth Studio builds digital products for SMEs and freelancers: web applications, native iOS and Android apps, AI tools, dashboards and websites. We take the technical side completely off your hands so you can focus on your business.",
         },
         {
           question: "Who is Mobile Growth Studio for?",
           answer:
-            "Our clients are Dutch SMEs and freelancers who need a digital solution but don't have in-house developers. We work for businesses across all sectors — from gyms and coaching practices to online shops and service providers.",
+            "Our clients are SMEs and freelancers who need a digital solution but don't have in-house developers. We work for businesses across all sectors — from gyms and coaching practices to online shops and service providers.",
+        },
+        {
+          question: "What makes you different?",
+          answer:
+            "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality. You get the speed and the sharp price, we do the heavy lifting.",
+        },
+        {
+          question: "What kinds of things can you build?",
+          answer:
+            "Almost anything digital. A taste of what we make: client portals and booking systems, internal tools and planning software, full SaaS products, native iOS and Android apps, AI assistants and automations, real-time dashboards, webshops with paywalls or members-only content, and fast marketing or portfolio sites. Have an idea that isn't on this list? Chances are it's still possible — tell us and we'll think along.",
         },
         {
           question: "What does it cost to have a webapp built?",
@@ -686,7 +706,7 @@ export const translations = {
         {
           question: "What is AI tooling and how can it help my business?",
           answer:
-            "AI tooling is custom software that uses artificial intelligence to automate repetitive tasks. Think automatic document processing, smart customer communication or data analysis. We connect existing AI models (such as GPT or Claude) to your specific business processes.",
+            "AI tooling is custom software that uses artificial intelligence to take over work that normally costs a lot of time or people. Not a generic chatbot, but a solution that fits your exact processes. Examples we build: an assistant that drafts quotes, contracts or emails from your own templates; document processing that reads invoices, receipts or forms and files them straight into your system; a support chatbot trained on your manuals and FAQs; incoming tickets and emails that are automatically categorised and answered; or a tool that summarises long reports and piles of data into clear insights. We connect models like GPT and Claude to your own data and software, with the right privacy safeguards.",
         },
         {
           question: "Can you integrate my existing systems or software?",
@@ -696,7 +716,7 @@ export const translations = {
         {
           question: "What is dashboarding and why do I need it?",
           answer:
-            "A dashboard visualises your business data in one central place — think revenue figures, website traffic, customer data or inventory status. Instead of separate Excel files or multiple tools you have everything real-time and clear at hand. We build custom dashboards connected to your data sources.",
+            "A dashboard brings all your business data together in one place, real-time and clear — instead of scattered Excel files and a tangle of tools. We build custom dashboards connected to your sources: Google Analytics, your own database, your accounting, CRM or external APIs. Examples: a leadership cockpit with revenue, margin and KPIs; a real-time sales or marketing overview; inventory and logistics reports; or client and project dashboards you can export. With AI we go a step further: the dashboard spots trends, flags anomalies and explains in plain language what your numbers mean and what your best next step is.",
         },
         {
           question: "How does the process at Mobile Growth Studio work?",
@@ -1021,6 +1041,16 @@ export const translations = {
             "Unsere Kunden sind KMUs und Freelancer, die eine digitale Lösung benötigen, aber keine eigenen Entwickler angestellt haben. Wir arbeiten für Unternehmen aus allen Branchen — von Fitnessstudios und Coaching-Praxen bis zu Online-Shops und Dienstleistern.",
         },
         {
+          question: "Was machen Sie anders?",
+          answer:
+            "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität. Sie profitieren von Tempo und scharfem Preis, wir übernehmen die schwere Arbeit.",
+        },
+        {
+          question: "Was für Dinge können Sie alles bauen?",
+          answer:
+            "Fast alles Digitale. Ein Auszug aus dem, was wir machen: Kundenportale und Buchungssysteme, interne Tools und Planungssoftware, komplette SaaS-Produkte, native iOS- und Android-Apps, KI-Assistenten und Automatisierungen, Echtzeit-Dashboards, Webshops mit Bezahlschranken oder Mitglieder-Inhalten und schnelle Marketing- oder Portfolio-Websites. Haben Sie eine Idee, die nicht auf dieser Liste steht? Wahrscheinlich geht es trotzdem — erzählen Sie es uns und wir denken mit.",
+        },
+        {
           question: "Was kostet es, eine Webapp entwickeln zu lassen?",
           answer:
             "Die Kosten einer Webapp hängen von der Komplexität und der Anzahl der Funktionen ab. Einfache Webanwendungen beginnen bei ca. €3.000–€6.000. Komplexere SaaS-Produkte oder Kundenportale kosten mehr. Wir arbeiten mit einem Festpreis nach einem kostenlosen Erstgespräch.",
@@ -1046,7 +1076,7 @@ export const translations = {
           question:
             "Was sind KI-Tools und wie können sie meinem Unternehmen helfen?",
           answer:
-            "KI-Tools sind maßgeschneiderte Softwarelösungen, die künstliche Intelligenz nutzen, um repetitive Aufgaben zu automatisieren. Denken Sie an automatische Dokumentenverarbeitung, intelligente Kundenkommunikation oder Datenanalyse. Wir verbinden bestehende KI-Modelle (wie GPT oder Claude) mit Ihren spezifischen Geschäftsprozessen.",
+            "KI-Tools sind maßgeschneiderte Lösungen, die künstliche Intelligenz nutzen, um Arbeit abzunehmen, die normalerweise viel Zeit oder Personal kostet. Kein generischer Chatbot, sondern eine Lösung, die genau zu Ihren Prozessen passt. Beispiele, die wir bauen: ein Assistent, der Angebote, Verträge oder E-Mails aus Ihren eigenen Vorlagen erstellt; Dokumentenverarbeitung, die Rechnungen, Belege oder Formulare ausliest und direkt in Ihr System einträgt; ein Support-Chatbot, trainiert auf Ihren Handbüchern und häufigen Fragen; eingehende Tickets und Mails, die automatisch kategorisiert und beantwortet werden; oder ein Tool, das lange Berichte und Datenberge zu klaren Erkenntnissen zusammenfasst. Wir verbinden Modelle wie GPT und Claude mit Ihren eigenen Daten und Ihrer Software — mit den richtigen Datenschutz-Vorkehrungen.",
         },
         {
           question:
@@ -1057,7 +1087,7 @@ export const translations = {
         {
           question: "Was ist Dashboarding und warum brauche ich es?",
           answer:
-            "Ein Dashboard visualisiert Ihre Unternehmensdaten an einem zentralen Ort — denken Sie an Umsatzzahlen, Website-Traffic, Kundendaten oder Lagerstand. Statt einzelner Excel-Dateien oder mehrerer Tools haben Sie alles in Echtzeit und übersichtlich zur Hand. Wir entwickeln individuelle Dashboards, die mit Ihren Datenquellen verbunden sind.",
+            "Ein Dashboard bringt alle Ihre Unternehmensdaten an einem Ort zusammen, in Echtzeit und übersichtlich — statt verstreuter Excel-Dateien und eines Wirrwarrs an Tools. Wir entwickeln individuelle Dashboards, verbunden mit Ihren Quellen: Google Analytics, Ihrer eigenen Datenbank, Ihrer Buchhaltung, Ihrem CRM oder externen APIs. Beispiele: ein Führungs-Cockpit mit Umsatz, Marge und KPIs; eine Echtzeit-Übersicht für Vertrieb oder Marketing; Lager- und Logistikberichte; oder Kunden- und Projekt-Dashboards zum Exportieren. Mit KI gehen wir einen Schritt weiter: Das Dashboard erkennt Trends, hebt Auffälligkeiten hervor und erklärt in klarer Sprache, was Ihre Zahlen bedeuten und was Ihr bester nächster Schritt ist.",
         },
         {
           question: "Wie läuft der Prozess bei Mobile Growth Studio ab?",

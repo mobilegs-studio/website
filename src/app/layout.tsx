@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — Mobile Growth Studio",
   },
   description:
-    "Mobile Growth Studio bouwt webapps, native apps, AI tooling, dashboards en websites voor Nederlandse MKB-ers en ZZP-ers. Gevestigd in Hilversum. Geen jargon, wel resultaat.",
+    "Mobile Growth Studio bouwt webapps, native apps, AI tooling, dashboards en websites voor MKB-ers en ZZP-ers. Gevestigd in Hilversum. Geen jargon, wel resultaat.",
   keywords: [
     "webapp laten bouwen",
     "app laten bouwen",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mobile Growth Studio — Apps & tools die je bedrijf slimmer maken",
     description:
-      "Webapps, native apps, AI tooling, dashboards en websites voor Nederlandse MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
+      "Webapps, native apps, AI tooling, dashboards en websites voor MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
     url: BASE_URL,
     siteName: "Mobile Growth Studio",
     locale: "nl_NL",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mobile Growth Studio",
     description:
-      "Webapps, native apps, AI tooling en websites voor Nederlandse MKB-ers en ZZP-ers.",
+      "Webapps, native apps, AI tooling en websites voor MKB-ers en ZZP-ers.",
     creator: "@mobilegrowthstudio",
   },
   robots: {

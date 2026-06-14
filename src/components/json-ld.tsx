@@ -10,7 +10,7 @@ export function OrganizationJsonLd() {
         url: "https://www.mobilegrowthstudio.com",
         logo: "https://www.mobilegrowthstudio.com/icon.png",
         description:
-          "Mobile Growth Studio bouwt webapps, native apps, AI tooling, dashboards en websites voor Nederlandse MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
+          "Mobile Growth Studio bouwt webapps, native apps, AI tooling, dashboards en websites voor MKB-ers en ZZP-ers. Geen jargon, wel resultaat.",
         founder: {
           "@type": "Person",
           name: "Hendrik Polinder",
