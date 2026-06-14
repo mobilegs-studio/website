@@ -1,20 +1,22 @@
 "use client";
 
-// Preview van een externe site: toont een (volledige-pagina) screenshot die
-// langzaam verticaal door het venster scrolt en alterneert (omhoog/omlaag),
-// als een rustige rondleiding. Pauzeert bij hover. De omliggende link opent
-// de echte site in een nieuw tabblad.
+// Preview van een externe site: een volledige-pagina screenshot die in een
+// naadloze, continue lus verticaal doorscrolt. De track bevat twee identieke
+// kopieën; de animatie schuift precies één kopie omhoog (-50%), waardoor de
+// bovenkant naadloos op de onderkant aansluit en het oneindig doorloopt.
+// Start direct bij render (duur uit de beeldverhouding, geen meet-vertraging).
+// Pauzeert bij hover. De omliggende link opent de echte site in een nieuw tab.
 //
 // Live inbedden via iframe is bewust losgelaten: oreq.nl en ericsweder.com
-// sturen X-Frame-Options / CSP frame-ancestors 'self', waardoor framing op
-// een ander domein door de browser geweigerd wordt.
-//
-// Het scroll-effect komt pas goed tot zijn recht met een lange volledige-
-// pagina screenshot. Geef per voorbeeld de echte beeldverhouding mee via
-// imgW/imgH zodat next/image niet vervormt.
+// sturen X-Frame-Options / CSP frame-ancestors 'self'.
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
+
+// Aangenomen weergavebreedte van een tegel (Tailwind w-72 = 288px); bepaalt
+// samen met de beeldverhouding de gerenderde hoogte en dus de scrollduur.
+const TILE_WIDTH = 288;
+const SPEED = 34; // px per seconde
 
 export default function SitePreview({
   image,
@@ -27,55 +29,42 @@ export default function SitePreview({
   imgW?: number;
   imgH?: number;
 }) {
-  const boxRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [distance, setDistance] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  useEffect(() => {
-    const measure = () => {
-      const box = boxRef.current;
-      const track = trackRef.current;
-      if (!box || !track) return;
-      setDistance(Math.max(0, track.offsetHeight - box.offsetHeight));
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    if (boxRef.current) ro.observe(boxRef.current);
-    if (trackRef.current) ro.observe(trackRef.current);
-    return () => ro.disconnect();
-  }, []);
-
-  // ~26px per seconde, met een minimum zodat korte screenshots niet jachtig zijn.
-  const duration = Math.max(10, Math.round(distance / 26));
+  const renderedHeight = (TILE_WIDTH * imgH) / imgW;
+  const duration = Math.max(18, Math.round(renderedHeight / SPEED));
 
   return (
     <div
-      ref={boxRef}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       className="relative aspect-video w-full overflow-hidden rounded-xl border border-(--color-border) bg-(--color-surface)"
     >
       <div
-        ref={trackRef}
-        className={distance > 0 ? "site-scroll-anim absolute top-0 left-0 w-full" : "absolute top-0 left-0 w-full"}
-        style={
-          distance > 0
-            ? ({
-                ["--site-scroll-distance"]: `${distance}px`,
-                animation: `site-scroll ${duration}s ease-in-out infinite alternate`,
-                animationPlayState: paused ? "paused" : "running",
-              } as React.CSSProperties)
-            : undefined
-        }
+        className="site-scroll-anim absolute top-0 left-0 w-full"
+        style={{
+          animation: `site-scroll ${duration}s linear infinite`,
+          animationPlayState: paused ? "paused" : "running",
+        }}
       >
+        {/* Twee identieke kopieën onder elkaar voor de naadloze lus */}
         <Image
           src={image}
           alt={alt}
           width={imgW}
           height={imgH}
           sizes="(max-width: 640px) 90vw, 360px"
-          className="w-full h-auto"
+          className="block w-full h-auto"
+          priority
+        />
+        <Image
+          src={image}
+          alt=""
+          aria-hidden
+          width={imgW}
+          height={imgH}
+          sizes="(max-width: 640px) 90vw, 360px"
+          className="block w-full h-auto"
         />
       </div>
 

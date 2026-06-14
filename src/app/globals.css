@@ -135,17 +135,16 @@ body {
     0 8px 30px -12px rgba(var(--accent-rgb), 0.35);
 }
 
-/* Site-preview: langzame verticale pan over een volledige paginascreenshot,
-   met korte rust boven- en onderaan. Distance wordt per element gezet via
-   de CSS-variabele --site-scroll-distance. */
+/* Site-preview: naadloze, continue verticale lus. De track bevat twee
+   identieke kopieën van de screenshot; -50% verplaatst precies één kopie,
+   waardoor de bovenkant naadloos aansluit op de onderkant. Linear + infinite,
+   start direct bij render. */
 @keyframes site-scroll {
-  0%,
-  8% {
+  from {
     transform: translateY(0);
   }
-  92%,
-  100% {
-    transform: translateY(calc(-1 * var(--site-scroll-distance, 0px)));
+  to {
+    transform: translateY(-50%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
