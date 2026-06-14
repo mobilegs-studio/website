@@ -134,3 +134,22 @@ body {
     0 24px 50px -16px rgba(0, 0, 0, 0.7),
     0 8px 30px -12px rgba(var(--accent-rgb), 0.35);
 }
+
+/* Site-preview: langzame verticale pan over een volledige paginascreenshot,
+   met korte rust boven- en onderaan. Distance wordt per element gezet via
+   de CSS-variabele --site-scroll-distance. */
+@keyframes site-scroll {
+  0%,
+  8% {
+    transform: translateY(0);
+  }
+  92%,
+  100% {
+    transform: translateY(calc(-1 * var(--site-scroll-distance, 0px)));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-scroll-anim {
+    animation: none !important;
+  }
+}

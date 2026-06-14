@@ -20,7 +20,13 @@ const fadeUp = {
   }),
 };
 
-type ServiceExample = { label: string; href?: string; image?: string };
+type ServiceExample = {
+  label: string;
+  href?: string;
+  image?: string;
+  imgW?: number;
+  imgH?: number;
+};
 
 // Voorbeelden van geleverd werk per dienst. AI tooling & Dashboarding zijn
 // placeholders tot er echte cases zijn; Websites toont al opgeleverd werk.
@@ -36,11 +42,19 @@ const serviceExamples: Record<string, ServiceExample[]> = {
     { label: "Marketing-attributie overzicht" },
   ],
   websites: [
-    { label: "OREQ", href: "https://oreq.nl", image: "/cases/oreq.png" },
+    {
+      label: "OREQ",
+      href: "https://oreq.nl",
+      image: "/cases/oreq-full.jpg",
+      imgW: 1024,
+      imgH: 6569,
+    },
     {
       label: "By Eric Sweder",
       href: "https://ericsweder.com",
-      image: "/cases/ericsweder.png",
+      image: "/cases/ericsweder-full.jpg",
+      imgW: 1024,
+      imgH: 7109,
     },
   ],
 };
@@ -368,14 +382,14 @@ export default function Home({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 24 }}
               transition={{ duration: 0.3, ease: easeOut }}
-              className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-3xl border border-(--color-border) bg-(--color-surface) p-8 sm:p-12"
+              className="relative w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden rounded-3xl border border-(--color-border) bg-(--color-surface)"
             >
-              {/* Sluitknop rechtsboven */}
+              {/* Sluitknop rechtsboven — blijft floaten, scrollt niet mee */}
               <button
                 type="button"
                 onClick={() => setOpenCard(null)}
                 aria-label={h.closeLabel}
-                className="absolute top-5 right-5 z-10 inline-flex items-center justify-center w-10 h-10 rounded-full border border-(--color-border) text-(--color-muted-light) hover:text-(--color-foreground) hover:border-(--color-muted) hover:bg-(--color-surface-hover) transition-colors"
+                className="absolute top-5 right-5 z-20 inline-flex items-center justify-center w-10 h-10 rounded-full border border-(--color-border) bg-(--color-surface)/80 backdrop-blur-sm text-(--color-muted-light) hover:text-(--color-foreground) hover:border-(--color-muted) hover:bg-(--color-surface-hover) transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
@@ -387,6 +401,8 @@ export default function Home({
                 </svg>
               </button>
 
+              {/* Scrollend gebied; de panel zelf scrollt niet zodat de X vast blijft */}
+              <div className="overflow-y-auto p-8 sm:p-12">
               {/* Decoratieve glow */}
               <div
                 className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-60"
@@ -449,7 +465,12 @@ export default function Home({
                     {activeExamples.map((ex) => {
                       const media = ex.image ? (
                         // Live ingebedde site met screenshot-fallback
-                        <SitePreview image={ex.image} alt={ex.label} />
+                        <SitePreview
+                          image={ex.image}
+                          alt={ex.label}
+                          imgW={ex.imgW}
+                          imgH={ex.imgH}
+                        />
                       ) : (
                         // Placeholder tot er een echte case is
                         <div className="relative aspect-video overflow-hidden rounded-xl border border-(--color-border) bg-[linear-gradient(150deg,rgba(91,95,232,0.28)_0%,rgba(124,127,237,0.12)_45%,rgba(224,185,120,0.14)_100%)]">
@@ -515,6 +536,7 @@ export default function Home({
                 >
                   {h.cta}
                 </Link>
+              </div>
               </div>
             </motion.div>
           </motion.div>
