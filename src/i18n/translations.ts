@@ -184,8 +184,8 @@ export const translations = {
       heading: "Hendrik Polinder.",
       bio: [
         "Mobile Growth Studio is het freelance label van Hendrik Polinder — senior growth manager en digitaal consultant gevestigd in Hilversum.",
-        "Ik help MKB-ers en ZZP-ers met het bouwen van digitale producten die echt werken. Geen overbodig advies, geen ingewikkelde trajecten — gewoon bouwen wat je nodig hebt.",
-        "Van webapp tot native app tot AI-tooling: ik neem het technische gedeelte uit handen zodat jij je kunt focussen op je bedrijf.",
+        "We helpen MKB-ers en ZZP-ers met het bouwen van digitale producten die echt werken. Geen overbodig advies, geen ingewikkelde trajecten — gewoon bouwen wat je nodig hebt.",
+        "Van webapp tot native app tot AI-tooling: we nemen het technische gedeelte uit handen zodat jij je kunt focussen op je bedrijf.",
       ],
       locationLabel: "Locatie",
       locationValue: "Hilversum, Nederland",
@@ -297,7 +297,7 @@ export const translations = {
       submitIdle: "Verstuur bericht",
       submitLoading: "Versturen...",
       successHeading: "Bericht verstuurd.",
-      successSubtext: "Ik reageer binnen één werkdag.",
+      successSubtext: "We reageren binnen één werkdag.",
       errorText:
         "Er ging iets mis. Probeer het opnieuw of mail direct naar info@mobilegrowthstudio.com.",
       emailInfoLabel: "E-mail",
@@ -574,8 +574,8 @@ export const translations = {
       heading: "Hendrik Polinder.",
       bio: [
         "Mobile Growth Studio is the freelance label of Hendrik Polinder — senior growth manager and digital consultant based in Hilversum, Netherlands.",
-        "I help SMEs and freelancers build digital products that actually work. No unnecessary advice, no complicated processes — just building what you need.",
-        "From webapp to native app to AI tooling: I handle the technical side so you can focus on your business.",
+        "We help SMEs and freelancers build digital products that actually work. No unnecessary advice, no complicated processes — just building what you need.",
+        "From webapp to native app to AI tooling: we handle the technical side so you can focus on your business.",
       ],
       locationLabel: "Location",
       locationValue: "Hilversum, Netherlands",
@@ -687,7 +687,7 @@ export const translations = {
       submitIdle: "Send message",
       submitLoading: "Sending...",
       successHeading: "Message sent.",
-      successSubtext: "I'll respond within one business day.",
+      successSubtext: "We'll respond within one business day.",
       errorText:
         "Something went wrong. Please try again or email directly at info@mobilegrowthstudio.com.",
       emailInfoLabel: "E-mail",
@@ -961,8 +961,8 @@ export const translations = {
       heading: "Hendrik Polinder.",
       bio: [
         "Mobile Growth Studio ist das Freelance-Label von Hendrik Polinder — Senior Growth Manager und digitaler Consultant mit Sitz in Hilversum, Niederlande.",
-        "Ich helfe kleinen und mittleren Unternehmen dabei, digitale Produkte zu entwickeln, die wirklich funktionieren. Keine unnötigen Beratungen, keine komplizierten Prozesse — einfach bauen, was Sie brauchen.",
-        "Vom Webapp über native Apps bis zu KI-Tools: Ich übernehme den technischen Teil, damit Sie sich auf Ihr Unternehmen konzentrieren können.",
+        "Wir helfen kleinen und mittleren Unternehmen dabei, digitale Produkte zu entwickeln, die wirklich funktionieren. Keine unnötigen Beratungen, keine komplizierten Prozesse — einfach bauen, was Sie brauchen.",
+        "Vom Webapp über native Apps bis zu KI-Tools: Wir übernehmen den technischen Teil, damit Sie sich auf Ihr Unternehmen konzentrieren können.",
       ],
       locationLabel: "Standort",
       locationValue: "Hilversum, Niederlande",
@@ -1074,7 +1074,7 @@ export const translations = {
       submitIdle: "Nachricht senden",
       submitLoading: "Wird gesendet...",
       successHeading: "Nachricht gesendet.",
-      successSubtext: "Ich antworte innerhalb eines Werktages.",
+      successSubtext: "Wir antworten innerhalb eines Werktages.",
       errorText:
         "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@mobilegrowthstudio.com.",
       emailInfoLabel: "E-Mail",

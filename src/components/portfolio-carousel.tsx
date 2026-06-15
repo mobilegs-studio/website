@@ -3,6 +3,14 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProductMockup from "@/components/product-mockup";
+import SitePreview from "@/components/site-preview";
+
+// Cases met een live scrollende volledige-pagina screenshot (zelfde als op
+// de homepage onder de diensten). Anders: de statische product-mockup.
+const SCROLL_PREVIEWS: Record<string, { image: string; w: number; h: number }> = {
+  oreq: { image: "/cases/oreq-full.jpg", w: 1024, h: 6569 },
+  ericsweder: { image: "/cases/ericsweder-full.jpg", w: 1024, h: 7109 },
+};
 
 interface Story {
   id: string;
@@ -69,13 +77,24 @@ export default function PortfolioCarousel({
             transition={{ duration: 0.5, ease: easeOut }}
             className="grid grid-cols-1 md:grid-cols-2 h-[600px] md:h-[440px]"
           >
-            {/* Product mockup */}
+            {/* Scrollende site-preview voor cases die er een hebben,
+                anders de statische product-mockup */}
             <div className="relative h-56 md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-(--color-border)">
-              <ProductMockup
-                type={story.mockup}
-                image={story.image}
-                alt={story.business}
-              />
+              {SCROLL_PREVIEWS[story.id] ? (
+                <SitePreview
+                  image={SCROLL_PREVIEWS[story.id].image}
+                  alt={story.business}
+                  imgW={SCROLL_PREVIEWS[story.id].w}
+                  imgH={SCROLL_PREVIEWS[story.id].h}
+                  className="h-full"
+                />
+              ) : (
+                <ProductMockup
+                  type={story.mockup}
+                  image={story.image}
+                  alt={story.business}
+                />
+              )}
             </div>
 
             {/* Content */}
