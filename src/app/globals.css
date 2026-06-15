@@ -147,6 +147,15 @@ body {
     transform: translateY(-50%);
   }
 }
+/* Animatie volledig in CSS; alleen de duur komt via --site-scroll-duration en
+   pauze via de .is-paused class. Zo wijzigt de inline-style nooit een
+   animatie-property tijdens een rerender (voorkomt de React shorthand-warning). */
+.site-scroll-anim {
+  animation: site-scroll var(--site-scroll-duration, 40s) linear infinite;
+}
+.site-scroll-anim.is-paused {
+  animation-play-state: paused;
+}
 @media (prefers-reduced-motion: reduce) {
   .site-scroll-anim {
     animation: none !important;

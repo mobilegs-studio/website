@@ -56,14 +56,12 @@ export default function SitePreview({
     >
       <div
         ref={trackRef}
-        className="site-scroll-anim absolute top-0 left-0 w-full"
-        style={{
-          animationName: "site-scroll",
-          animationDuration: `${duration}s`,
-          animationTimingFunction: "linear",
-          animationIterationCount: "infinite",
-          animationPlayState: paused ? "paused" : "running",
-        }}
+        className={`site-scroll-anim absolute top-0 left-0 w-full ${
+          paused ? "is-paused" : ""
+        }`}
+        style={
+          { "--site-scroll-duration": `${duration}s` } as React.CSSProperties
+        }
       >
         {/* Twee identieke kopieën onder elkaar voor de naadloze lus */}
         <Image
