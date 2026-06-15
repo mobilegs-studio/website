@@ -60,6 +60,25 @@ export const translations = {
       ],
       ctaHeading: "Klaar om te beginnen?",
       ctaSubtext: "Vertel ons wat je wilt bouwen. We reageren binnen 24 uur.",
+      differentiator: {
+        label: "Onze aanpak",
+        heading: "Gebouwd met AI. Sneller, scherper, bijna grenzeloos.",
+        body: "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit.",
+        points: [
+          {
+            title: "Sneller opgeleverd",
+            text: "AI versnelt elke fase, van concept en design tot code en oplevering.",
+          },
+          {
+            title: "Bijna niets onmogelijk",
+            text: "Complexe ideeën die voorheen te duur of te ingewikkeld waren, zijn nu wél haalbaar.",
+          },
+          {
+            title: "Fractie van de kosten",
+            text: "De kwaliteit van traditionele ontwikkeling, voor een fractie van de prijs.",
+          },
+        ],
+      },
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Te veel admin" },
@@ -304,19 +323,14 @@ export const translations = {
             "Onze klanten zijn MKB-bedrijven en ZZP-ers die een digitale oplossing nodig hebben maar geen eigen developers in dienst hebben. We werken voor bedrijven uit alle sectoren — van sportscholen en coachingspraktijken tot webwinkels en dienstverleners.",
         },
         {
-          question: "Wat maken jullie anders?",
+          question: "Wat maakt jullie anders?",
           answer:
-            "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit. Jij profiteert van de snelheid en de scherpe prijs, wij doen het zware werk.",
+            "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit. Bovendien is alles maatwerk, volledig toegespitst op jouw bedrijf en werkprocessen — geen standaardpakket, maar een oplossing die past op hoe jij werkt. Jij profiteert van de snelheid en de scherpe prijs, wij doen het zware werk.",
         },
         {
           question: "Wat voor dingen kunnen jullie zoal bouwen?",
           answer:
             "Bijna alles wat digitaal is. Een greep uit wat we maken: klantportalen en boekingssystemen, interne tools en planningssoftware, complete SaaS-producten, native iOS- en Android-apps, AI-assistenten en automatiseringen, realtime dashboards, webshops met betaalmuren of members-only content, en snelle marketing- of portfoliosites. Heb je een idee dat hier niet tussen staat? Grote kans dat het toch kan — vertel het ons en we denken mee.",
-        },
-        {
-          question: "Wat kost het om een webapp te laten bouwen?",
-          answer:
-            "De kosten van een webapp hangen af van de complexiteit en het aantal functies. Eenvoudige webapplicaties starten rond de €3.000–€6.000. Complexere SaaS-producten of klantportalen kosten meer. We werken op basis van een vaste projectprijs na een gratis kennismakingsgesprek.",
         },
         {
           question: "Wat is het verschil tussen een webapp en een native app?",
@@ -328,11 +342,6 @@ export const translations = {
             "Hoe lang duurt het om een app of website te laten bouwen?",
           answer:
             "Een eenvoudige website of landingspagina is er binnen 1–2 weken. Een webapp of native app duurt gemiddeld 4–10 weken afhankelijk van de scope. Na het eerste gesprek krijg je altijd een concrete planning.",
-        },
-        {
-          question: "Werken jullie met vaste prijzen of op uurbasis?",
-          answer:
-            "We werken bij voorkeur met een vaste projectprijs. Zo weet jij vooraf precies wat je betaalt en zijn er geen verrassingen achteraf. Voor doorlopend onderhoud of uitbreidingen werken we soms op retainer-basis.",
         },
         {
           question: "Wat is AI tooling en hoe kan het mijn bedrijf helpen?",
@@ -430,6 +439,25 @@ export const translations = {
       ctaHeading: "Ready to start?",
       ctaSubtext:
         "Tell us what you want to build. We'll respond within 24 hours.",
+      differentiator: {
+        label: "Our approach",
+        heading: "Built with AI. Faster, sharper, almost limitless.",
+        body: "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality.",
+        points: [
+          {
+            title: "Delivered faster",
+            text: "AI speeds up every phase, from concept and design to code and delivery.",
+          },
+          {
+            title: "Almost nothing impossible",
+            text: "Complex ideas that used to be too expensive or too complex are now within reach.",
+          },
+          {
+            title: "A fraction of the cost",
+            text: "The quality of traditional development, for a fraction of the price.",
+          },
+        ],
+      },
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Too much admin" },
@@ -676,17 +704,12 @@ export const translations = {
         {
           question: "What makes you different?",
           answer:
-            "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality. You get the speed and the sharp price, we do the heavy lifting.",
+            "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality. On top of that, everything is custom-built, fully tailored to your business and the way you work — not an off-the-shelf package, but a solution that fits your processes. You get the speed and the sharp price, we do the heavy lifting.",
         },
         {
           question: "What kinds of things can you build?",
           answer:
             "Almost anything digital. A taste of what we make: client portals and booking systems, internal tools and planning software, full SaaS products, native iOS and Android apps, AI assistants and automations, real-time dashboards, webshops with paywalls or members-only content, and fast marketing or portfolio sites. Have an idea that isn't on this list? Chances are it's still possible — tell us and we'll think along.",
-        },
-        {
-          question: "What does it cost to have a webapp built?",
-          answer:
-            "The cost of a webapp depends on complexity and the number of features. Simple web applications start around €3,000–€6,000. More complex SaaS products or client portals cost more. We work with a fixed project price after a free introductory call.",
         },
         {
           question: "What is the difference between a webapp and a native app?",
@@ -697,11 +720,6 @@ export const translations = {
           question: "How long does it take to build an app or website?",
           answer:
             "A simple website or landing page can be ready within 1–2 weeks. A webapp or native app typically takes 4–10 weeks depending on scope. After the first call you always receive a concrete timeline.",
-        },
-        {
-          question: "Do you work with fixed prices or hourly rates?",
-          answer:
-            "We prefer to work with a fixed project price. That way you know exactly what you'll pay upfront and there are no surprises afterwards. For ongoing maintenance or extensions we sometimes work on a retainer basis.",
         },
         {
           question: "What is AI tooling and how can it help my business?",
@@ -797,6 +815,25 @@ export const translations = {
       ctaHeading: "Bereit loszulegen?",
       ctaSubtext:
         "Erzählen Sie uns, was Sie bauen möchten. Wir antworten innerhalb von 24 Stunden.",
+      differentiator: {
+        label: "Unser Ansatz",
+        heading: "Gebaut mit KI. Schneller, schärfer, fast grenzenlos.",
+        body: "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität.",
+        points: [
+          {
+            title: "Schneller geliefert",
+            text: "KI beschleunigt jede Phase, von Konzept und Design bis Code und Auslieferung.",
+          },
+          {
+            title: "Fast nichts unmöglich",
+            text: "Komplexe Ideen, die früher zu teuer oder zu komplex waren, sind jetzt machbar.",
+          },
+          {
+            title: "Bruchteil der Kosten",
+            text: "Die Qualität klassischer Entwicklung, zu einem Bruchteil des Preises.",
+          },
+        ],
+      },
       connectionGraphic: {
         inputs: [
           { id: "admin", label: "Zu viel Admin" },
@@ -1043,17 +1080,12 @@ export const translations = {
         {
           question: "Was machen Sie anders?",
           answer:
-            "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität. Sie profitieren von Tempo und scharfem Preis, wir übernehmen die schwere Arbeit.",
+            "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität. Außerdem ist alles maßgeschneidert, vollständig auf Ihr Unternehmen und Ihre Arbeitsabläufe zugeschnitten — kein Standardpaket, sondern eine Lösung, die zu Ihrer Arbeitsweise passt. Sie profitieren von Tempo und scharfem Preis, wir übernehmen die schwere Arbeit.",
         },
         {
           question: "Was für Dinge können Sie alles bauen?",
           answer:
             "Fast alles Digitale. Ein Auszug aus dem, was wir machen: Kundenportale und Buchungssysteme, interne Tools und Planungssoftware, komplette SaaS-Produkte, native iOS- und Android-Apps, KI-Assistenten und Automatisierungen, Echtzeit-Dashboards, Webshops mit Bezahlschranken oder Mitglieder-Inhalten und schnelle Marketing- oder Portfolio-Websites. Haben Sie eine Idee, die nicht auf dieser Liste steht? Wahrscheinlich geht es trotzdem — erzählen Sie es uns und wir denken mit.",
-        },
-        {
-          question: "Was kostet es, eine Webapp entwickeln zu lassen?",
-          answer:
-            "Die Kosten einer Webapp hängen von der Komplexität und der Anzahl der Funktionen ab. Einfache Webanwendungen beginnen bei ca. €3.000–€6.000. Komplexere SaaS-Produkte oder Kundenportale kosten mehr. Wir arbeiten mit einem Festpreis nach einem kostenlosen Erstgespräch.",
         },
         {
           question:
@@ -1066,11 +1098,6 @@ export const translations = {
             "Wie lange dauert die Entwicklung einer App oder Website?",
           answer:
             "Eine einfache Website oder Landing Page ist in 1–2 Wochen fertig. Eine Webapp oder native App dauert durchschnittlich 4–10 Wochen je nach Umfang. Nach dem ersten Gespräch erhalten Sie immer eine konkrete Planung.",
-        },
-        {
-          question: "Arbeiten Sie mit Festpreisen oder auf Stundenbasis?",
-          answer:
-            "Wir bevorzugen einen Festpreis. So wissen Sie im Voraus genau, was Sie zahlen, und es gibt keine Überraschungen im Nachhinein. Für laufende Wartung oder Erweiterungen arbeiten wir manchmal auf Retainer-Basis.",
         },
         {
           question:

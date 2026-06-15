@@ -543,6 +543,48 @@ export default function Home({
         )}
       </AnimatePresence>
 
+      {/* Differentiator — AI in het hart van het proces */}
+      <section className="px-6 pb-24 max-w-7xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: easeOut }}
+          className="relative overflow-hidden rounded-3xl border border-[rgba(var(--accent-rgb),0.35)] p-8 sm:p-14"
+        >
+          <div
+            className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full blur-3xl opacity-50"
+            style={{ background: "rgba(91,95,232,0.22)" }}
+          />
+          <div className="relative">
+            <span className="text-xs tracking-[0.22em] uppercase text-(--color-accent-light)">
+              {h.differentiator.label}
+            </span>
+            <h2 className="mt-5 font-sans font-bold tracking-tight text-3xl sm:text-5xl leading-tight max-w-3xl">
+              {h.differentiator.heading}
+            </h2>
+            <p className="mt-6 text-base sm:text-lg text-(--color-muted-light) max-w-3xl leading-relaxed">
+              {h.differentiator.body}
+            </p>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {h.differentiator.points.map((p) => (
+                <div
+                  key={p.title}
+                  className="rounded-2xl border border-(--color-border) bg-(--color-background)/40 p-6"
+                >
+                  <p className="text-base font-semibold tracking-tight text-(--color-accent-light)">
+                    {p.title}
+                  </p>
+                  <p className="mt-2 text-sm text-(--color-muted-light) leading-relaxed">
+                    {p.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* How it works — contrast band */}
       <section className="bg-(--color-surface) border-y border-(--color-border) px-6 py-24">
         <div className="max-w-7xl mx-auto w-full">

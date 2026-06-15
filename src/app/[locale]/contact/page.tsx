@@ -9,6 +9,7 @@ export default async function Contact({
   const { locale } = await params;
   const t = getTranslations(locale);
   const c = t.contact;
+  const d = t.home.differentiator;
 
   return (
     <main className="flex flex-1 flex-col px-6 py-32 max-w-5xl mx-auto w-full">
@@ -21,6 +22,36 @@ export default async function Contact({
       <p className="mt-8 text-lg text-(--color-muted) max-w-xl leading-relaxed">
         {c.subtext}
       </p>
+
+      {/* Differentiator — AI-aanpak, prominent bij get-in-touch */}
+      <div className="mt-12 relative overflow-hidden rounded-3xl border border-[rgba(var(--accent-rgb),0.35)] p-7 sm:p-10">
+        <div
+          className="pointer-events-none absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-50"
+          style={{ background: "rgba(91,95,232,0.22)" }}
+        />
+        <div className="relative">
+          <span className="text-xs tracking-[0.22em] uppercase text-(--color-accent-light)">
+            {d.label}
+          </span>
+          <h2 className="mt-4 text-2xl sm:text-3xl font-bold tracking-tight leading-tight max-w-2xl">
+            {d.heading}
+          </h2>
+          <p className="mt-4 text-(--color-muted-light) leading-relaxed max-w-2xl">
+            {d.body}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+            {d.points.map((p) => (
+              <span
+                key={p.title}
+                className="inline-flex items-center gap-2 text-sm font-medium"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent) shrink-0" />
+                {p.title}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
         <ContactForm t={c} />
