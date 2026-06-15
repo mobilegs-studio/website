@@ -63,7 +63,7 @@ export const translations = {
       differentiator: {
         label: "Onze aanpak",
         heading: "Gebouwd met AI. Sneller, scherper, bijna grenzeloos.",
-        body: "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit.",
+        body: "We bouwen met AI in het hart van ons proces. Dat versnelt elke fase — van concept en design tot code en oplevering — zodat je sneller een werkend product in handen hebt. Het maakt qua design en functionaliteit bijna niets onmogelijk: ideeën die met traditionele ontwikkeling te duur of te complex waren, zijn nu wél haalbaar. En dat alles tegen een fractie van de kosten van een klassiek dev-traject, zonder in te leveren op kwaliteit. Bovendien is alles maatwerk, volledig toegespitst op jouw bedrijf en werkprocessen.",
         points: [
           {
             title: "Sneller opgeleverd",
@@ -76,6 +76,10 @@ export const translations = {
           {
             title: "Fractie van de kosten",
             text: "De kwaliteit van traditionele ontwikkeling, voor een fractie van de prijs.",
+          },
+          {
+            title: "Maatwerk op jouw processen",
+            text: "Volledig toegespitst op jouw bedrijf en werkprocessen, geen standaardpakket.",
           },
         ],
       },
@@ -271,7 +275,7 @@ export const translations = {
       label: "Contact",
       heading: "Laten we praten.",
       subtext:
-        "Heb je een project in gedachten? Vertel me wat je nodig hebt en ik reageer binnen één werkdag.",
+        "Heb je een project in gedachten? Vertel ons wat je nodig hebt en we reageren binnen één werkdag.",
       nameLabel: "Naam",
       namePlaceholder: "Jan de Vries",
       emailLabel: "E-mail",
@@ -289,7 +293,7 @@ export const translations = {
         { value: "anders", label: "Iets anders" },
       ],
       messageLabel: "Bericht",
-      messagePlaceholder: "Vertel me over je project...",
+      messagePlaceholder: "Vertel ons over je project...",
       submitIdle: "Verstuur bericht",
       submitLoading: "Versturen...",
       successHeading: "Bericht verstuurd.",
@@ -449,7 +453,7 @@ export const translations = {
       differentiator: {
         label: "Our approach",
         heading: "Built with AI. Faster, sharper, almost limitless.",
-        body: "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality.",
+        body: "We build with AI at the heart of our process. That speeds up every phase — from concept and design to code and delivery — so you have a working product in hand sooner. It makes almost nothing impossible in terms of design and functionality: ideas that were too expensive or too complex with traditional development are now within reach. And all of that at a fraction of the cost of a classic dev project, without compromising on quality. On top of that, everything is custom-built, fully tailored to your business and the way you work.",
         points: [
           {
             title: "Delivered faster",
@@ -462,6 +466,10 @@ export const translations = {
           {
             title: "A fraction of the cost",
             text: "The quality of traditional development, for a fraction of the price.",
+          },
+          {
+            title: "Tailored to your processes",
+            text: "Fully built around your business and the way you work, never off-the-shelf.",
           },
         ],
       },
@@ -657,7 +665,7 @@ export const translations = {
       label: "Contact",
       heading: "Let's talk.",
       subtext:
-        "Have a project in mind? Tell me what you need and I'll respond within one business day.",
+        "Have a project in mind? Tell us what you need and we'll respond within one business day.",
       nameLabel: "Name",
       namePlaceholder: "John Smith",
       emailLabel: "E-mail",
@@ -675,7 +683,7 @@ export const translations = {
         { value: "anders", label: "Something else" },
       ],
       messageLabel: "Message",
-      messagePlaceholder: "Tell me about your project...",
+      messagePlaceholder: "Tell us about your project...",
       submitIdle: "Send message",
       submitLoading: "Sending...",
       successHeading: "Message sent.",
@@ -832,7 +840,7 @@ export const translations = {
       differentiator: {
         label: "Unser Ansatz",
         heading: "Gebaut mit KI. Schneller, schärfer, fast grenzenlos.",
-        body: "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität.",
+        body: "Wir bauen mit KI im Zentrum unseres Prozesses. Das beschleunigt jede Phase — von Konzept und Design über Code bis zur Auslieferung — sodass Sie schneller ein funktionierendes Produkt in der Hand haben. Bei Design und Funktionalität ist damit fast nichts unmöglich: Ideen, die mit klassischer Entwicklung zu teuer oder zu komplex waren, sind jetzt machbar. Und das alles zu einem Bruchteil der Kosten eines klassischen Entwicklungsprojekts, ohne Abstriche bei der Qualität. Außerdem ist alles maßgeschneidert, vollständig auf Ihr Unternehmen und Ihre Arbeitsabläufe zugeschnitten.",
         points: [
           {
             title: "Schneller geliefert",
@@ -845,6 +853,10 @@ export const translations = {
           {
             title: "Bruchteil der Kosten",
             text: "Die Qualität klassischer Entwicklung, zu einem Bruchteil des Preises.",
+          },
+          {
+            title: "Maßgeschneidert auf Ihre Prozesse",
+            text: "Vollständig auf Ihr Unternehmen und Ihre Arbeitsabläufe zugeschnitten, kein Standardpaket.",
           },
         ],
       },
@@ -1040,7 +1052,7 @@ export const translations = {
       label: "Kontakt",
       heading: "Lassen Sie uns reden.",
       subtext:
-        "Haben Sie ein Projekt im Sinn? Erzählen Sie mir, was Sie brauchen, und ich antworte innerhalb eines Werktages.",
+        "Haben Sie ein Projekt im Sinn? Erzählen Sie uns, was Sie brauchen, und wir antworten innerhalb eines Werktages.",
       nameLabel: "Name",
       namePlaceholder: "Max Mustermann",
       emailLabel: "E-Mail",
@@ -1058,7 +1070,7 @@ export const translations = {
         { value: "anders", label: "Etwas anderem" },
       ],
       messageLabel: "Nachricht",
-      messagePlaceholder: "Erzählen Sie mir von Ihrem Projekt...",
+      messagePlaceholder: "Erzählen Sie uns von Ihrem Projekt...",
       submitIdle: "Nachricht senden",
       submitLoading: "Wird gesendet...",
       successHeading: "Nachricht gesendet.",

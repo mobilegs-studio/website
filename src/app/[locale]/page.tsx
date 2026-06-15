@@ -566,7 +566,7 @@ export default function Home({
             <p className="mt-6 text-base sm:text-lg text-(--color-muted-light) max-w-3xl leading-relaxed">
               {h.differentiator.body}
             </p>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {h.differentiator.points.map((p) => (
                 <div
                   key={p.title}
