@@ -139,7 +139,9 @@ export const translations = {
             "SEO, GEO & AEO (vindbaar in Google én AI-zoekmachines)",
             "Integratie met externe tools (CRM, nieuwsbrief, betalingen)",
             "Betaalmuren & members-only content",
-            "Analytics & conversie-tracking",
+            "Analytics, A/B-testing & conversie-optimalisatie (CRO)",
+            "AVG- & cookie-consent",
+            "Topprestaties & rich results (Core Web Vitals, schema.org)",
             "CMS-integratie (indien gewenst)",
           ],
         },
@@ -344,6 +346,11 @@ export const translations = {
             "Een eenvoudige website of landingspagina is er binnen 1–2 weken. Een webapp of native app duurt gemiddeld 4–10 weken afhankelijk van de scope. Na het eerste gesprek krijg je altijd een concrete planning.",
         },
         {
+          question: "Werken jullie met vaste prijzen?",
+          answer:
+            "Ja. We werken bij voorkeur met een vaste projectprijs, afgesproken na een gratis kennismakingsgesprek. Zo weet je vooraf waar je aan toe bent en zijn er geen verrassingen achteraf. Voor doorlopend onderhoud of uitbreidingen werken we soms op retainer-basis.",
+        },
+        {
           question: "Wat is AI tooling en hoe kan het mijn bedrijf helpen?",
           answer:
             "AI tooling zijn op maat gemaakte tools die kunstmatige intelligentie inzetten om werk uit handen te nemen dat normaal veel tijd of mensen kost. Geen generieke chatbot, maar een oplossing die precies op jouw processen past. Voorbeelden die we bouwen: een assistent die offertes, contracten of e-mails automatisch opstelt uit je eigen sjablonen; documentverwerking die facturen, bonnen of formulieren uitleest en direct in je systeem zet; een support-chatbot getraind op jouw handleidingen en veelgestelde vragen; binnenkomende tickets en mails die automatisch worden gecategoriseerd en beantwoord; of een tool die lange rapporten en databergen samenvat tot heldere inzichten. We koppelen modellen als GPT en Claude aan jouw eigen data en software, met de juiste waarborgen voor privacy.",
@@ -518,7 +525,9 @@ export const translations = {
             "SEO, GEO & AEO (found on Google and AI search)",
             "Integration with external tools (CRM, newsletter, payments)",
             "Paywalls & members-only content",
-            "Analytics & conversion tracking",
+            "Analytics, A/B testing & conversion optimisation (CRO)",
+            "GDPR & cookie consent",
+            "Top performance & rich results (Core Web Vitals, schema.org)",
             "CMS integration (if desired)",
           ],
         },
@@ -722,6 +731,11 @@ export const translations = {
             "A simple website or landing page can be ready within 1–2 weeks. A webapp or native app typically takes 4–10 weeks depending on scope. After the first call you always receive a concrete timeline.",
         },
         {
+          question: "Do you work with fixed prices?",
+          answer:
+            "Yes. We prefer to work with a fixed project price, agreed after a free introductory call. That way you know where you stand upfront and there are no surprises afterwards. For ongoing maintenance or extensions we sometimes work on a retainer basis.",
+        },
+        {
           question: "What is AI tooling and how can it help my business?",
           answer:
             "AI tooling is custom software that uses artificial intelligence to take over work that normally costs a lot of time or people. Not a generic chatbot, but a solution that fits your exact processes. Examples we build: an assistant that drafts quotes, contracts or emails from your own templates; document processing that reads invoices, receipts or forms and files them straight into your system; a support chatbot trained on your manuals and FAQs; incoming tickets and emails that are automatically categorised and answered; or a tool that summarises long reports and piles of data into clear insights. We connect models like GPT and Claude to your own data and software, with the right privacy safeguards.",
@@ -894,7 +908,9 @@ export const translations = {
             "SEO, GEO & AEO (auffindbar bei Google und KI-Suche)",
             "Integration mit externen Tools (CRM, Newsletter, Zahlungen)",
             "Bezahlschranken & Mitglieder-Inhalte",
-            "Analytics & Conversion-Tracking",
+            "Analytics, A/B-Tests & Conversion-Optimierung (CRO)",
+            "DSGVO- & Cookie-Consent",
+            "Top-Performance & Rich Results (Core Web Vitals, schema.org)",
             "CMS-Integration (auf Wunsch)",
           ],
         },
@@ -1098,6 +1114,11 @@ export const translations = {
             "Wie lange dauert die Entwicklung einer App oder Website?",
           answer:
             "Eine einfache Website oder Landing Page ist in 1–2 Wochen fertig. Eine Webapp oder native App dauert durchschnittlich 4–10 Wochen je nach Umfang. Nach dem ersten Gespräch erhalten Sie immer eine konkrete Planung.",
+        },
+        {
+          question: "Arbeiten Sie mit Festpreisen?",
+          answer:
+            "Ja. Wir arbeiten bevorzugt mit einem Festpreis, vereinbart nach einem kostenlosen Erstgespräch. So wissen Sie im Voraus, woran Sie sind, und es gibt keine Überraschungen im Nachhinein. Für laufende Wartung oder Erweiterungen arbeiten wir manchmal auf Retainer-Basis.",
         },
         {
           question:

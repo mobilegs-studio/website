@@ -54,7 +54,7 @@ export default async function Contact({
       </div>
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
-        <ContactForm t={c} />
+        <ContactForm t={c} differentiator={d} />
 
         <div className="flex flex-col gap-8 md:pt-0 pt-8 border-t border-(--color-border) md:border-0">
           <div>

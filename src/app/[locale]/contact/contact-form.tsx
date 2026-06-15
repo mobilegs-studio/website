@@ -26,7 +26,20 @@ interface ContactFormTranslations {
   errorText: string;
 }
 
-export default function ContactForm({ t }: { t: ContactFormTranslations }) {
+interface Differentiator {
+  label: string;
+  heading: string;
+  body: string;
+  points: readonly { title: string; text: string }[];
+}
+
+export default function ContactForm({
+  t,
+  differentiator,
+}: {
+  t: ContactFormTranslations;
+  differentiator: Differentiator;
+}) {
   const [form, setForm] = useState({
     naam: "",
     email: "",
@@ -55,6 +68,27 @@ export default function ContactForm({ t }: { t: ContactFormTranslations }) {
         <span className="text-2xl">✓</span>
         <p className="font-semibold text-lg">{t.successHeading}</p>
         <p className="text-(--color-muted)">{t.successSubtext}</p>
+
+        {/* AI-differentiator als reminder na verzending */}
+        <div className="mt-4 relative overflow-hidden rounded-2xl border border-[rgba(var(--accent-rgb),0.35)] p-5">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-(--color-accent-light)">
+            {differentiator.label}
+          </p>
+          <p className="mt-2 font-semibold tracking-tight">
+            {differentiator.heading}
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+            {differentiator.points.map((p) => (
+              <span
+                key={p.title}
+                className="inline-flex items-center gap-2 text-sm text-(--color-muted-light)"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-(--color-accent) shrink-0" />
+                {p.title}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
