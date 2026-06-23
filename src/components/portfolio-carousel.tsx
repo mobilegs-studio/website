@@ -8,7 +8,7 @@ import SitePreview from "@/components/site-preview";
 // Cases met een live scrollende volledige-pagina screenshot (zelfde als op
 // de homepage onder de diensten). Anders: de statische product-mockup.
 const SCROLL_PREVIEWS: Record<string, { image: string; w: number; h: number }> = {
-  oreq: { image: "/cases/oreq-full.jpg", w: 1024, h: 6569 },
+  oreq: { image: "/cases/oreq-full.jpg", w: 1024, h: 5555 },
   ericsweder: { image: "/cases/ericsweder-full.jpg", w: 1024, h: 7109 },
 };
 

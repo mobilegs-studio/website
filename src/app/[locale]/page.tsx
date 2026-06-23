@@ -47,7 +47,7 @@ const serviceExamples: Record<string, ServiceExample[]> = {
       href: "https://oreq.nl",
       image: "/cases/oreq-full.jpg",
       imgW: 1024,
-      imgH: 6569,
+      imgH: 5555,
     },
     {
       label: "By Eric Sweder",
