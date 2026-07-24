@@ -60,4 +60,12 @@ Bij het bijwerken van de log:
   De tag `<toggle>` werkt NIET (wordt als platte tekst opgeslagen).
 - Toggle-titel = datum + tijd + korte omschrijving van de sessie.
 
+Spiegel elke nieuwe toggle ook naar Obsidian (vault MGS, bestand
+`MGS-Projects/Changelog - Claude Code.md`). Zelfde `<details><summary>`-toggle,
+bovenaan de "Logboek updates"-sectie, titel = Datum — Tijd — Onderwerp.
+Schrijven gaat via de Local REST API van de plugin "Local REST API with MCP":
+PATCH/append op `https://127.0.0.1:27124/vault/MGS-Projects/Changelog%20-%20Claude%20Code.md`
+met header `Authorization: Bearer <OBSIDIAN_API_KEY>` (key staat in de obsidian MCP-config),
+of via de `mcp__obsidian__*` tools zodra die in de sessie geladen zijn.
+
 

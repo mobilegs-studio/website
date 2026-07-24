@@ -135,6 +135,67 @@ body {
     0 8px 30px -12px rgba(var(--accent-rgb), 0.35);
 }
 
+/* ————— Futuristische motion-utilities ————— */
+
+/* Shimmer over gradient-tekst: de achtergrond schuift langzaam heen en weer,
+   waardoor de amber-stop als lichtstreep door het woord loopt. */
+@keyframes text-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.text-shimmer {
+  background-size: 200% 100%;
+  animation: text-shimmer 7s ease-in-out infinite;
+}
+
+/* Dot-grid laag voor sectie-achtergronden; mask laat 'm wegvloeien naar de
+   randen zodat het een vignet blijft en geen behang wordt. */
+.bg-dot-grid {
+  background-image: radial-gradient(
+    rgba(155, 163, 242, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 40%,
+    black 25%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 40%,
+    black 25%,
+    transparent 75%
+  );
+}
+
+/* Zachte puls voor "live"-indicatoren in de demo-dashboards. */
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(155, 163, 242, 0.5);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 5px rgba(155, 163, 242, 0);
+  }
+}
+.live-dot {
+  animation: live-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer,
+  .live-dot {
+    animation: none !important;
+  }
+}
+
 /* Site-preview: naadloze, continue verticale lus. De track bevat twee
    identieke kopieën van de screenshot; -50% verplaatst precies één kopie,
    waardoor de bovenkant naadloos aansluit op de onderkant. Linear + infinite,

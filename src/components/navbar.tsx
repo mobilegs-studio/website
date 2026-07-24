@@ -96,7 +96,9 @@ export default function Navbar({
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          {/* gap-5 op md, gap-8 vanaf lg: voorkomt dat nav en taalwissel
+              elkaar raken op smalle desktop-breedtes (~800-1000px). */}
+          <ul className="hidden md:flex items-center gap-5 lg:gap-8">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -113,7 +115,7 @@ export default function Navbar({
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 pl-4">
             {/* Language switcher */}
             <div className="flex items-center gap-1.5 text-xs text-(--color-muted)">
               {LOCALES.map((loc, i) => (

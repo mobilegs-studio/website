@@ -1,13 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import { use, useEffect, useState } from "react";
 import { getTranslations } from "@/i18n/translations";
 import { serviceIcons } from "@/components/service-icons";
 import ConnectionGraphic from "@/components/connection-graphic";
 import SitePreview from "@/components/site-preview";
 import DummyDashboard from "@/components/dummy-dashboard";
+import HeroCanvas from "@/components/hero-canvas";
+import ShowcaseSection from "@/components/showcases/showcase-section";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -68,6 +76,21 @@ export default function Home({
   const t = getTranslations(locale);
   const h = t.home;
   const services = t.services.items;
+  const reduceMotion = useReducedMotion();
+  // Scroll-voortgang als dunne gradient-balk bovenaan de pagina.
+  const { scrollYProgress } = useScroll();
+  const progressX = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  // Headline woord-voor-woord: blur → scherp, met de accentwoorden in de
+  // brand-gradient + shimmer.
+  const headlineWords = [
+    ...h.headline1.split(" ").map((w) => ({ w, accent: false })),
+    ...h.headlineAccent.split(" ").map((w) => ({ w, accent: true })),
+    ...h.headline2.split(" ").map((w) => ({ w, accent: false })),
+  ];
   const [openCard, setOpenCard] = useState<string | null>(null);
   const activeService = services.find((s) => s.id === openCard) ?? null;
   const activeExamples = openCard ? serviceExamples[openCard] : undefined;
@@ -90,8 +113,17 @@ export default function Home({
 
   return (
     <main className="flex flex-1 flex-col">
+      {/* Scroll-voortgang — dunne brand-gradient balk boven alles */}
+      <motion.div
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 h-[2px] origin-left z-[60]"
+        style={{ scaleX: progressX, background: "var(--brand-gradient)" }}
+      />
+
       {/* Hero */}
       <section className="relative flex flex-col items-center justify-center px-6 pt-40 pb-24 sm:pt-52 sm:pb-28 text-center overflow-hidden">
+        {/* WebGL-veld — deeltjes en hairlines in brandkleuren */}
+        <HeroCanvas />
         {/* Cool indigo glow — top center (tech anchor) */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -119,24 +151,41 @@ export default function Home({
           {h.label}
         </motion.p>
 
-        <motion.h1
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className={`font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight ${
+        <h1
+          className={`relative font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight ${
             locale === "en" ? "max-w-6xl" : "max-w-4xl"
           }`}
         >
-          {h.headline1}{" "}
-          <span
-            className="text-transparent bg-clip-text"
-            style={{ backgroundImage: "var(--brand-gradient)" }}
-          >
-            {h.headlineAccent}
-          </span>{" "}
-          {h.headline2}
-        </motion.h1>
+          {/* Woord-voor-woord onthulling: blur → scherp; accent in gradient
+              met shimmer. Bij reduced motion verschijnt alles direct. */}
+          {headlineWords.map(({ w, accent }, i) => (
+            <motion.span
+              key={`${w}-${i}`}
+              initial={
+                reduceMotion
+                  ? false
+                  : { opacity: 0, y: 20, filter: "blur(10px)" }
+              }
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{
+                delay: 0.15 + i * 0.07,
+                duration: 0.65,
+                ease: easeOut,
+              }}
+              className={`inline-block will-change-transform ${
+                accent ? "text-transparent bg-clip-text text-shimmer" : ""
+              }`}
+              style={
+                accent ? { backgroundImage: "var(--brand-gradient)" } : undefined
+              }
+            >
+              {w}
+            </motion.span>
+          )).flatMap((el, i) =>
+            // Spatie buiten de inline-block span, anders collapsed hij weg.
+            i < headlineWords.length - 1 ? [el, " "] : [el]
+          )}
+        </h1>
 
         <motion.p
           custom={2}
@@ -157,13 +206,13 @@ export default function Home({
         >
           <Link
             href={`/${locale}/contact`}
-            className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+            className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full text-sm transition-all duration-300 shadow-[0_8px_30px_-10px_rgba(91,95,232,0.7)] hover:shadow-[0_12px_44px_-8px_rgba(91,95,232,0.9)] hover:-translate-y-0.5 active:translate-y-0"
           >
             {h.cta}
           </Link>
           <Link
             href={`/${locale}/diensten`}
-            className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm"
+            className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm backdrop-blur-sm"
           >
             {h.viewServices}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -357,6 +406,9 @@ export default function Home({
           </motion.div>
         </div>
       </section>
+
+      {/* Showcases — geanonimiseerde enterprise-demo's met fictieve data */}
+      <ShowcaseSection locale={locale} />
 
       {/* Focus-dienst modal — bijna-fullscreen, sluit via kruisje of backdrop */}
       <AnimatePresence>
