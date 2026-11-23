@@ -1,7 +1,7 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **7 juni 2026 — 19:06**
-> Dit document is voorbereid om naar de Notion-log ("MGS Website Stack — Setup Log & Documentatie") gepusht te worden. Notion was onbereikbaar tijdens het schrijven, vandaar eerst hier in de repo.
+> Laatst bijgewerkt: **23 november 2026 — 16:45**
+> Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
 
@@ -12,9 +12,9 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 ### Publieke pagina's (per taal: `/en`, `/nl`, `/de`)
 | Route | Bestand | Omschrijving |
 |---|---|---|
-| `/[locale]` | `app/[locale]/page.tsx` | Home — hero, diensten, proces, CTA, gratis pitch-download |
+| `/[locale]` | `app/[locale]/page.tsx` | Home — hero met live-build demo, diensten, showcases, kant-en-klare oplossingen (FitTrack, GymBook), aanpak, proces, CTA |
 | `/[locale]/diensten` | `app/[locale]/diensten/page.tsx` | Diensten-overzicht |
-| `/[locale]/cases` | `app/[locale]/cases/page.tsx` | Cases / succesverhalen |
+| `/[locale]/portfolio` | `app/[locale]/portfolio/page.tsx` | Portfolio / cases met scrollende previews |
 | `/[locale]/faq` | `app/[locale]/faq/page.tsx` | Veelgestelde vragen |
 | `/[locale]/over` | `app/[locale]/over/page.tsx` | Over Hendrik / MGS |
 | `/[locale]/contact` | `app/[locale]/contact/page.tsx` | Contactformulier (Resend) |
@@ -28,6 +28,12 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 | `/[locale]/login` | `app/[locale]/login/page.tsx` | Inloggen via magic link (+ Google-knop, provider nog uit) |
 | `/[locale]/account` | `app/[locale]/account/page.tsx` | Account-centrum: producten, toegang, downloads, uitloggen. `force-dynamic`, redirect naar login zonder sessie |
 | `/auth/callback` | `app/auth/callback/route.ts` | Wisselt auth-code in voor een sessie (magic link / OAuth). Buiten `[locale]`, door middleware overgeslagen |
+
+### Beheer (alleen admins)
+| Route | Bestand | Omschrijving |
+|---|---|---|
+| `/admin` | `app/admin/page.tsx` | Content beheren: overzicht van cases, home & diensten, FAQ, juridisch. Layout stuurt niet-ingelogd naar `/nl/login`, niet-admins weg |
+| `/admin/cases` | `app/admin/cases/page.tsx` | Portfolio bewerken (cases-editor) |
 
 ### API-routes
 | Route | Bestand | Omschrijving |
@@ -101,6 +107,16 @@ RLS: products = iedereen leest; purchases/subscriptions = alleen eigen rijen lez
 Storage: privé bucket 'downloads', toegang uitsluitend via service-role signed URLs na has_access-check.
 ```
 Migratie: `supabase/migrations/0001_products_purchases_subscriptions.sql` (idempotent, in de SQL Editor gedraaid).
+
+### Homepage-componenten (`src/components/`)
+| Component | Wat het doet |
+|---|---|
+| `live-build-demo.tsx` | Hero-demo: prompt wordt app, website, AI-tool of A/B-test (4 scènes). Pauzeert buiten beeld, eindstand bij reduced motion. Tekst in `home.liveBuild`. |
+| `showcases/*` | Interactieve dashboard-demo's (marketing cockpit, app growth, social) met fictieve data |
+| `ready-solutions.tsx` | Kant-en-klare producten: FitTrack (echte screenshots uit `public/products/fittrack/`) en GymBook (werkende kopie van het boekingsscherm, demo-data). Tekst in `solutions`. |
+| `site-preview.tsx`, `portfolio-carousel.tsx` | Scrollende previews van opgeleverde websites |
+
+Verwijderd (23 nov 2026): `hero-canvas.tsx` (WebGL-deeltjes) en `connection-graphic.tsx`.
 
 ### Brand-tokens (`src/app/globals.css`)
 - `--accent` #5B5FE8 (Indigo), `--accent-light` #9BA3F2 (Periwinkle), `--accent-dark` #3F44C9
@@ -187,7 +203,7 @@ RESEND_API_KEY=...                       # contactformulier
 | 7 | Bestand uploaden naar Storage faalde ("Invalid Compact JWS") | Nieuwe Supabase-key (`sb_secret_…`) is geen JWT; de ruwe Storage-API verwacht een JWT in de Bearer-header | Upload + signed URL via de **supabase-js SDK** | Gebruik voor Storage de SDK, niet ruwe curl, zeker met de nieuwe key-formats |
 | 8 | `npm run build` faalde met `ENOTEMPTY` op `.next` | Dev-server draaide tegelijk en hield `.next` vast | Dev-server stoppen / poort 3000 vrijmaken vóór de build | Bouw niet terwijl `next dev` draait; beide gebruiken `.next` |
 | 9 | Verweesde `next dev`-processen op poort 3000 | Preview-server stopte niet altijd netjes | `lsof -ti :3000` → kill | Houd losse dev-processen in de gaten bij herstarts |
-| 10 | Notion-toggle werd platte tekst | `<toggle>` bestaat niet in Notion-markdown | Gebruik `<details><summary>…</summary>…</details>` | Voor inklapbare Notion-blokken: altijd `<details>` |
+| 10 | Notion-toggle werd platte tekst | `<toggle>` bestaat niet in Notion-markdown | Gebruik `<details><summary>…</summary>…</details>` | Voor inklapbare blokken (Obsidian): altijd `<details>` |
 | 11 | Betaalde content zou publiek zijn | Bestand in `public/` is vrij toegankelijk | Privé bucket + service-role signed URLs na entitlement-check | Zet betaalde bestanden nooit in `public/`; alleen achter een access-check |
 
 ### Wat structureel anders kan

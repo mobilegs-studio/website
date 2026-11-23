@@ -48,20 +48,16 @@ Wel: "we bouwen apps en tools die je bedrijf slimmer maken"
 ## Contactpersoon
 Hendrik Polinder — hc.polinder@proton.me
 
-## Notion logboek
-Project-log in Notion: "MGS Website Stack — Setup Log & Documentatie"
-(page id 371539fb08af81068eace7543066e6df, onder MGStudio).
+## Documentatie & logboek
+Notion wordt niet meer gebruikt.
 
-Bij het bijwerken van de log:
-- "Laatst bijgewerkt" bovenaan altijd met datum EN tijd (bijv. "31 mei 2026 — 21:49").
-- Nieuwe updates toevoegen als losse inklapbare toggle onder de sectie
-  "Logboek updates" aan het einde van de pagina.
-- Toggle-syntax voor Notion: gebruik `<details><summary>Titel</summary> ... </details>`.
-  De tag `<toggle>` werkt NIET (wordt als platte tekst opgeslagen).
-- Toggle-titel = datum + tijd + korte omschrijving van de sessie.
+- Sitemap en architectuur: `docs/SETUP-AND-ARCHITECTURE.md` in de repo.
+  "Laatst bijgewerkt" bovenaan altijd met datum EN tijd (bijv. "31 mei 2026 — 21:49").
+  De hook `.githooks/post-commit` herinnert eraan als routes/componenten wijzigen.
+- Sessie-logboek: Obsidian (zie hieronder).
 
-Spiegel elke nieuwe toggle ook naar Obsidian (vault MGS, bestand
-`MGS-Projects/Changelog - Claude Code.md`). Zelfde `<details><summary>`-toggle,
+Schrijf elke sessie als toggle in Obsidian (vault MGS, bestand
+`MGS-Projects/Changelog - Claude Code.md`). Gebruik een `<details><summary>`-toggle,
 bovenaan de "Logboek updates"-sectie, titel = Datum — Tijd — Onderwerp.
 Schrijven gaat via de Local REST API van de plugin "Local REST API with MCP":
 PATCH/append op `https://127.0.0.1:27124/vault/MGS-Projects/Changelog%20-%20Claude%20Code.md`
