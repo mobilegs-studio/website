@@ -11,22 +11,12 @@ import {
 import { use, useEffect, useState } from "react";
 import { getTranslations } from "@/i18n/translations";
 import { serviceIcons } from "@/components/service-icons";
-import ConnectionGraphic from "@/components/connection-graphic";
 import SitePreview from "@/components/site-preview";
 import DummyDashboard from "@/components/dummy-dashboard";
-import HeroCanvas from "@/components/hero-canvas";
+import LiveBuildDemo from "@/components/live-build-demo";
 import ShowcaseSection from "@/components/showcases/showcase-section";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: easeOut },
-  }),
-};
 
 type ServiceExample = {
   label: string;
@@ -84,13 +74,6 @@ export default function Home({
     damping: 30,
     restDelta: 0.001,
   });
-  // Headline woord-voor-woord: blur → scherp, met de accentwoorden in de
-  // brand-gradient + shimmer.
-  const headlineWords = [
-    ...h.headline1.split(" ").map((w) => ({ w, accent: false })),
-    ...h.headlineAccent.split(" ").map((w) => ({ w, accent: true })),
-    ...h.headline2.split(" ").map((w) => ({ w, accent: false })),
-  ];
   const [openCard, setOpenCard] = useState<string | null>(null);
   const activeService = services.find((s) => s.id === openCard) ?? null;
   const activeExamples = openCard ? serviceExamples[openCard] : undefined;
@@ -120,116 +103,58 @@ export default function Home({
         style={{ scaleX: progressX, background: "var(--brand-gradient)" }}
       />
 
-      {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center px-6 pt-40 pb-24 sm:pt-52 sm:pb-28 text-center overflow-hidden">
-        {/* WebGL-veld — deeltjes en hairlines in brandkleuren */}
-        <HeroCanvas />
-        {/* Cool indigo glow — top center (tech anchor) */}
+      {/* Hero — tekst staat direct; beweging alleen in de product-demo */}
+      <section className="relative px-6 pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,95,232,0.18) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 70% 10%, rgba(91,95,232,0.16) 0%, transparent 70%)",
           }}
         />
-        {/* Warm amber glow — bottom left (one human note) */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 45% 45% at 10% 100%, rgba(224,185,120,0.12) 0%, transparent 60%)",
-          }}
-        />
-
-        <motion.p
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="text-xs tracking-[0.25em] uppercase text-(--color-muted-light) mb-8"
-        >
-          {h.label}
-        </motion.p>
-
-        <h1
-          className={`relative font-sans font-extrabold text-[clamp(2.75rem,8vw,6rem)] leading-[1.05] tracking-tight ${
-            locale === "en" ? "max-w-6xl" : "max-w-4xl"
-          }`}
-        >
-          {/* Woord-voor-woord onthulling: blur → scherp; accent in gradient
-              met shimmer. Bij reduced motion verschijnt alles direct. */}
-          {headlineWords.map(({ w, accent }, i) => (
-            <motion.span
-              key={`${w}-${i}`}
-              initial={
-                reduceMotion
-                  ? false
-                  : { opacity: 0, y: 20, filter: "blur(10px)" }
-              }
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{
-                delay: 0.15 + i * 0.07,
-                duration: 0.65,
-                ease: easeOut,
-              }}
-              className={`inline-block will-change-transform ${
-                accent ? "text-transparent bg-clip-text text-shimmer" : ""
-              }`}
-              style={
-                accent ? { backgroundImage: "var(--brand-gradient)" } : undefined
-              }
-            >
-              {w}
-            </motion.span>
-          )).flatMap((el, i) =>
-            // Spatie buiten de inline-block span, anders collapsed hij weg.
-            i < headlineWords.length - 1 ? [el, " "] : [el]
-          )}
-        </h1>
-
-        <motion.p
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mt-8 text-base sm:text-lg text-(--color-muted-light) max-w-lg leading-relaxed"
-        >
-          {h.subtext}
-        </motion.p>
-
-        <motion.div
-          custom={3}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mt-12 flex items-center gap-4"
-        >
-          <Link
-            href={`/${locale}/contact`}
-            className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full text-sm transition-all duration-300 shadow-[0_8px_30px_-10px_rgba(91,95,232,0.7)] hover:shadow-[0_12px_44px_-8px_rgba(91,95,232,0.9)] hover:-translate-y-0.5 active:translate-y-0"
-          >
-            {h.cta}
-          </Link>
-          <Link
-            href={`/${locale}/diensten`}
-            className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm backdrop-blur-sm"
-          >
-            {h.viewServices}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path
-                d="M3 7h8M7 3l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </motion.div>
-
-        {/* Connection hero banner */}
-        <div className="relative z-10 w-full mt-20 sm:mt-24">
-          <ConnectionGraphic t={h.connectionGraphic} />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+          <div>
+            <p className="text-xs tracking-[0.25em] uppercase text-(--color-muted-light) mb-6">
+              {h.label}
+            </p>
+            <h1 className="font-sans font-extrabold text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.04] tracking-tight">
+              {h.headline1}{" "}
+              <span
+                className="text-transparent bg-clip-text"
+                style={{ backgroundImage: "var(--brand-gradient)" }}
+              >
+                {h.headlineAccent}
+              </span>{" "}
+              {h.headline2}
+            </h1>
+            <p className="mt-7 text-base sm:text-lg text-(--color-muted-light) max-w-xl leading-relaxed">
+              {h.subtext}
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Link
+                href={`/${locale}/contact`}
+                className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full text-sm transition-all duration-300 shadow-[0_8px_30px_-10px_rgba(91,95,232,0.7)] hover:shadow-[0_12px_44px_-8px_rgba(91,95,232,0.9)] hover:-translate-y-0.5 active:translate-y-0"
+              >
+                {h.cta}
+              </Link>
+              <Link
+                href={`/${locale}/diensten`}
+                className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm"
+              >
+                {h.viewServices}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path
+                    d="M3 7h8M7 3l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+          <LiveBuildDemo t={h.liveBuild} />
         </div>
       </section>
 
@@ -302,10 +227,10 @@ export default function Home({
             return (
               <motion.div
                 key={service.number}
-                initial={{ opacity: 0, y: 20 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay: i * 0.08, duration: 0.5, ease: easeOut }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ delay: (i % 3) * 0.05, duration: 0.4, ease: easeOut }}
               >
                 {expandable ? (
                   <button
