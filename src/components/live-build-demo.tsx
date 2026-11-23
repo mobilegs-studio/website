@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import type { Translations } from "@/i18n/translations";
 
 type T = Translations["home"]["liveBuild"];
-type SceneId = "app" | "site" | "ai";
+type SceneId = "app" | "site" | "ai" | "ab";
 // 0 = prompt typing, 1 = wireframe, 2 = built, 3 = result
 type Phase = 0 | 1 | 2 | 3;
 
-const ORDER: SceneId[] = ["app", "site", "ai"];
+const ORDER: SceneId[] = ["app", "site", "ai", "ab"];
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const TYPE_MS = 42;
 const PHASE_MS = { 1: 900, 2: 1700, 3: 2800 } as const;
@@ -72,8 +72,8 @@ export default function LiveBuildDemo({ t }: { t: T }) {
       className="relative w-full rounded-2xl border border-(--color-border) bg-(--color-surface) shadow-[0_40px_120px_-40px_rgba(var(--accent-rgb),0.45)] overflow-hidden text-left"
     >
       {/* Top bar met scène-tabs */}
-      <div className="flex items-center gap-4 border-b border-(--color-border) px-4 py-3">
-        <div className="flex gap-1.5" aria-hidden="true">
+      <div className="flex items-center gap-4 overflow-x-auto border-b border-(--color-border) px-4 py-3">
+        <div className="hidden sm:flex gap-1.5" aria-hidden="true">
           <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
           <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
           <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
@@ -86,7 +86,7 @@ export default function LiveBuildDemo({ t }: { t: T }) {
               role="tab"
               aria-selected={scene === id}
               onClick={() => pick(id)}
-              className={`relative rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+              className={`relative shrink-0 whitespace-nowrap rounded-full px-2.5 sm:px-3 py-1 text-xs font-medium transition-colors ${
                 scene === id
                   ? "bg-[rgba(var(--accent-rgb),0.15)] text-(--color-accent-light)"
                   : "text-(--color-muted-light) hover:text-(--color-foreground)"
@@ -102,14 +102,16 @@ export default function LiveBuildDemo({ t }: { t: T }) {
       <div className="px-4 pt-4">
         <div className="flex items-center gap-3 rounded-xl border border-(--color-border) bg-(--color-background) px-3.5 py-2.5">
           <span aria-hidden="true" className="text-(--color-accent-light)">✦</span>
-          <span className="flex-1 truncate text-sm text-(--color-foreground)">
+          <span className="flex-1 min-w-0 min-h-[2.5rem] sm:min-h-0 flex items-center text-sm leading-snug text-(--color-foreground)">
+            <span>
             {prompt.slice(0, typed)}
             {phase === 0 && !reduce && (
               <span className="ml-0.5 inline-block w-[2px] h-4 -mb-0.5 bg-(--color-accent-light) animate-pulse" />
             )}
+            </span>
           </span>
           <span
-            className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold transition-colors ${
+            className={`shrink-0 rounded-lg px-2.5 py-1 text-[11px] font-semibold transition-colors ${
               phase >= 1
                 ? "bg-(--color-accent) text-white"
                 : "bg-white/5 text-(--color-muted)"
@@ -134,6 +136,7 @@ export default function LiveBuildDemo({ t }: { t: T }) {
             {scene === "app" && <AppScene t={t.scenes.app} phase={phase} />}
             {scene === "site" && <SiteScene t={t.scenes.site} phase={phase} />}
             {scene === "ai" && <AiScene t={t.scenes.ai} phase={phase} />}
+            {scene === "ab" && <AbScene t={t.scenes.ab} phase={phase} />}
           </motion.div>
         </AnimatePresence>
 
@@ -219,7 +222,7 @@ function AppScene({ t, phase }: { t: T["scenes"]["app"]; phase: Phase }) {
     <div className="flex h-full items-center justify-center">
       <div className="relative h-full w-[200px] rounded-[30px] border border-white/10 bg-(--color-background) p-3 pt-6 shadow-2xl">
         <div className="absolute left-1/2 top-2 h-1.5 w-12 -translate-x-1/2 rounded-full bg-white/10" />
-        {phase >= 1 && (
+        {(
           <div className="flex flex-col gap-2">
             <Block built={built} className="h-8 px-2 flex items-center">
               <span className="text-xs font-semibold">{t.today}</span>
@@ -280,7 +283,7 @@ function SiteScene({ t, phase }: { t: T["scenes"]["site"]; phase: Phase }) {
           jansen-co.nl
         </span>
       </div>
-      {phase >= 1 && (
+      {(
         <div className="flex flex-col gap-2.5 p-3">
           <Block built={built} className="h-7 px-2.5">
             <div className="flex h-full items-center justify-between text-[10px]">
@@ -385,8 +388,7 @@ function AiScene({ t, phase }: { t: T["scenes"]["ai"]; phase: Phase }) {
 
       {/* Geëxtraheerde velden */}
       <div className="flex flex-col gap-2">
-        {phase >= 1 &&
-          t.fields.map((f, i) => (
+        {t.fields.map((f, i) => (
             <Block key={f.label} built={built} delay={0.15 * i} className="px-2.5 py-1.5">
               <div className="text-[9px] uppercase tracking-wider text-(--color-muted)">{f.label}</div>
               <div className="flex items-center justify-between text-[11px] font-semibold">
@@ -406,6 +408,68 @@ function AiScene({ t, phase }: { t: T["scenes"]["ai"]; phase: Phase }) {
           </motion.span>
         )}
       </div>
+    </div>
+  );
+}
+
+/* ---------- A/B-test (site patcher) ---------- */
+
+function AbScene({ t, phase }: { t: T["scenes"]["ab"]; phase: Phase }) {
+  const built = phase >= 2;
+  const arms = [
+    { key: "A", label: t.control, button: t.buttonA, conv: t.convA, bar: 0.62, win: false },
+    { key: "B", label: t.variant, button: t.buttonB, conv: t.convB, bar: 0.78, win: true },
+  ];
+  return (
+    <div className="grid h-full grid-cols-2 gap-3 pb-10">
+      {arms.map((a, i) => (
+        <Block key={a.key} built={built} delay={0.12 * i} className="p-2.5 sm:p-3">
+          <div className="flex h-full flex-col">
+            <div className="flex items-center justify-between text-[10px]">
+              <span className="font-semibold">
+                {a.key} · {a.label}
+              </span>
+              <span className="text-(--color-muted)">50%</span>
+            </div>
+            <div className="mt-2 h-8 sm:h-12 rounded-md bg-gradient-to-br from-white/10 to-white/[0.02]" />
+            <div className="mt-2 text-[11px] font-semibold">{t.product}</div>
+            <div className="text-[10px] text-(--color-muted-light)">€ 89</div>
+            <span
+              className={`mt-2 rounded-md px-2 py-1 text-center text-[10px] font-semibold leading-tight ${
+                a.win ? "bg-(--color-warm) text-black" : "bg-white/10"
+              }`}
+            >
+              {a.button}
+            </span>
+            <div className="mt-auto pt-2">
+              <div className="flex justify-between text-[9px] uppercase tracking-wider text-(--color-muted)">
+                <span>{t.conversion}</span>
+                <span className="text-(--color-foreground)">{built ? a.conv : "–"}</span>
+              </div>
+              <div className="mt-1 h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <motion.div
+                  className={`h-full rounded-full ${a.win ? "bg-emerald-400" : "bg-white/30"}`}
+                  initial={{ width: 0 }}
+                  animate={{ width: built ? `${a.bar * 100}%` : 0 }}
+                  transition={{ duration: 1.1, ease }}
+                />
+              </div>
+              <div className="h-4 mt-1.5">
+                {phase === 3 && a.win && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-300"
+                  >
+                    <Check /> {t.winner}
+                  </motion.span>
+                )}
+              </div>
+            </div>
+          </div>
+        </Block>
+      ))}
     </div>
   );
 }

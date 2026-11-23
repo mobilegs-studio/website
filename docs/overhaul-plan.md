@@ -59,6 +59,11 @@ Each card: fictional client type, the problem, the interactive demo, one result 
 11. **Client portal** — *accountancy*: documents, status tracker, messages; switch view client ↔ admin.
 12. **Planning tool** — drag shifts in a week calendar; conflict warning.
 13. **Marketing cockpit** — keep the current dashboard (already strong).
+14. **A/B-test & site patcher** — *large webshop*. Run A/B tests and hotfixes without a developer: variant vs original side by side, traffic split, live conversion, "Winner · 97% sure". Also a scene in the hero demo. Result: *+14% add to cart*.
+
+### Ready-made solutions (real products, customizable)
+15. **Fit Track** — first client: a gym. Show the real product (screenshots/recording); "customization possible if needed".
+16. **Trainer booking system** — same client. Real product + customization note.
 
 ## 5. Other changes
 - **Price indications** per type: "Website from €…", "App from €…", "AI tool from €…" (numbers needed).
