@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **23 november 2026 — 16:45**
+> Laatst bijgewerkt: **23 november 2026 — 17:40**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -112,9 +112,13 @@ Migratie: `supabase/migrations/0001_products_purchases_subscriptions.sql` (idemp
 | Component | Wat het doet |
 |---|---|
 | `live-build-demo.tsx` | Hero-demo: prompt wordt app, website, AI-tool of A/B-test (4 scènes). Pauzeert buiten beeld, eindstand bij reduced motion. Tekst in `home.liveBuild`. |
-| `showcases/*` | Interactieve dashboard-demo's (marketing cockpit, app growth, social) met fictieve data |
+| `showcases/showcase-section.tsx` | Showcase-tabs: AI-tools, Apps, Websites, Dashboards (fictieve data) |
+| `showcases/doc-extractor.tsx` | AI-demo: factuur/bon/offerte uitlezen, twijfelvelden controleren, export |
+| `showcases/field-app.tsx` | App-demo: buitendienst-app met checklist, foto, handtekening en offline-modus |
+| `showcases/redesign-slider.tsx` | Website-demo: voor/na-schuif met snelheid- en SEO-scores |
+| `showcases/growth-cockpit.tsx`, `app-insights.tsx`, `social-pulse.tsx` | De drie dashboards onder de tab Dashboards |
 | `ready-solutions.tsx` | Kant-en-klare producten: FitTrack (echte screenshots uit `public/products/fittrack/`) en GymBook (werkende kopie van het boekingsscherm, demo-data). Tekst in `solutions`. |
-| `site-preview.tsx`, `portfolio-carousel.tsx` | Scrollende previews van opgeleverde websites |
+| `site-preview.tsx`, `portfolio-carousel.tsx` | Portfolio: OREQ en By Eric Sweder (scrollende full-page screenshots in `public/cases/`), FitTrack en GymBook (zelfde visuals als de kant-en-klaar-sectie) |
 
 Verwijderd (23 nov 2026): `hero-canvas.tsx` (WebGL-deeltjes) en `connection-graphic.tsx`.
 

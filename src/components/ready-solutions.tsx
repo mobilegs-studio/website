@@ -103,7 +103,7 @@ const shots = [
   { src: "/products/fittrack/food.jpg", alt: "FitTrack meal plan" },
 ];
 
-function FitTrackVisual() {
+export function FitTrackVisual() {
   const [front, setFront] = useState(1);
   return (
     <div className="absolute inset-0 flex items-end justify-center pt-14">
@@ -153,7 +153,7 @@ const slotsByDay = [
   ["07:30", "11:00", "13:00", "18:30", "19:30"],
 ];
 
-function GymBookBooking({ t }: { t: T["booking"] }) {
+export function GymBookBooking({ t }: { t: T["booking"] }) {
   const [type, setType] = useState(0);
   const [trainer, setTrainer] = useState(0);
   const [day, setDay] = useState(0);

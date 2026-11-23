@@ -86,13 +86,34 @@ const SocialPulse = dynamic(
   () => import("@/components/showcases/social-pulse"),
   { ssr: false, loading: () => <ShowcaseSkeleton /> }
 );
+const DocExtractor = dynamic(
+  () => import("@/components/showcases/doc-extractor"),
+  { ssr: false, loading: () => <ShowcaseSkeleton /> }
+);
+const FieldApp = dynamic(
+  () => import("@/components/showcases/field-app"),
+  { ssr: false, loading: () => <ShowcaseSkeleton /> }
+);
+const RedesignSlider = dynamic(
+  () => import("@/components/showcases/redesign-slider"),
+  { ssr: false, loading: () => <ShowcaseSkeleton /> }
+);
 
 /* ---------- Copy (nl primair, en/de vertaald) ---------- */
 
-type TabId = "cockpit" | "app" | "social";
+type TabId = "ai" | "mobile" | "web" | "dash";
+type DashId = "cockpit" | "app" | "social";
 
 type TabCopy = {
   id: TabId;
+  name: string;
+  description: string;
+  url: string;
+  chips: string[];
+};
+
+type DashCopy = {
+  id: DashId;
   name: string;
   description: string;
   url: string;
@@ -106,19 +127,52 @@ type Copy = {
   disclaimer: string;
   cta: string;
   tablistLabel: string;
+  dashLabel: string;
   tabs: TabCopy[];
+  dashboards: DashCopy[];
 };
 
 const COPY: Record<"nl" | "en" | "de", Copy> = {
   nl: {
     label: "Showcases",
-    heading: "Enterprise-tooling. Nu ook binnen bereik van jouw bedrijf.",
+    heading: "Wat we bouwen. Probeer het zelf.",
     intro:
-      "Drie interactieve demo's, gebaseerd op dashboards die we voor grote organisaties bouwden — volledig geanonimiseerd en gevuld met fictieve data. Klik, hover en ontdek wat we ook voor jouw bedrijf kunnen bouwen.",
+      "Interactieve demo's van een AI-tool, een app, een website en dashboards. Gebaseerd op echt werk, volledig geanonimiseerd en gevuld met fictieve data.",
     disclaimer: "Interactieve demo · fictieve data · geanonimiseerd",
     cta: "Zoiets laten bouwen?",
-    tablistLabel: "Kies een demo-dashboard",
+    tablistLabel: "Kies een demo",
+    dashLabel: "Kies een dashboard",
     tabs: [
+      {
+        id: "ai",
+        name: "AI-tools",
+        description: "AI die facturen, bonnen en offertes uitleest en twijfelgevallen aan je voorlegt.",
+        url: "documenten.demo.mobilegrowthstudio.com",
+        chips: ["Facturen & bonnen", "Controle per veld", "Export naar boekhouding"],
+      },
+      {
+        id: "mobile",
+        name: "Apps",
+        description: "Een buitendienst-app: opdrachten, checklist, foto's en handtekening, ook offline.",
+        url: "buitendienst.demo.mobilegrowthstudio.com",
+        chips: ["iOS & Android", "Werkt offline", "Foto + handtekening"],
+      },
+      {
+        id: "web",
+        name: "Websites",
+        description: "Van verouderde site naar een snelle site die gevonden wordt op Google en in AI-zoek.",
+        url: "bakkerij-vandam.demo.mobilegrowthstudio.com",
+        chips: ["Snelheid 98/100", "SEO & AI-zoek", "Mobiel eerst"],
+      },
+      {
+        id: "dash",
+        name: "Dashboards",
+        description: "Marketing-, app- en social-dashboards, gebaseerd op werk voor grote organisaties.",
+        url: "",
+        chips: [],
+      },
+    ],
+    dashboards: [
       {
         id: "cockpit",
         name: "Marketing cockpit",
@@ -147,13 +201,44 @@ const COPY: Record<"nl" | "en" | "de", Copy> = {
   },
   en: {
     label: "Showcases",
-    heading: "Enterprise tooling. Now within reach of your business too.",
+    heading: "What we build. Try it yourself.",
     intro:
-      "Three interactive demos, based on dashboards we built for large organisations — fully anonymised and filled with fictional data. Click, hover and discover what we can build for your business too.",
+      "Interactive demos of an AI tool, an app, a website and dashboards. Based on real work, fully anonymized and filled with fictional data.",
     disclaimer: "Interactive demo · fictional data · anonymised",
     cta: "Want something like this?",
-    tablistLabel: "Choose a demo dashboard",
+    tablistLabel: "Choose a demo",
+    dashLabel: "Choose a dashboard",
     tabs: [
+      {
+        id: "ai",
+        name: "AI tools",
+        description: "AI that reads invoices, receipts and quotes and flags what it isn't sure about.",
+        url: "documents.demo.mobilegrowthstudio.com",
+        chips: ["Invoices & receipts", "Check per field", "Export to accounting"],
+      },
+      {
+        id: "mobile",
+        name: "Apps",
+        description: "A field-service app: jobs, checklist, photos and signature, also offline.",
+        url: "field.demo.mobilegrowthstudio.com",
+        chips: ["iOS & Android", "Works offline", "Photo + signature"],
+      },
+      {
+        id: "web",
+        name: "Websites",
+        description: "From a dated site to a fast one that gets found on Google and in AI search.",
+        url: "vandam-bakery.demo.mobilegrowthstudio.com",
+        chips: ["Speed 98/100", "SEO & AI search", "Mobile first"],
+      },
+      {
+        id: "dash",
+        name: "Dashboards",
+        description: "Marketing, app and social dashboards, based on work for large organizations.",
+        url: "",
+        chips: [],
+      },
+    ],
+    dashboards: [
       {
         id: "cockpit",
         name: "Marketing cockpit",
@@ -182,13 +267,44 @@ const COPY: Record<"nl" | "en" | "de", Copy> = {
   },
   de: {
     label: "Showcases",
-    heading: "Enterprise-Tooling. Jetzt auch für dein Unternehmen erreichbar.",
+    heading: "Was wir bauen. Probieren Sie es selbst.",
     intro:
-      "Drei interaktive Demos, basierend auf Dashboards, die wir für große Organisationen gebaut haben — vollständig anonymisiert und mit fiktiven Daten gefüllt. Klicke, hovere und entdecke, was wir auch für dein Unternehmen bauen können.",
+      "Interaktive Demos eines KI-Tools, einer App, einer Website und von Dashboards. Basierend auf echter Arbeit, vollständig anonymisiert und mit fiktiven Daten gefüllt.",
     disclaimer: "Interaktive Demo · fiktive Daten · anonymisiert",
     cta: "So etwas bauen lassen?",
-    tablistLabel: "Wähle ein Demo-Dashboard",
+    tablistLabel: "Demo wählen",
+    dashLabel: "Dashboard wählen",
     tabs: [
+      {
+        id: "ai",
+        name: "KI-Tools",
+        description: "KI, die Rechnungen, Belege und Angebote ausliest und Unsicheres zur Prüfung vorlegt.",
+        url: "dokumente.demo.mobilegrowthstudio.com",
+        chips: ["Rechnungen & Belege", "Prüfung pro Feld", "Export an Buchhaltung"],
+      },
+      {
+        id: "mobile",
+        name: "Apps",
+        description: "Eine Außendienst-App: Aufträge, Checkliste, Fotos und Unterschrift, auch offline.",
+        url: "aussendienst.demo.mobilegrowthstudio.com",
+        chips: ["iOS & Android", "Funktioniert offline", "Foto + Unterschrift"],
+      },
+      {
+        id: "web",
+        name: "Websites",
+        description: "Von der veralteten Seite zur schnellen Website, die bei Google und in der KI-Suche gefunden wird.",
+        url: "baeckerei-vandam.demo.mobilegrowthstudio.com",
+        chips: ["Speed 98/100", "SEO & KI-Suche", "Mobile first"],
+      },
+      {
+        id: "dash",
+        name: "Dashboards",
+        description: "Marketing-, App- und Social-Dashboards, basierend auf Arbeit für große Organisationen.",
+        url: "",
+        chips: [],
+      },
+    ],
+    dashboards: [
       {
         id: "cockpit",
         name: "Marketing-Cockpit",
@@ -217,7 +333,7 @@ const COPY: Record<"nl" | "en" | "de", Copy> = {
   },
 };
 
-const TAB_ORDER: TabId[] = ["cockpit", "app", "social"];
+const TAB_ORDER: TabId[] = ["ai", "mobile", "web", "dash"];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -225,10 +341,18 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function ShowcaseSection({ locale }: { locale: string }) {
   const copy = COPY[locale as keyof typeof COPY] ?? COPY.nl;
-  const [activeTab, setActiveTab] = useState<TabId>("cockpit");
+  const [activeTab, setActiveTab] = useState<TabId>("ai");
+  const [activeDash, setActiveDash] = useState<DashId>("cockpit");
   const prefersReducedMotion = useReducedMotion();
 
-  const active = copy.tabs.find((t) => t.id === activeTab) ?? copy.tabs[0];
+  const category = copy.tabs.find((t) => t.id === activeTab) ?? copy.tabs[0];
+  const dash = copy.dashboards.find((d) => d.id === activeDash) ?? copy.dashboards[0];
+  // Bij Dashboards komen URL en chips van het gekozen dashboard.
+  const active =
+    activeTab === "dash"
+      ? { ...category, url: dash.url, chips: dash.chips }
+      : category;
+  const panelKey = activeTab === "dash" ? `dash-${activeDash}` : activeTab;
 
   /* --- 3D-tilt: max 1.5 graden, via springs; uit op touch/reduced-motion --- */
   const frameRef = useRef<HTMLDivElement>(null);
@@ -317,7 +441,7 @@ export default function ShowcaseSection({ locale }: { locale: string }) {
         role="tablist"
         aria-label={copy.tablistLabel}
         onKeyDown={handleTabKeyDown}
-        className="relative mb-8 grid grid-cols-1 sm:grid-cols-3 gap-2 rounded-2xl border border-(--color-border) bg-(--color-surface) p-2"
+        className="relative mb-8 grid grid-cols-2 lg:grid-cols-4 gap-2 rounded-2xl border border-(--color-border) bg-(--color-surface) p-2"
       >
         {copy.tabs.map((tab) => {
           const selected = tab.id === activeTab;
@@ -476,9 +600,37 @@ export default function ShowcaseSection({ locale }: { locale: string }) {
                 }
                 transition={{ duration: 0.25, ease: EASE }}
               >
-                {activeTab === "cockpit" && <GrowthCockpit locale={locale} />}
-                {activeTab === "app" && <AppInsights locale={locale} />}
-                {activeTab === "social" && <SocialPulse locale={locale} />}
+                {activeTab === "ai" && <DocExtractor locale={locale} />}
+                {activeTab === "mobile" && <FieldApp locale={locale} />}
+                {activeTab === "web" && <RedesignSlider locale={locale} />}
+                {activeTab === "dash" && (
+                  <>
+                    <div
+                      role="group"
+                      aria-label={copy.dashLabel}
+                      className="flex flex-wrap gap-2 border-b border-(--color-border) px-4 py-3 sm:px-5"
+                    >
+                      {copy.dashboards.map((d) => (
+                        <button
+                          key={d.id}
+                          type="button"
+                          aria-pressed={d.id === activeDash}
+                          onClick={() => setActiveDash(d.id)}
+                          className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${
+                            d.id === activeDash
+                              ? "bg-[rgba(91,95,232,0.15)] text-(--color-accent-light) border border-[rgba(91,95,232,0.35)]"
+                              : "border border-(--color-border) text-(--color-muted-light) hover:text-(--color-foreground)"
+                          }`}
+                        >
+                          {d.name}
+                        </button>
+                      ))}
+                    </div>
+                    {activeDash === "cockpit" && <GrowthCockpit locale={locale} />}
+                    {activeDash === "app" && <AppInsights locale={locale} />}
+                    {activeDash === "social" && <SocialPulse locale={locale} />}
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -494,7 +646,7 @@ export default function ShowcaseSection({ locale }: { locale: string }) {
       <div className="relative mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
         <AnimatePresence mode="wait" initial={false}>
           <motion.ul
-            key={activeTab}
+            key={panelKey}
             initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}

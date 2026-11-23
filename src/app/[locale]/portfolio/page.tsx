@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCasesContent } from "@/lib/content";
 import PortfolioCarousel from "@/components/portfolio-carousel";
+import { getTranslations } from "@/i18n/translations";
 
 export default async function Portfolio({
   params,
@@ -28,6 +29,7 @@ export default async function Portfolio({
           projectLabel={c.projectLabel}
           resultLabel={c.resultLabel}
           visitLabel={c.visitLabel}
+          bookingT={getTranslations(locale).solutions.booking}
         />
       </div>
 

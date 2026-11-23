@@ -4,12 +4,14 @@ import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProductMockup from "@/components/product-mockup";
 import SitePreview from "@/components/site-preview";
+import { FitTrackVisual, GymBookBooking } from "@/components/ready-solutions";
+import type { Translations } from "@/i18n/translations";
 
 // Cases met een live scrollende volledige-pagina screenshot (zelfde als op
 // de homepage onder de diensten). Anders: de statische product-mockup.
 const SCROLL_PREVIEWS: Record<string, { image: string; w: number; h: number }> = {
-  oreq: { image: "/cases/oreq-full.jpg", w: 1024, h: 5555 },
-  ericsweder: { image: "/cases/ericsweder-full.jpg", w: 1024, h: 7109 },
+  oreq: { image: "/cases/oreq-full.jpg", w: 1024, h: 7097 },
+  ericsweder: { image: "/cases/ericsweder-full.jpg", w: 1024, h: 7582 },
 };
 
 interface Story {
@@ -31,11 +33,13 @@ export default function PortfolioCarousel({
   projectLabel,
   resultLabel,
   visitLabel,
+  bookingT,
 }: {
   stories: readonly Story[];
   projectLabel: string;
   resultLabel: string;
   visitLabel: string;
+  bookingT: Translations["solutions"]["booking"];
 }) {
   const [[index, direction], setState] = useState<[number, number]>([0, 0]);
   const [paused, setPaused] = useState(false);
@@ -79,8 +83,12 @@ export default function PortfolioCarousel({
           >
             {/* Scrollende site-preview voor cases die er een hebben,
                 anders de statische product-mockup */}
-            <div className="relative h-56 md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-(--color-border)">
-              {SCROLL_PREVIEWS[story.id] ? (
+            <div className="relative h-56 md:h-full overflow-clip border-b md:border-b-0 md:border-r border-(--color-border)">
+              {story.id === "fittrack" ? (
+                <FitTrackVisual />
+              ) : story.id === "gymbook" ? (
+                <GymBookBooking t={bookingT} />
+              ) : SCROLL_PREVIEWS[story.id] ? (
                 <SitePreview
                   image={SCROLL_PREVIEWS[story.id].image}
                   alt={story.business}
@@ -100,6 +108,7 @@ export default function PortfolioCarousel({
             {/* Content */}
             <div className="flex flex-col justify-between p-7 sm:p-10 gap-5 overflow-hidden">
               <div>
+                {story.mockup !== "product" && (
                 <svg
                   width="34"
                   height="34"
@@ -112,6 +121,10 @@ export default function PortfolioCarousel({
                     fill="currentColor"
                   />
                 </svg>
+                )}
+                {story.mockup === "product" && (
+                  <p className="mb-3 text-2xl font-semibold tracking-tight">{story.business}</p>
+                )}
                 <p className="text-lg sm:text-xl leading-relaxed text-(--color-foreground)">
                   {story.quote}
                 </p>
