@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCasesContent } from "@/lib/content";
 import PortfolioCarousel from "@/components/portfolio-carousel";
+import DemoGallery from "@/components/demos/demo-gallery";
 import { getTranslations } from "@/i18n/translations";
 
 export default async function Portfolio({
@@ -32,6 +33,8 @@ export default async function Portfolio({
           bookingT={getTranslations(locale).solutions.booking}
         />
       </div>
+
+      <DemoGallery locale={locale} />
 
       <div className="mt-20 border-t border-(--color-border) pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <p className="font-sans font-bold tracking-tight text-2xl sm:text-3xl">{c.ctaHeading}</p>

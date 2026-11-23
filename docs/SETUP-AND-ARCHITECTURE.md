@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **23 november 2026 — 17:40**
+> Laatst bijgewerkt: **23 november 2026 — 19:10**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -14,7 +14,7 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 |---|---|---|
 | `/[locale]` | `app/[locale]/page.tsx` | Home — hero met live-build demo, diensten, showcases, kant-en-klare oplossingen (FitTrack, GymBook), aanpak, proces, CTA |
 | `/[locale]/diensten` | `app/[locale]/diensten/page.tsx` | Diensten-overzicht |
-| `/[locale]/portfolio` | `app/[locale]/portfolio/page.tsx` | Portfolio / cases met scrollende previews |
+| `/[locale]/portfolio` | `app/[locale]/portfolio/page.tsx` | Portfolio: cases-carousel en demo-galerij |
 | `/[locale]/faq` | `app/[locale]/faq/page.tsx` | Veelgestelde vragen |
 | `/[locale]/over` | `app/[locale]/over/page.tsx` | Over Hendrik / MGS |
 | `/[locale]/contact` | `app/[locale]/contact/page.tsx` | Contactformulier (Resend) |
@@ -118,6 +118,8 @@ Migratie: `supabase/migrations/0001_products_purchases_subscriptions.sql` (idemp
 | `showcases/redesign-slider.tsx` | Website-demo: voor/na-schuif met snelheid- en SEO-scores |
 | `showcases/growth-cockpit.tsx`, `app-insights.tsx`, `social-pulse.tsx` | De drie dashboards onder de tab Dashboards |
 | `ready-solutions.tsx` | Kant-en-klare producten: FitTrack (echte screenshots uit `public/products/fittrack/`) en GymBook (werkende kopie van het boekingsscherm, demo-data). Tekst in `solutions`. |
+| `demos/demo-gallery.tsx` | Portfolio: demo-galerij met filter (AI-tools, Websites, Webapps), demo opent in een modal |
+| `demos/*` | Zeven demo's: chatbot, insights-agent, meeting-notes, ai-search, multilingual, client-portal, planning-tool (fictieve data, NL/EN/DE) |
 | `site-preview.tsx`, `portfolio-carousel.tsx` | Portfolio: OREQ en By Eric Sweder (scrollende full-page screenshots in `public/cases/`), FitTrack en GymBook (zelfde visuals als de kant-en-klaar-sectie) |
 
 Verwijderd (23 nov 2026): `hero-canvas.tsx` (WebGL-deeltjes) en `connection-graphic.tsx`.
