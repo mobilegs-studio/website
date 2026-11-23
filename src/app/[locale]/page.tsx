@@ -15,6 +15,7 @@ import SitePreview from "@/components/site-preview";
 import DummyDashboard from "@/components/dummy-dashboard";
 import LiveBuildDemo from "@/components/live-build-demo";
 import ShowcaseSection from "@/components/showcases/showcase-section";
+import ReadySolutions from "@/components/ready-solutions";
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -334,6 +335,8 @@ export default function Home({
 
       {/* Showcases — geanonimiseerde enterprise-demo's met fictieve data */}
       <ShowcaseSection locale={locale} />
+
+      <ReadySolutions t={t.solutions} locale={locale} />
 
       {/* Focus-dienst modal — bijna-fullscreen, sluit via kruisje of backdrop */}
       <AnimatePresence>

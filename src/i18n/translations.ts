@@ -142,6 +142,49 @@ export const translations = {
         },
       },
     },
+    solutions: {
+      label: "Kant-en-klaar",
+      heading: "Oplossingen die al klaarstaan.",
+      subtext:
+        "Producten die we al gebouwd hebben en die in gebruik zijn. Snel live voor jouw bedrijf, en waar nodig passen we ze aan op jouw werkwijze.",
+      ready: "Direct inzetbaar",
+      custom: "Maatwerk mogelijk: eigen huisstijl, extra functies en koppelingen met je bestaande systemen.",
+      cta: "Vraag een demo aan",
+      realScreens: "Echte schermen uit de app",
+      liveDemo: "Echt boekingsscherm · probeer het",
+      products: {
+        fittrack: {
+          name: "FitTrack",
+          tagline: "Trainings- en voedingsapp met AI-coach",
+          features: [
+            "Trainingsschema dat vanzelf meegroeit: gewicht omhoog als je sterker wordt",
+            "Weekmenu en calorieën tellen met een foto van je maaltijd",
+            "Agenda met geplande en gedane trainingen",
+            "Koppeling met Apple Health en de agenda-app",
+          ],
+        },
+        gymbook: {
+          name: "GymBook",
+          tagline: "Boekingssysteem voor personal trainers en kleine sportscholen",
+          features: [
+            "1-op-1, kleine groep en groepslessen met wachtlijst",
+            "Betalen met iDEAL, SEPA of kaart; geld direct naar de sportschool",
+            "Rittenkaarten en abonnementen, annuleren tot een vaste deadline",
+            "Elke sportschool een eigen afgeschermde omgeving (AVG, data in de EU)",
+          ],
+        },
+      },
+      booking: {
+        sessionType: "Soort sessie",
+        trainer: "Trainer",
+        day: "Dag",
+        freeTimes: "Vrije tijden",
+        bookedOk: "Geboekt! Tot dan.",
+        types: ["Personal training · 60 min · 1-op-1", "Duo-training · 45 min · Kleine groep"],
+        trainers: ["Sanne", "Mo", "Lisa"],
+        days: ["di 24 nov", "wo 25 nov", "do 26 nov"],
+      },
+    },
     services: {
       label: "Diensten",
       heading: "Wat we bouwen.",
@@ -576,6 +619,49 @@ export const translations = {
         },
       },
     },
+    solutions: {
+      label: "Ready to use",
+      heading: "Solutions that are ready to go.",
+      subtext:
+        "Products we have already built and that are in use. Live for your business quickly, and where needed we adapt them to the way you work.",
+      ready: "Ready to use",
+      custom: "Customization possible: your own branding, extra features and links to your existing systems.",
+      cta: "Request a demo",
+      realScreens: "Real screens from the app",
+      liveDemo: "Real booking screen · try it",
+      products: {
+        fittrack: {
+          name: "FitTrack",
+          tagline: "Workout and food app with an AI coach",
+          features: [
+            "Training program that grows with you: more weight as you get stronger",
+            "Weekly meal plan and calorie counting from a photo of your meal",
+            "Calendar with planned and completed workouts",
+            "Syncs with Apple Health and the calendar app",
+          ],
+        },
+        gymbook: {
+          name: "GymBook",
+          tagline: "Booking system for personal trainers and small gyms",
+          features: [
+            "1-on-1, small-group and group classes with a waitlist",
+            "Pay by iDEAL, SEPA or card; money goes straight to the gym",
+            "Session packs and memberships, cancel until a set deadline",
+            "Each gym its own private space (GDPR, data in the EU)",
+          ],
+        },
+      },
+      booking: {
+        sessionType: "Session type",
+        trainer: "Trainer",
+        day: "Day",
+        freeTimes: "Free times",
+        bookedOk: "Booked! See you there.",
+        types: ["Personal training · 60 min · 1-on-1", "Duo training · 45 min · Small group"],
+        trainers: ["Sanne", "Mo", "Lisa"],
+        days: ["Tue 24 Nov", "Wed 25 Nov", "Thu 26 Nov"],
+      },
+    },
     services: {
       label: "Services",
       heading: "What we build.",
@@ -1005,6 +1091,49 @@ export const translations = {
             winner: "Gewinner · 97% sicher",
           },
         },
+      },
+    },
+    solutions: {
+      label: "Sofort einsatzbereit",
+      heading: "Lösungen, die schon bereitstehen.",
+      subtext:
+        "Produkte, die wir bereits gebaut haben und die im Einsatz sind. Schnell live für Ihr Unternehmen, und bei Bedarf passen wir sie an Ihre Arbeitsweise an.",
+      ready: "Sofort einsatzbereit",
+      custom: "Anpassung möglich: eigenes Branding, zusätzliche Funktionen und Anbindung an Ihre bestehenden Systeme.",
+      cta: "Demo anfragen",
+      realScreens: "Echte Screens aus der App",
+      liveDemo: "Echter Buchungsscreen · ausprobieren",
+      products: {
+        fittrack: {
+          name: "FitTrack",
+          tagline: "Trainings- und Ernährungs-App mit KI-Coach",
+          features: [
+            "Trainingsplan, der mitwächst: mehr Gewicht, wenn Sie stärker werden",
+            "Wochenplan fürs Essen und Kalorienzählen per Foto der Mahlzeit",
+            "Kalender mit geplanten und erledigten Trainings",
+            "Synchronisiert mit Apple Health und der Kalender-App",
+          ],
+        },
+        gymbook: {
+          name: "GymBook",
+          tagline: "Buchungssystem für Personal Trainer und kleine Studios",
+          features: [
+            "1:1, Kleingruppe und Gruppenkurse mit Warteliste",
+            "Bezahlen per iDEAL, SEPA oder Karte; Geld direkt ans Studio",
+            "Zehnerkarten und Mitgliedschaften, Stornierung bis zu einer festen Frist",
+            "Jedes Studio ein eigener geschützter Bereich (DSGVO, Daten in der EU)",
+          ],
+        },
+      },
+      booking: {
+        sessionType: "Terminart",
+        trainer: "Trainer",
+        day: "Tag",
+        freeTimes: "Freie Zeiten",
+        bookedOk: "Gebucht! Bis dann.",
+        types: ["Personal Training · 60 Min · 1:1", "Duo-Training · 45 Min · Kleingruppe"],
+        trainers: ["Sanne", "Mo", "Lisa"],
+        days: ["Di 24. Nov", "Mi 25. Nov", "Do 26. Nov"],
       },
     },
     services: {
