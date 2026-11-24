@@ -339,12 +339,8 @@ function CountUp({
   const [display, setDisplay] = useState(value);
 
   useEffect(() => {
-    if (!inView) return;
-    if (reduced) {
-      current.current = value;
-      setDisplay(value);
-      return;
-    }
+    // Minder beweging: geen animatie, de eindwaarde wordt direct afgeleid.
+    if (!inView || reduced) return;
     const controls = animate(current.current, value, {
       duration: 0.8,
       ease: EASE,
@@ -358,7 +354,7 @@ function CountUp({
 
   return (
     <span ref={ref} className={`font-mono ${className}`}>
-      {format(display)}
+      {format(reduced ? value : display)}
     </span>
   );
 }

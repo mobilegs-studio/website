@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { FaqJsonLd } from "@/components/json-ld";
 import { getTranslations } from "@/i18n/translations";
+import { pageMetadata } from "@/i18n/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, "faq");
+}
 
 export default async function Faq({
   params,
@@ -11,9 +17,13 @@ export default async function Faq({
   const t = getTranslations(locale);
   const f = t.faq;
 
+  // Volgorde voor conversie: eerst prijs, doorlooptijd en werkwijze, dan de rest.
+  const ORDER = [6, 5, 10, 0, 1, 2, 3, 8, 12, 7, 9, 4, 11];
+  const items = f.items.length === ORDER.length ? ORDER.map((i) => f.items[i]) : [...f.items];
+
   return (
     <>
-      <FaqJsonLd faqs={f.items as unknown as { question: string; answer: string }[]} />
+      <FaqJsonLd faqs={items as unknown as { question: string; answer: string }[]} />
       <main className="flex flex-1 flex-col px-6 py-32 max-w-3xl mx-auto w-full">
         <p className="text-sm tracking-widest uppercase text-(--color-muted) mb-6">
           {f.label}
@@ -26,7 +36,7 @@ export default async function Faq({
         </p>
 
         <div className="mt-20 flex flex-col divide-y divide-(--color-border)">
-          {f.items.map(({ question, answer }, i) => (
+          {items.map(({ question, answer }, i) => (
             <details
               key={i}
               className="group py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden"

@@ -178,18 +178,22 @@ export default function PortfolioCarousel({
 
       {/* Controls */}
       <div className="mt-6 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1">
           {stories.map((s, i) => (
             <button
               key={s.id}
               onClick={() => goTo(i)}
               aria-label={`Ga naar verhaal ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === index
-                  ? "w-7 bg-(--color-accent)"
-                  : "w-2 bg-(--color-border) hover:bg-(--color-muted)"
-              }`}
-            />
+              className="group flex h-8 items-center px-1"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${
+                  i === index
+                    ? "w-7 bg-(--color-accent)"
+                    : "w-2 bg-(--color-border) group-hover:bg-(--color-muted)"
+                }`}
+              />
+            </button>
           ))}
         </div>
 

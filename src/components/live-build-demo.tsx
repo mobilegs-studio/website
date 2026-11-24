@@ -86,7 +86,7 @@ export default function LiveBuildDemo({ t }: { t: T }) {
               role="tab"
               aria-selected={scene === id}
               onClick={() => pick(id)}
-              className={`relative shrink-0 whitespace-nowrap rounded-full px-2.5 sm:px-3 py-1 text-xs font-medium transition-colors ${
+              className={`relative shrink-0 whitespace-nowrap rounded-full px-2.5 sm:px-3 py-1.5 text-xs font-medium transition-colors ${
                 scene === id
                   ? "bg-[rgba(var(--accent-rgb),0.15)] text-(--color-accent-light)"
                   : "text-(--color-muted-light) hover:text-(--color-foreground)"

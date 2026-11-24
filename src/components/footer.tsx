@@ -83,12 +83,12 @@ export default function Footer({
           </p>
         </div>
 
-        <nav className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-(--color-muted)">
-          <Link href={`/${locale}/diensten`} className="hover:text-(--color-foreground) transition-colors">{tNav.diensten}</Link>
-          <Link href={`/${locale}/portfolio`} className="hover:text-(--color-foreground) transition-colors">{tNav.cases}</Link>
-          <Link href={`/${locale}/faq`} className="hover:text-(--color-foreground) transition-colors">{tNav.faq}</Link>
-          <Link href={`/${locale}/over`} className="hover:text-(--color-foreground) transition-colors">{tNav.over}</Link>
-          <Link href={`/${locale}/contact`} className="hover:text-(--color-foreground) transition-colors">{tNav.contact}</Link>
+        <nav className="flex flex-col sm:flex-row gap-1 sm:gap-8 text-sm text-(--color-muted)">
+          <Link href={`/${locale}/diensten`} className="py-1.5 hover:text-(--color-foreground) transition-colors">{tNav.diensten}</Link>
+          <Link href={`/${locale}/portfolio`} className="py-1.5 hover:text-(--color-foreground) transition-colors">{tNav.cases}</Link>
+          <Link href={`/${locale}/faq`} className="py-1.5 hover:text-(--color-foreground) transition-colors">{tNav.faq}</Link>
+          <Link href={`/${locale}/over`} className="py-1.5 hover:text-(--color-foreground) transition-colors">{tNav.over}</Link>
+          <Link href={`/${locale}/contact`} className="py-1.5 hover:text-(--color-foreground) transition-colors">{tNav.contact}</Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -99,7 +99,7 @@ export default function Footer({
               target="_blank"
               rel="noopener"
               aria-label={label}
-              className="text-(--color-muted) hover:text-(--color-foreground) transition-colors"
+              className="p-2 -m-1 text-(--color-muted) hover:text-(--color-foreground) transition-colors"
             >
               {icon}
             </a>
@@ -109,9 +109,9 @@ export default function Footer({
 
       <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-(--color-border) flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <nav className="flex flex-wrap gap-5 text-xs text-(--color-muted)">
-          <Link href={`/${locale}/privacy`} className="hover:text-(--color-foreground) transition-colors">{t.privacy}</Link>
-          <Link href={`/${locale}/voorwaarden`} className="hover:text-(--color-foreground) transition-colors">{t.terms}</Link>
-          <Link href={`/${locale}/cookies`} className="hover:text-(--color-foreground) transition-colors">{t.cookies}</Link>
+          <Link href={`/${locale}/privacy`} className="py-2 hover:text-(--color-foreground) transition-colors">{t.privacy}</Link>
+          <Link href={`/${locale}/voorwaarden`} className="py-2 hover:text-(--color-foreground) transition-colors">{t.terms}</Link>
+          <Link href={`/${locale}/cookies`} className="py-2 hover:text-(--color-foreground) transition-colors">{t.cookies}</Link>
         </nav>
         <p className="text-xs text-(--color-muted)">
           © {year} {t.copyright}

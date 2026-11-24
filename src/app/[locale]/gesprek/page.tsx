@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations } from "@/i18n/translations";
+import ContactForm from "../contact/contact-form";
 
 // Plan een gratis call van 30 minuten. De agenda is een Cal.com-embed
 // (synct met Hendriks agenda, blokkeert bezette tijden, stuurt uitnodigingen).
@@ -13,8 +14,7 @@ const COPY = {
     heading: "Plan een call van 30 minuten.",
     sub: "We bespreken je idee, je doelen en wat het ongeveer kost. Geen verplichtingen.",
     points: ["30 minuten, via video", "Kies zelf een moment", "Je krijgt meteen een uitnodiging"],
-    missing: "De agenda staat nog niet online. Stuur ons een bericht, dan plannen we samen een moment.",
-    contact: "Naar contact",
+    missing: "Laat je gegevens achter. We sturen je binnen één werkdag een paar momenten om uit te kiezen.",
   },
   en: {
     title: "Book a free call",
@@ -22,8 +22,7 @@ const COPY = {
     heading: "Book a 30-minute call.",
     sub: "We talk through your idea, your goals and a rough cost. No strings attached.",
     points: ["30 minutes, on video", "Pick a time that suits you", "You get an invite right away"],
-    missing: "The calendar isn't online yet. Send us a message and we'll find a time together.",
-    contact: "Go to contact",
+    missing: "Leave your details. Within one working day we send you a few times to choose from.",
   },
   de: {
     title: "Kostenloses Gespräch buchen",
@@ -31,8 +30,7 @@ const COPY = {
     heading: "Buchen Sie ein 30-Minuten-Gespräch.",
     sub: "Wir besprechen Ihre Idee, Ihre Ziele und die ungefähren Kosten. Unverbindlich.",
     points: ["30 Minuten, per Video", "Termin selbst wählen", "Sie erhalten sofort eine Einladung"],
-    missing: "Der Kalender ist noch nicht online. Schreiben Sie uns, dann finden wir gemeinsam einen Termin.",
-    contact: "Zum Kontakt",
+    missing: "Hinterlassen Sie Ihre Daten. Innerhalb eines Werktags senden wir Ihnen einige Termine zur Auswahl.",
   },
 };
 
@@ -47,6 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function BookCall({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const c = pick(locale);
+  const t = getTranslations(locale);
   const src = CAL_LINK
     ? `https://cal.com/${CAL_LINK}?embed=true&theme=dark&layout=month_view&locale=${locale === "en" ? "en" : locale === "de" ? "de" : "nl"}`
     : null;
@@ -74,14 +73,11 @@ export default async function BookCall({ params }: { params: Promise<{ locale: s
             className="block h-[760px] w-full sm:h-[700px]"
           />
         ) : (
-          <div className="flex flex-col items-start gap-5 p-8 sm:p-10">
+          <div className="flex flex-col gap-6 p-6 sm:p-10">
             <p className="text-(--color-muted-light) max-w-lg">{c.missing}</p>
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-6 py-3 rounded-full text-sm"
-            >
-              {c.contact} →
-            </Link>
+            <div className="max-w-xl">
+              <ContactForm t={t.contact} differentiator={t.home.differentiator} />
+            </div>
           </div>
         )}
       </div>

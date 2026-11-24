@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { getTranslations } from "@/i18n/translations";
+import { pageMetadata } from "@/i18n/seo";
+import CallCta from "@/components/call-cta";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, "over");
+}
 
 export default async function Over({
   params,
@@ -54,6 +61,7 @@ export default async function Over({
           </div>
         </div>
       </div>
+      <CallCta locale={locale} />
     </main>
   );
 }

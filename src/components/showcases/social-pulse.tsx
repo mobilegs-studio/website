@@ -245,12 +245,8 @@ function CountUp({ value, play, format }: { value: number; play: boolean; format
   const fromRef = useRef(0);
 
   useEffect(() => {
-    if (!play) return;
-    if (reduced) {
-      fromRef.current = value;
-      setDisplay(value);
-      return;
-    }
+    // Minder beweging: geen animatie, de eindwaarde wordt direct afgeleid.
+    if (!play || reduced) return;
     const from = fromRef.current;
     const start = performance.now();
     let raf = 0;
@@ -266,7 +262,7 @@ function CountUp({ value, play, format }: { value: number; play: boolean; format
     return () => cancelAnimationFrame(raf);
   }, [value, play, reduced]);
 
-  return <>{format(display)}</>;
+  return <>{format(reduced ? value : display)}</>;
 }
 
 // Subtiel toplicht op elke kaart (huisstijl).

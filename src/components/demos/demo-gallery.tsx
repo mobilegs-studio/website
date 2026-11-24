@@ -210,7 +210,7 @@ export default function DemoGallery({ locale }: { locale: string }) {
               <div className="flex flex-col gap-3 border-t border-(--color-border) px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-7">
                 <span className="text-[10px] uppercase tracking-[0.14em] text-(--color-warm)">{c.disclaimer}</span>
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/${locale}/gesprek`}
                   className="w-fit rounded-full bg-(--color-accent) px-5 py-2.5 text-sm font-semibold text-white"
                 >
                   {c.cta} →

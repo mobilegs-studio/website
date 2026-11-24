@@ -3,6 +3,12 @@ import { getCasesContent } from "@/lib/content";
 import PortfolioCarousel from "@/components/portfolio-carousel";
 import DemoGallery from "@/components/demos/demo-gallery";
 import { getTranslations } from "@/i18n/translations";
+import { pageMetadata } from "@/i18n/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, "portfolio");
+}
 
 export default async function Portfolio({
   params,
@@ -39,7 +45,7 @@ export default async function Portfolio({
       <div className="mt-20 border-t border-(--color-border) pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <p className="font-sans font-bold tracking-tight text-2xl sm:text-3xl">{c.ctaHeading}</p>
         <Link
-          href={`/${locale}/contact`}
+          href={`/${locale}/gesprek`}
           className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
         >
           {c.cta}

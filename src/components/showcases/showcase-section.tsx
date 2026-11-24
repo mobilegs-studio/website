@@ -391,7 +391,7 @@ export default function ShowcaseSection({ locale }: { locale: string }) {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 pb-24 w-full">
+    <section id="showcases" className="relative max-w-7xl mx-auto px-6 pb-24 w-full scroll-mt-24">
       {/* Subtiel dotted-grid patroon achter de hele sectie */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -669,7 +669,7 @@ export default function ShowcaseSection({ locale }: { locale: string }) {
         </AnimatePresence>
 
         <Link
-          href={`/${locale}/contact`}
+          href={`/${locale}/gesprek`}
           className="inline-flex shrink-0 items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
         >
           {copy.cta}

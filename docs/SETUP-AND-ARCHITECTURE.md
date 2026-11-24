@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **24 november 2026 — 08:53**
+> Laatst bijgewerkt: **24 november 2026 — 09:47**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -118,6 +118,9 @@ Migratie: `supabase/migrations/0001_products_purchases_subscriptions.sql` (idemp
 | `showcases/field-app.tsx` | App-demo: buitendienst-app met checklist, foto, handtekening en offline-modus |
 | `showcases/redesign-slider.tsx` | Website-demo: voor/na-schuif met snelheid- en SEO-scores |
 | `showcases/growth-cockpit.tsx`, `app-insights.tsx`, `social-pulse.tsx` | De drie dashboards onder de tab Dashboards |
+| `call-cta.tsx` | Afsluitend blok "Plan een gratis call" onder Diensten en Over; alle hoofdknoppen op de site gaan naar `/gesprek` |
+| `i18n/seo.ts` | Titel en beschrijving per pagina en taal (`pageMetadata`), gebruikt in `generateMetadata` van de locale-layout en de pagina's |
+| `navbar.tsx` | Volledig menu vanaf `lg`; daaronder hamburger plus altijd zichtbare call-knop |
 | `ready-solutions.tsx` | Kant-en-klare producten: FitTrack (echte screenshots uit `public/products/fittrack/`) en GymBook (werkende kopie van het boekingsscherm, demo-data). Tekst in `solutions`. |
 | `demos/demo-gallery.tsx` | Portfolio: demo-galerij met filter (AI-tools, Websites, Webapps), demo opent in een modal |
 | `demos/*` | Zeven demo's: chatbot, insights-agent, meeting-notes, ai-search, multilingual, client-portal, planning-tool (fictieve data, NL/EN/DE) |

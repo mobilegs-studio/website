@@ -99,7 +99,7 @@ export default function Navbar({
           {/* Desktop nav */}
           {/* gap-5 op md, gap-8 vanaf lg: voorkomt dat nav en taalwissel
               elkaar raken op smalle desktop-breedtes (~800-1000px). */}
-          <ul className="hidden md:flex items-center gap-5 lg:gap-8">
+          <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -116,7 +116,7 @@ export default function Navbar({
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-3 lg:gap-4 pl-4">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 pl-4 whitespace-nowrap">
             {/* Language switcher */}
             <div className="flex items-center gap-1.5 text-xs text-(--color-muted)">
               {LOCALES.map((loc, i) => (
@@ -158,16 +158,24 @@ export default function Navbar({
             )}
 
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/gesprek`}
               className="inline-flex items-center text-sm font-semibold bg-(--color-accent) text-white px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
             >
               {t.cta}
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobiel/tablet: call-knop altijd zichtbaar + hamburger */}
+          <div className="lg:hidden flex items-center gap-3">
+          <Link
+            href={`/${locale}/gesprek`}
+            onClick={closeMenu}
+            className="inline-flex items-center whitespace-nowrap text-xs sm:text-sm font-semibold bg-(--color-accent) text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full"
+          >
+            {t.cta}
+          </Link>
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+            className="flex flex-col gap-1.5 p-2 -mr-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? t.menuClose : t.menuOpen}
           >
@@ -187,6 +195,7 @@ export default function Navbar({
               }`}
             />
           </button>
+          </div>
         </nav>
       </header>
 
@@ -199,7 +208,7 @@ export default function Navbar({
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
             style={{ backgroundColor: "var(--background)" }}
-            className="md:hidden fixed left-0 right-0 top-[65px] bottom-0 z-40 px-6 pt-10 pb-10 flex flex-col gap-6 overflow-y-auto"
+            className="lg:hidden fixed left-0 right-0 top-[65px] bottom-0 z-40 px-6 pt-10 pb-10 flex flex-col gap-6 overflow-y-auto"
           >
             {links.map(({ href, label }, i) => (
               <motion.div
@@ -259,7 +268,7 @@ export default function Navbar({
                 {loggedIn ? ta.accountTitle : ta.loginTitle}
               </Link>
               <Link
-                href={`/${locale}/contact`}
+                href={`/${locale}/gesprek`}
                 onClick={closeMenu}
                 className="inline-flex items-center justify-center w-full text-sm font-semibold bg-(--color-accent) text-white px-5 py-4 rounded-full hover:opacity-90 transition-opacity"
               >

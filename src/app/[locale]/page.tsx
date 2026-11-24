@@ -140,16 +140,16 @@ export default function Home({
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
-                href={`/${locale}/contact`}
+                href={`/${locale}/gesprek`}
                 className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full text-sm transition-all duration-300 shadow-[0_8px_30px_-10px_rgba(91,95,232,0.7)] hover:shadow-[0_12px_44px_-8px_rgba(91,95,232,0.9)] hover:-translate-y-0.5 active:translate-y-0"
               >
                 {h.cta}
               </Link>
-              <Link
-                href={`/${locale}/diensten`}
+              <a
+                href="#showcases"
                 className="inline-flex items-center gap-2 border border-(--color-border) text-(--color-foreground) font-semibold px-7 py-3.5 rounded-full hover:border-(--color-muted) hover:bg-(--color-surface) transition-colors text-sm"
               >
-                {h.viewServices}
+                {h.viewExamples}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path
                     d="M3 7h8M7 3l4 4-4 4"
@@ -159,8 +159,9 @@ export default function Home({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </Link>
+              </a>
             </div>
+            <p className="mt-4 text-xs text-(--color-muted)">{h.ctaTrust}</p>
           </div>
           <LiveBuildDemo t={h.liveBuild} />
         </div>
@@ -312,7 +313,7 @@ export default function Home({
               Uses the signature brand gradient: indigo rising into amber. */}
           <div className="w-[82%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-3rem)/3.4)]">
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/gesprek`}
               className="group relative flex flex-col justify-between h-full rounded-2xl p-6 text-white overflow-hidden shadow-[0_16px_50px_-12px_rgba(91,95,232,0.45)] hover:shadow-[0_24px_60px_-12px_rgba(91,95,232,0.6)] transition-shadow"
               style={{
                 background:
@@ -529,7 +530,7 @@ export default function Home({
               {/* CTA */}
               <div className="relative mt-10">
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/${locale}/gesprek`}
                   className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
                 >
                   {h.cta}
@@ -645,12 +646,18 @@ export default function Home({
               {h.ctaSubtext}
             </p>
           </div>
+          <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
           <Link
-            href={`/${locale}/contact`}
-            className="shrink-0 inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
+            href={`/${locale}/gesprek`}
+            className="inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity text-sm"
           >
             {h.cta}
           </Link>
+            <span className="text-xs text-(--color-muted)">{h.ctaTrust}</span>
+            <Link href={`/${locale}/contact`} className="text-sm text-(--color-muted-light) underline underline-offset-4 hover:text-(--color-foreground)">
+              {h.ctaAlt}
+            </Link>
+          </div>
         </motion.div>
       </section>
     </main>

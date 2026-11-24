@@ -85,7 +85,7 @@ function ProductCard({
           {t.custom}
         </p>
         <Link
-          href={`/${locale}/contact`}
+          href={`/${locale}/gesprek`}
           className="mt-6 w-fit inline-flex items-center gap-2 bg-(--color-accent) text-white font-semibold px-6 py-3 rounded-full text-sm transition-all hover:-translate-y-0.5"
         >
           {t.cta}

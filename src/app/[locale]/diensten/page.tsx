@@ -1,5 +1,12 @@
 import { getTranslations } from "@/i18n/translations";
 import { serviceIcons } from "@/components/service-icons";
+import { pageMetadata } from "@/i18n/seo";
+import CallCta from "@/components/call-cta";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, "diensten");
+}
 
 export default async function Diensten({
   params,
@@ -61,6 +68,7 @@ export default async function Diensten({
           </div>
         ))}
       </div>
+      <CallCta locale={locale} />
     </main>
   );
 }
