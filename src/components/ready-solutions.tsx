@@ -153,7 +153,50 @@ const slotsByDay = [
   ["07:30", "11:00", "13:00", "18:30", "19:30"],
 ];
 
+// Drie schermen als waaier (zoals FitTrack): klik een zijscherm naar voren.
+// Het boekingsscherm in het midden werkt echt.
 export function GymBookBooking({ t }: { t: T["booking"] }) {
+  const [front, setFront] = useState(1);
+  const screens = [
+    { label: t.screenHome, node: <HomeScreen t={t} /> },
+    { label: t.screenBook, node: <BookScreen t={t} /> },
+    { label: t.screenReports, node: <ReportsScreen t={t} /> },
+  ];
+  return (
+    <div className="absolute inset-0 flex items-start justify-center pt-10">
+      {screens.map((sc, i) => {
+        const rel = ((i - front + 4) % 3) - 1;
+        const isFront = rel === 0;
+        return (
+          <motion.div
+            key={sc.label}
+            animate={{
+              x: `${rel * 70}%`,
+              scale: isFront ? 1 : 0.84,
+              opacity: isFront ? 1 : 0.5,
+              zIndex: isFront ? 2 : 1,
+            }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-10 w-[270px] h-[440px] origin-top rounded-[34px] border-[5px] border-[#1c1c1f] shadow-2xl overflow-hidden"
+            style={{ background: gb.bg, color: gb.text }}
+          >
+            <div className="px-3 pt-4 pb-3 flex flex-col gap-2.5 text-left">{sc.node}</div>
+            {!isFront && (
+              <button
+                type="button"
+                aria-label={sc.label}
+                onClick={() => setFront(i)}
+                className="absolute inset-0 cursor-pointer"
+              />
+            )}
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+function BookScreen({ t }: { t: T["booking"] }) {
   const [type, setType] = useState(0);
   const [trainer, setTrainer] = useState(0);
   const [day, setDay] = useState(0);
@@ -161,55 +204,144 @@ export function GymBookBooking({ t }: { t: T["booking"] }) {
   const slots = slotsByDay[(day + trainer) % slotsByDay.length];
 
   return (
-    <div className="absolute inset-0 flex items-start justify-center pt-12">
-      <div
-        className="relative w-[300px] h-[440px] rounded-[34px] border-[5px] border-[#1c1c1f] shadow-2xl overflow-hidden"
-        style={{ background: gb.bg, color: gb.text }}
-      >
-        <div className="px-3 pt-4 pb-3 flex flex-col gap-2.5 text-left">
-          <div className="text-[15px] font-bold px-1">GymBook</div>
-          <Card>
-            <H>{t.sessionType}</H>
-            <Chips options={t.types} value={type} onChange={() => setBooked(null)} set={setType} />
-            <H>{t.trainer}</H>
-            <Chips options={t.trainers} value={trainer} onChange={() => setBooked(null)} set={setTrainer} />
-            <H>{t.day}</H>
-            <Chips options={t.days} value={day} onChange={() => setBooked(null)} set={setDay} />
-          </Card>
-          <Card>
-            <H>{t.freeTimes}</H>
-            <div className="flex flex-wrap gap-1.5">
-              {slots.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setBooked(s)}
-                  className="rounded-[8px] px-2.5 py-1.5 text-[11px] font-semibold transition-colors"
-                  style={{
-                    background: booked === s ? gb.accent : gb.chip,
-                    color: gb.text,
-                  }}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-            <AnimatePresence>
-              {booked && (
-                <motion.div
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="rounded-[8px] px-2.5 py-1.5 text-[11px] font-semibold"
-                  style={{ color: gb.good, background: "rgba(63,185,80,0.12)" }}
-                >
-                  {booked} · {t.bookedOk}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Card>
+    <>
+      <div className="text-[15px] font-bold px-1">{t.screenBook}</div>
+      <Card>
+        <H>{t.sessionType}</H>
+        <Chips options={t.types} value={type} onChange={() => setBooked(null)} set={setType} />
+        <H>{t.trainer}</H>
+        <Chips options={t.trainers} value={trainer} onChange={() => setBooked(null)} set={setTrainer} />
+        <H>{t.day}</H>
+        <Chips options={t.days} value={day} onChange={() => setBooked(null)} set={setDay} />
+      </Card>
+      <Card>
+        <H>{t.freeTimes}</H>
+        <div className="flex flex-wrap gap-1.5">
+          {slots.map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setBooked(s)}
+              className="rounded-[8px] px-2.5 py-1.5 text-[11px] font-semibold transition-colors"
+              style={{ background: booked === s ? gb.accent : gb.chip, color: gb.text }}
+            >
+              {s}
+            </button>
+          ))}
         </div>
+        <AnimatePresence>
+          {booked && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="rounded-[8px] px-2.5 py-1.5 text-[11px] font-semibold"
+              style={{ color: gb.good, background: "rgba(63,185,80,0.12)" }}
+            >
+              {booked} · {t.bookedOk}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Card>
+    </>
+  );
+}
+
+const toneColor = { good: gb.good, muted: gb.muted, bad: "#F85149" } as const;
+
+// Kopie van GymBook's sportschool-scherm (gym/[id]/index.tsx): knoppen,
+// tegoed, eigen boekingen en het rooster.
+function HomeScreen({ t }: { t: T["booking"] }) {
+  const h = t.home;
+  const line = (r: (typeof h.sessions)[number]) => (
+    <div key={r.name} className="flex items-center justify-between gap-2">
+      <div className="min-w-0 text-[11px] leading-snug">
+        <div className="font-semibold">{r.name}</div>
+        <div style={{ color: gb.muted }}>{r.when}</div>
+        <div style={{ color: toneColor[r.tone as keyof typeof toneColor] }}>{r.status}</div>
       </div>
+      <span
+        className="shrink-0 rounded-[8px] px-2 py-1 text-[10px] font-semibold"
+        style={{ background: r.tone === "good" ? "rgba(248,81,73,0.15)" : gb.accent, color: r.tone === "good" ? "#F85149" : gb.text }}
+      >
+        {r.btn}
+      </span>
+    </div>
+  );
+  return (
+    <>
+      <div className="text-[15px] font-bold px-1">{h.gym}</div>
+      <div className="flex gap-1.5">
+        <span className="rounded-[10px] px-2.5 py-1.5 text-[11px] font-semibold" style={{ background: gb.accent }}>{h.bookTrainer}</span>
+        <span className="rounded-[10px] px-2.5 py-1.5 text-[11px]" style={{ background: gb.chip }}>{h.shop}</span>
+      </div>
+      <Card>
+        <H>{h.walletT}</H>
+        <div className="text-[11px] leading-snug">
+          <div className="font-semibold">{h.walletName}</div>
+          <div style={{ color: gb.muted }}>{h.walletLine}</div>
+        </div>
+      </Card>
+      <Card>
+        <H>{h.mineT}</H>
+        {line(h.sessions[0])}
+      </Card>
+      <Card>
+        <H>{h.timetableT}</H>
+        {h.sessions.slice(1).map(line)}
+      </Card>
+    </>
+  );
+}
+
+// Kopie van GymBook's rapportage (gym/[id]/reports.tsx): periode, tegels, balken.
+function ReportsScreen({ t }: { t: T["booking"] }) {
+  const r = t.reports;
+  const [period, setPeriod] = useState(1);
+  const revenue = [[6120, 7480, 8420], [7480, 8420, 2310], [5200, 6900, 8420]][period];
+  const max = Math.max(...revenue);
+  const topMax = Math.max(...r.top.map((x) => x[1] as number));
+  return (
+    <>
+      <div className="text-[15px] font-bold px-1">{t.screenReports}</div>
+      <Chips options={r.periods} value={period} set={setPeriod} onChange={() => {}} />
+      <div className="grid grid-cols-2 gap-1.5">
+        {r.tiles.map(([label, value]) => (
+          <div key={label} className="rounded-[12px] p-2.5" style={{ background: gb.card, border: `0.5px solid ${gb.border}` }}>
+            <div className="text-[10px]" style={{ color: gb.muted }}>{label}</div>
+            <div className="text-[16px] font-bold">{value}</div>
+          </div>
+        ))}
+      </div>
+      <Card>
+        <H>{r.revenueT}</H>
+        {revenue.map((v, i) => (
+          <Bar key={r.months[i]} label={r.months[i]} pct={(v / max) * 100} text={`€ ${v.toLocaleString("nl-NL")}`} color={gb.accent} />
+        ))}
+      </Card>
+      <Card>
+        <H>{r.topT}</H>
+        {r.top.map(([name, n]) => (
+          <Bar key={name as string} label={name as string} pct={((n as number) / topMax) * 100} text={String(n)} color={gb.good} />
+        ))}
+      </Card>
+    </>
+  );
+}
+
+function Bar({ label, pct, text, color }: { label: string; pct: number; text: string; color: string }) {
+  return (
+    <div className="flex items-center gap-2 text-[10.5px]">
+      <span className="w-[72px] shrink-0 truncate">{label}</span>
+      <span className="h-2.5 flex-1 overflow-hidden rounded" style={{ background: gb.chip }}>
+        <motion.span
+          className="block h-full rounded"
+          style={{ background: color }}
+          animate={{ width: `${Math.max(3, pct)}%` }}
+          transition={{ duration: 0.4 }}
+        />
+      </span>
+      <span className="w-[52px] shrink-0 text-right">{text}</span>
     </div>
   );
 }
