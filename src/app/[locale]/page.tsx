@@ -8,7 +8,7 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { getTranslations } from "@/i18n/translations";
 import { serviceIcons } from "@/components/service-icons";
 import SitePreview from "@/components/site-preview";
@@ -76,6 +76,13 @@ export default function Home({
     restDelta: 0.001,
   });
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const scrollTrack = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    el.scrollBy({ left: dir * ((card?.offsetWidth ?? 300) + 16), behavior: reduceMotion ? "auto" : "smooth" });
+  };
   const activeService = services.find((s) => s.id === openCard) ?? null;
   const activeExamples = openCard ? serviceExamples[openCard] : undefined;
   const activeFeatured =
@@ -166,16 +173,35 @@ export default function Home({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4 }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-4 mb-8"
         >
           <span className="text-xs tracking-[0.2em] uppercase text-(--color-muted)">
             {h.whatWeBuild}
           </span>
           <span className="flex-1 h-px bg-(--color-border)" />
+          <div className="flex gap-2">
+            {([-1, 1] as const).map((dir) => (
+              <button
+                key={dir}
+                type="button"
+                onClick={() => scrollTrack(dir)}
+                aria-label={dir === -1 ? "←" : "→"}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-muted-light) transition-colors hover:border-(--color-accent) hover:text-(--color-foreground)"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className={dir === -1 ? "rotate-180" : ""}>
+                  <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => {
+        {/* Carousel: horizontaal scrollen met snap; pijlen schuiven één kaart op. */}
+        <div
+          ref={trackRef}
+          className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {services.map((service) => {
             const featured =
               service.id === "ai-tooling" || service.id === "dashboarding";
             const examples = serviceExamples[service.id];
@@ -208,10 +234,10 @@ export default function Home({
             );
             const titleAndBullets = (
               <>
-                <h2 className="relative mt-6 text-2xl font-semibold tracking-tight group-hover:text-(--color-accent-light) transition-colors duration-200">
+                <h2 className="relative mt-5 text-xl font-semibold tracking-tight group-hover:text-(--color-accent-light) transition-colors duration-200">
                   {service.title}
                 </h2>
-                <ul className="relative mt-5 flex flex-col gap-2.5">
+                <ul className="relative mt-4 flex flex-col gap-2">
                   {service.items.slice(0, 3).map((bullet) => (
                     <li
                       key={bullet}
@@ -226,18 +252,15 @@ export default function Home({
             );
 
             return (
-              <motion.div
+              <div
                 key={service.number}
-                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ delay: (i % 3) * 0.05, duration: 0.4, ease: easeOut }}
+                className="w-[82%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-3rem)/3.4)]"
               >
                 {expandable ? (
                   <button
                     type="button"
                     onClick={() => setOpenCard(service.id)}
-                    className={`group relative flex flex-col h-full w-full text-left rounded-2xl card-depth p-8 overflow-hidden cursor-pointer ${
+                    className={`group relative flex flex-col h-full w-full text-left rounded-2xl card-depth p-6 overflow-hidden cursor-pointer ${
                       featured
                         ? "border-[rgba(var(--accent-rgb),0.55)] shadow-[0_16px_50px_-18px_rgba(var(--accent-rgb),0.5)]"
                         : ""
@@ -246,7 +269,7 @@ export default function Home({
                     {glow}
                     {topRow}
                     {titleAndBullets}
-                    <span className="relative mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-accent-light)">
+                    <span className="relative mt-auto pt-6 inline-flex items-center gap-1.5 text-xs text-(--color-accent-light)">
                       {h.viewExamples}
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-0.5 transition-transform">
                         <path
@@ -262,12 +285,12 @@ export default function Home({
                 ) : (
                   <Link
                     href={`/${locale}/diensten#${service.id}`}
-                    className="group relative flex flex-col h-full rounded-2xl card-depth p-8 overflow-hidden"
+                    className="group relative flex flex-col h-full rounded-2xl card-depth p-6 overflow-hidden"
                   >
                     {glow}
                     {topRow}
                     {titleAndBullets}
-                    <span className="relative mt-8 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent-light) transition-colors duration-200">
+                    <span className="relative mt-auto pt-6 inline-flex items-center gap-1.5 text-xs text-(--color-muted) group-hover:text-(--color-accent-light) transition-colors duration-200">
                       {h.moreInfo}
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="group-hover:translate-x-0.5 transition-transform">
                         <path
@@ -281,21 +304,16 @@ export default function Home({
                     </span>
                   </Link>
                 )}
-              </motion.div>
+              </div>
             );
           })}
 
           {/* 6th tile — fills the grid, invites custom requests.
               Uses the signature brand gradient: indigo rising into amber. */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: 0.4, duration: 0.5, ease: easeOut }}
-          >
+          <div className="w-[82%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-3rem)/3.4)]">
             <Link
               href={`/${locale}/contact`}
-              className="group relative flex flex-col justify-between h-full rounded-2xl p-8 text-white overflow-hidden shadow-[0_16px_50px_-12px_rgba(91,95,232,0.45)] hover:shadow-[0_24px_60px_-12px_rgba(91,95,232,0.6)] transition-shadow"
+              className="group relative flex flex-col justify-between h-full rounded-2xl p-6 text-white overflow-hidden shadow-[0_16px_50px_-12px_rgba(91,95,232,0.45)] hover:shadow-[0_24px_60px_-12px_rgba(91,95,232,0.6)] transition-shadow"
               style={{
                 background:
                   "linear-gradient(155deg, #5B5FE8 0%, #7C7FED 50%, #E0B978 100%)",
@@ -329,7 +347,7 @@ export default function Home({
                 </svg>
               </span>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 

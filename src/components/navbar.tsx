@@ -80,7 +80,8 @@ export default function Navbar({
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link
+          {/* Gewone <a>: logo laadt de homepage altijd volledig opnieuw. */}
+          <a
             href={`/${locale}`}
             aria-label="Mobile Growth Studio — home"
             className="inline-flex items-center hover:opacity-80 transition-opacity"
@@ -93,7 +94,7 @@ export default function Navbar({
               height={42}
               className="h-9 w-auto"
             />
-          </Link>
+          </a>
 
           {/* Desktop nav */}
           {/* gap-5 op md, gap-8 vanaf lg: voorkomt dat nav en taalwissel
