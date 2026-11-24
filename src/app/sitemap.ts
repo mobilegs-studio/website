@@ -10,6 +10,7 @@ const pages = [
   { path: "/contact", changeFrequency: "yearly" as const, priority: 0.8 },
   { path: "/over", changeFrequency: "monthly" as const, priority: 0.7 },
   { path: "/portfolio", changeFrequency: "monthly" as const, priority: 0.6 },
+  { path: "/gesprek", changeFrequency: "yearly" as const, priority: 0.7 },
   { path: "/privacy", changeFrequency: "yearly" as const, priority: 0.3 },
   { path: "/voorwaarden", changeFrequency: "yearly" as const, priority: 0.3 },
   { path: "/cookies", changeFrequency: "yearly" as const, priority: 0.3 },

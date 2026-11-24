@@ -1,5 +1,12 @@
 import { getTranslations } from "@/i18n/translations";
+import Link from "next/link";
 import ContactForm from "./contact-form";
+
+const callCopy = {
+  nl: { label: "Liever direct praten?", cta: "Plan een gratis call (30 min)" },
+  en: { label: "Rather talk right away?", cta: "Book a free call (30 min)" },
+  de: { label: "Lieber direkt sprechen?", cta: "Kostenloses Gespräch buchen (30 Min.)" },
+};
 
 export default async function Contact({
   params,
@@ -57,6 +64,17 @@ export default async function Contact({
         <ContactForm t={c} differentiator={d} />
 
         <div className="flex flex-col gap-8 md:pt-0 pt-8 border-t border-(--color-border) md:border-0">
+          <div>
+            <p className="text-xs text-(--color-muted) tracking-widest uppercase mb-3">
+              {callCopy[locale as keyof typeof callCopy]?.label ?? callCopy.nl.label}
+            </p>
+            <Link
+              href={`/${locale}/gesprek`}
+              className="inline-flex items-center gap-2.5 bg-(--color-accent) text-white font-semibold px-5 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+            >
+              {callCopy[locale as keyof typeof callCopy]?.cta ?? callCopy.nl.cta} →
+            </Link>
+          </div>
           <div>
             <p className="text-xs text-(--color-muted) tracking-widest uppercase mb-3">
               {c.whatsappLabel}

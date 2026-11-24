@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **23 november 2026 — 19:10**
+> Laatst bijgewerkt: **24 november 2026 — 08:53**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -15,6 +15,7 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 | `/[locale]` | `app/[locale]/page.tsx` | Home — hero met live-build demo, diensten, showcases, kant-en-klare oplossingen (FitTrack, GymBook), aanpak, proces, CTA |
 | `/[locale]/diensten` | `app/[locale]/diensten/page.tsx` | Diensten-overzicht |
 | `/[locale]/portfolio` | `app/[locale]/portfolio/page.tsx` | Portfolio: cases-carousel en demo-galerij |
+| `/[locale]/gesprek` | `app/[locale]/gesprek/page.tsx` | Gratis call van 30 min plannen: Cal.com-embed via `NEXT_PUBLIC_CAL_LINK` (zonder die variabele: verwijzing naar contact) |
 | `/[locale]/faq` | `app/[locale]/faq/page.tsx` | Veelgestelde vragen |
 | `/[locale]/over` | `app/[locale]/over/page.tsx` | Over Hendrik / MGS |
 | `/[locale]/contact` | `app/[locale]/contact/page.tsx` | Contactformulier (Resend) |
@@ -120,6 +121,8 @@ Migratie: `supabase/migrations/0001_products_purchases_subscriptions.sql` (idemp
 | `ready-solutions.tsx` | Kant-en-klare producten: FitTrack (echte screenshots uit `public/products/fittrack/`) en GymBook (werkende kopie van het boekingsscherm, demo-data). Tekst in `solutions`. |
 | `demos/demo-gallery.tsx` | Portfolio: demo-galerij met filter (AI-tools, Websites, Webapps), demo opent in een modal |
 | `demos/*` | Zeven demo's: chatbot, insights-agent, meeting-notes, ai-search, multilingual, client-portal, planning-tool (fictieve data, NL/EN/DE) |
+| `app/[locale]/page.tsx` (diensten) | "Wat we bouwen" is een horizontale carousel met snap en pijlknoppen |
+| `ready-solutions.tsx` | GymBook als waaier van drie schermen (sportschool, boeken, rapportage), nagebouwd uit de GymBook-code |
 | `site-preview.tsx`, `portfolio-carousel.tsx` | Portfolio: OREQ en By Eric Sweder (scrollende full-page screenshots in `public/cases/`), FitTrack en GymBook (zelfde visuals als de kant-en-klaar-sectie) |
 
 Verwijderd (23 nov 2026): `hero-canvas.tsx` (WebGL-deeltjes) en `connection-graphic.tsx`.
