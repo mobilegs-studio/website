@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **26 november 2026 — 14:05**
+> Laatst bijgewerkt: **26 november 2026 — 18:30**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -32,6 +32,7 @@ Losstaande productsite voor de Setgrid-app (voorheen FitTrack). Staat bewust bui
 | `/setgrid/[lang]` | `app/setgrid/[lang]/page.tsx` | Hero, 7 functies met echte app-screenshots, Q&A (FAQPage JSON-LD), supportformulier |
 | `/setgrid/[lang]/support` | `app/setgrid/[lang]/support/page.tsx` | Klantenservice: hetzelfde formulier op een eigen pagina |
 | `/setgrid/[lang]/terms` | `app/setgrid/[lang]/terms/page.tsx` | Algemene voorwaarden van de app |
+| `/setgrid/[lang]/privacy` | `app/setgrid/[lang]/privacy/page.tsx` | Privacybeleid van de app: alles blijft op het apparaat van de gebruiker |
 
 Teksten: `src/content/setgrid/<lang>.ts` (één bestand per taal, type in `types.ts`). Beeld: `public/setgrid/shots/<lang>/1…7.jpg` + `public/setgrid/icon-512.png`, overgenomen uit de Play-store-assets van de app.
 
