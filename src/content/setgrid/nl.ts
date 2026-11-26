@@ -6,7 +6,7 @@ const nl: SetgridContent = {
     description:
       "Setgrid is een gymlogboek en voedingscoach in één: sets vastleggen in seconden, automatische progressie, calorieën via een foto en elke week een AI-analyse.",
   },
-  nav: { features: "Functies", faq: "Vragen", support: "Support", terms: "Voorwaarden" },
+  nav: { features: "Functies", faq: "Vragen", support: "Support", terms: "Voorwaarden", privacy: "Privacy" },
   hero: {
     badge: "Gezondheid & fitness · iPhone, Android en web",
     headline: "Je gymlogboek en voedingscoach in één app",
@@ -54,7 +54,7 @@ const nl: SetgridContent = {
     },
     {
       q: "Op welke apparaten werkt het?",
-      a: "iPhone, Android en de browser, met je gegevens gesynchroniseerd. Er is een Apple Watch-app om tijdens het trainen je sets vast te leggen.",
+      a: "iPhone, Android en de browser. Elk apparaat houdt zijn eigen gegevens lokaal bij, dus wat je op je telefoon bijhoudt blijft op je telefoon. Er is een Apple Watch-app om tijdens het trainen je sets vast te leggen.",
     },
     {
       q: "Kan ik hem al downloaden?",
@@ -78,7 +78,7 @@ const nl: SetgridContent = {
     },
     {
       q: "Waar staan mijn gegevens en kan ik ze wissen?",
-      a: "Ze staan bij Cloudflare in de EU en worden alleen gebruikt om de app te laten werken. Je wist alles via Instellingen → Privacy → Al mijn gegevens verwijderen, of per e-mail.",
+      a: "Alleen op je eigen apparaat. Wij ontvangen ze nooit en bewaren geen kopie. Je wist alles via Instellingen → Privacy en je gegevens → Al mijn gegevens wissen, of door de app te verwijderen.",
     },
     {
       q: "Is dit medisch advies?",
@@ -124,12 +124,14 @@ const nl: SetgridContent = {
         p: "Setgrid is een app om trainingen en eten bij te houden en je eigen voortgang te volgen. Hij is bedoeld voor persoonlijk gebruik.",
       },
       {
-        h: "3. Je account",
-        p: "Je hebt een login nodig. Houd die voor jezelf: alles wat met jouw login gebeurt, geldt als door jou gedaan. Laat het weten als je denkt dat iemand anders hem gebruikt.",
+        h: "3. Geen account",
+        p:
+          "Voor Setgrid heb je geen account bij ons nodig. Alles wat je bijhoudt blijft op je eigen apparaat, dus er is niets om op in te loggen en geen wachtwoord dat wij kunnen verliezen.",
       },
       {
         h: "4. Je gegevens blijven van jou",
-        p: "Je trainingen, metingen, foto's en notities zijn van jou. Je geeft ons toestemming om ze op te slaan en te verwerken met één doel: de app voor jou laten werken.",
+        p:
+          "Je trainingen, metingen, foto's en notities zijn van jou en blijven op je apparaat. Wij ontvangen ze niet, slaan ze niet op en verwerken ze niet. Je kunt ze zelf op elk moment volledig wissen.",
       },
       {
         h: "5. Geen medisch advies",
@@ -166,6 +168,59 @@ const nl: SetgridContent = {
       {
         h: "13. Recht",
         p: "Nederlands recht is van toepassing. Geschillen gaan naar een bevoegde rechter in Nederland.",
+      },
+    ],
+  },
+  privacy: {
+    title: "Privacybeleid",
+    updated: "Laatst bijgewerkt: 26 november 2026",
+    intro:
+      "Setgrid bewaart alles wat je bijhoudt op je eigen apparaat. Er is geen account, wij verzamelen niets en wij ontvangen je gegevens nooit. Deze pagina legt precies uit wat dat betekent en hoe dat voldoet aan de AVG (GDPR).",
+    sections: [
+      {
+        h: "De korte versie",
+        p:
+          "Je trainingen, sets, gewicht, metingen, maaltijden, foto's, doelen en instellingen staan alleen op het apparaat waarop je ze gebruikt: de eigen opslag van de app op iPhone en Android, of de opslag van je browser op het web. Er is geen account, geen login bij ons en geen kopie op onze servers.",
+      },
+      {
+        h: "Wie wij zijn",
+        p:
+          "Setgrid is gemaakt door Mobile Growth Studio, Hilversum, Nederland. Omdat de app ons nooit persoonsgegevens stuurt, zijn wij daarvoor geen verwerkingsverantwoordelijke onder de AVG. Voor deze website zijn we dat wel. Je bereikt ons op info@mobilegrowthstudio.com.",
+      },
+      {
+        h: "Wat we nooit verzamelen",
+        p:
+          "Geen naam, geen e-mailadres, geen account, geen apparaat- of advertentie-identificatie. In Setgrid zit geen tracking, geen analytics en geen advertentiesoftware. Er wordt niets over jou verkocht of gedeeld, want we hebben niets om te verkopen of te delen.",
+      },
+      {
+        h: "Apple Gezondheid",
+        p:
+          "Als je het zelf aanzet, schrijft Setgrid je trainingen, gewicht en taille naar Apple Gezondheid op je telefoon en leest terug wat je horloge heeft vastgelegd. Dat gaat volledig op het apparaat. Wij zien het nooit, en je kunt de toestemming op elk moment intrekken in de instellingen van je telefoon.",
+      },
+      {
+        h: "De Claude-coach, en die is optioneel",
+        p:
+          "Voortgangsanalyse, maaltijdfoto's, weekmenu's en recepten zijn de enige functies die iets van je apparaat af sturen, en alleen op het moment dat je er een gebruikt. De gegevens die voor die ene vraag nodig zijn — je recente trainingen en maaltijden, of de foto van je bord — gaan naar de Setgrid-server, die ze doorgeeft aan de Claude API van Anthropic en het antwoord teruggeeft. Ze worden alleen voor dat antwoord gebruikt, daarna niet bewaard en niet gebruikt om modellen te trainen. Laat het serverveld in Instellingen leeg en de functie blijft uit.",
+      },
+      {
+        h: "Agenda-export",
+        p:
+          "Het agendabestand met je geplande en afgeronde trainingen wordt op je eigen apparaat gemaakt en daarna aan het deelmenu gegeven of gedownload. Het wordt nergens geüpload; waar het daarna heen gaat, bepaal jij.",
+      },
+      {
+        h: "Je rechten onder de AVG",
+        p:
+          "De AVG geeft je het recht om je gegevens in te zien, te corrigeren, mee te nemen en te laten wissen. Omdat alles op je apparaat staat, gebruik je die rechten rechtstreeks in de app: elk gegeven is zichtbaar en aanpasbaar, je trainingen exporteer je als agendabestand, en Instellingen → Privacy en je gegevens → Al mijn gegevens wissen verwijdert alles, net als de app verwijderen. Wij kunnen niets voor je opvragen, corrigeren of wissen, om de eenvoudige reden dat wij het niet hebben.",
+      },
+      {
+        h: "Deze website",
+        p:
+          "mobilegrowthstudio.com draait bij Vercel en plaatst geen tracking- of advertentiecookies. Gebruik je het supportformulier, dan worden je naam, e-mailadres en bericht per e-mail (via Resend) naar ons gestuurd zodat we kunnen antwoorden, en niet langer bewaard dan daarvoor nodig is.",
+      },
+      {
+        h: "Wijzigingen en vragen",
+        p:
+          "Verandert dit beleid, dan staat de nieuwe versie op deze pagina met een nieuwe datum. Vragen of een klacht: info@mobilegrowthstudio.com. Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens.",
       },
     ],
   },

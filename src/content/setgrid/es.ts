@@ -11,6 +11,7 @@ const es: SetgridContent = {
     faq: "Preguntas",
     support: "Soporte",
     terms: "Condiciones",
+    privacy: "Privacidad",
   },
   hero: {
     badge: "Salud y forma física · iPhone, Android y web",
@@ -59,7 +60,7 @@ const es: SetgridContent = {
     },
     {
       q: "¿En qué dispositivos funciona?",
-      a: "iPhone, Android y el navegador, con los datos sincronizados. Hay app para Apple Watch para apuntar series durante el entrenamiento.",
+      a: "iPhone, Android y el navegador. Cada dispositivo guarda sus datos en local: lo que apuntas en el teléfono se queda en el teléfono. Hay app para Apple Watch para apuntar series durante el entrenamiento.",
     },
     {
       q: "¿Ya se puede descargar?",
@@ -83,7 +84,7 @@ const es: SetgridContent = {
     },
     {
       q: "¿Dónde están mis datos y puedo borrarlos?",
-      a: "Están en Cloudflare, en la UE, y solo se usan para que la app funcione. Puedes borrarlo todo en Ajustes → Privacidad → Borrar todos mis datos, o por correo.",
+      a: "Solo en tu propio dispositivo. Nunca los recibimos ni guardamos copia. Puedes borrarlo todo en Ajustes → Privacidad y tus datos → Borrar todos mis datos, o eliminando la app.",
     },
     {
       q: "¿Esto es consejo médico?",
@@ -129,12 +130,14 @@ const es: SetgridContent = {
         p: "Setgrid es una app para registrar entrenamientos y comidas y seguir tu propio progreso. Está pensada para uso personal.",
       },
       {
-        h: "3. Tu cuenta",
-        p: "Necesitas un acceso para usarla. Guárdalo para ti: lo que se haga con tu acceso cuenta como hecho por ti. Avísanos si crees que lo está usando otra persona.",
+        h: "3. Sin cuenta",
+        p:
+          "Setgrid no necesita ninguna cuenta con nosotros. Todo lo que registras se queda en tu propio dispositivo, así que no hay nada donde iniciar sesión ni contraseña que podamos perder.",
       },
       {
         h: "4. Tus datos siguen siendo tuyos",
-        p: "Tus entrenamientos, medidas, fotos y notas son tuyos. Nos das permiso para guardarlos y tratarlos con un único fin: que la app funcione para ti.",
+        p:
+          "Tus entrenamientos, medidas, fotos y notas son tuyos y se quedan en tu dispositivo. No los recibimos, ni los guardamos, ni los tratamos. Puedes borrarlo todo tú mismo cuando quieras.",
       },
       {
         h: "5. No es consejo médico",
@@ -171,6 +174,59 @@ const es: SetgridContent = {
       {
         h: "13. Ley aplicable",
         p: "Se aplica la ley neerlandesa. Los conflictos van a un tribunal competente de los Países Bajos.",
+      },
+    ],
+  },
+  privacy: {
+    title: "Política de privacidad",
+    updated: "Última actualización: 26 de noviembre de 2026",
+    intro:
+      "Setgrid guarda todo lo que registras en tu propio dispositivo. No hay cuenta, no recopilamos nada y nunca recibimos tus datos. Esta página explica exactamente qué significa eso y cómo cumple el RGPD.",
+    sections: [
+      {
+        h: "La versión corta",
+        p:
+          "Tus entrenamientos, series, peso, medidas, comidas, fotos, objetivos y ajustes se guardan solo en el dispositivo donde los usas: el almacenamiento propio de la app en iPhone y Android, o el de tu navegador en la web. No hay cuenta, ni inicio de sesión con nosotros, ni copia en nuestros servidores.",
+      },
+      {
+        h: "Quiénes somos",
+        p:
+          "Setgrid está hecha por Mobile Growth Studio, Hilversum, Países Bajos. Como la app nunca nos envía datos personales, no somos responsables del tratamiento de esos datos según el RGPD. De esta web sí lo somos. Puedes escribirnos a info@mobilegrowthstudio.com.",
+      },
+      {
+        h: "Lo que nunca recopilamos",
+        p:
+          "Ni nombre, ni correo electrónico, ni cuenta, ni identificadores de dispositivo o publicidad. Setgrid no lleva rastreo, ni analítica, ni software publicitario. Nada sobre ti se vende ni se comparte, porque no tenemos nada que vender ni compartir.",
+      },
+      {
+        h: "Apple Salud",
+        p:
+          "Si lo activas tú, Setgrid escribe tus entrenamientos, peso y cintura en Apple Salud en tu teléfono y lee lo que ha registrado tu reloj. Ese intercambio ocurre por completo en el dispositivo. Nosotros no lo vemos nunca y puedes retirar el permiso cuando quieras en los ajustes del teléfono.",
+      },
+      {
+        h: "El entrenador Claude, y es opcional",
+        p:
+          "El análisis de progreso, las fotos de comidas, los planes de comidas y las recetas son las únicas funciones que envían algo fuera de tu dispositivo, y solo en el momento en que usas una. Los datos necesarios para esa única pregunta — tus entrenamientos y comidas recientes, o la foto de tu plato — van al servidor de Setgrid, que los pasa a la API de Claude de Anthropic y devuelve la respuesta. Se usan solo para esa respuesta, no se conservan después y no se usan para entrenar modelos. Deja vacío el campo del servidor en Ajustes y la función sigue desactivada.",
+      },
+      {
+        h: "Exportación de calendario",
+        p:
+          "El archivo de calendario con tus entrenamientos planificados y hechos se crea en tu propio dispositivo y luego pasa al menú de compartir o a tus descargas. No se sube a ningún sitio; adónde vaya después lo decides tú.",
+      },
+      {
+        h: "Tus derechos según el RGPD",
+        p:
+          "El RGPD te da derecho a ver tus datos, corregirlos, llevártelos y hacer que se borren. Como todo está en tu dispositivo, ejerces esos derechos directamente en la app: cada registro se ve y se edita, tus entrenamientos se exportan como archivo de calendario, y Ajustes → Privacidad y tus datos → Borrar todos mis datos lo elimina todo, igual que borrar la app. No podemos entregar, corregir ni borrar nada en tu nombre, por la sencilla razón de que no lo tenemos.",
+      },
+      {
+        h: "Esta web",
+        p:
+          "mobilegrowthstudio.com está alojada en Vercel y no pone cookies de rastreo ni de publicidad. Si usas el formulario de soporte, tu nombre, correo electrónico y mensaje nos llegan por correo (a través de Resend) para poder responderte, y no se conservan más de lo necesario para eso.",
+      },
+      {
+        h: "Cambios y preguntas",
+        p:
+          "Si esta política cambia, la nueva versión aparece en esta página con una fecha nueva. Preguntas o una reclamación: info@mobilegrowthstudio.com. También puedes reclamar ante la autoridad de protección de datos neerlandesa (Autoriteit Persoonsgegevens).",
       },
     ],
   },
