@@ -4,7 +4,9 @@ import { updateSession } from "@/lib/supabase/middleware";
 const LOCALES = ["en", "nl", "de"] as const;
 type Locale = (typeof LOCALES)[number];
 
-const SKIP_PREFIXES = ["/api/", "/_next/", "/auth/", "/lab/"];
+// /setgrid is the Setgrid product site: it has its own 6 languages, so it skips
+// the studio site's en/nl/de locale routing.
+const SKIP_PREFIXES = ["/api/", "/_next/", "/auth/", "/lab/", "/setgrid"];
 const SKIP_EXACT = ["/sitemap.xml", "/robots.txt", "/favicon.ico", "/icon"];
 const SKIP_EXTENSIONS = /\.(svg|png|jpg|jpeg|ico|webp)$/;
 

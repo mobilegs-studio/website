@@ -1,0 +1,104 @@
+/* Setgrid product pages — their own look, independent of the studio site theme. */
+.sg {
+  --sg-bg: #061220;
+  --sg-bg-deep: #03080f;
+  --sg-surface: rgba(255, 255, 255, 0.04);
+  --sg-border: rgba(255, 255, 255, 0.1);
+  --sg-text: #eaf4f8;
+  --sg-muted: #9fb3c0;
+  --sg-accent: #22d3ee;
+  --sg-accent-deep: #066884;
+  --sg-green: #4ade80;
+
+  background:
+    radial-gradient(90rem 50rem at 50% -18rem, rgba(34, 211, 238, 0.22), transparent 62%),
+    linear-gradient(180deg, #061a2a 0%, var(--sg-bg) 38%, var(--sg-bg-deep) 100%);
+  color: var(--sg-text);
+  min-height: 100vh;
+}
+
+.sg ::selection {
+  background: rgba(34, 211, 238, 0.3);
+}
+
+.sg-card {
+  background: var(--sg-surface);
+  border: 1px solid var(--sg-border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.sg-phone {
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 28px 60px -24px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  background: #000;
+}
+
+.sg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.sg-btn:hover {
+  transform: translateY(-1px);
+}
+
+.sg-btn-primary {
+  background: var(--sg-accent);
+  color: #042029;
+}
+
+.sg-btn-primary:hover {
+  background: #67e8f9;
+}
+
+.sg-btn-ghost {
+  border: 1px solid var(--sg-border);
+  color: var(--sg-text);
+}
+
+.sg-btn-ghost:hover {
+  border-color: rgba(34, 211, 238, 0.6);
+}
+
+.sg-field {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--sg-border);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--sg-text);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.sg-field:focus {
+  outline: 2px solid rgba(34, 211, 238, 0.6);
+  outline-offset: 1px;
+}
+
+.sg-field::placeholder {
+  color: #6f8696;
+}
+
+.sg details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.sg details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.sg details[open] .sg-chev {
+  transform: rotate(45deg);
+}

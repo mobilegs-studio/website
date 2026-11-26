@@ -16,8 +16,27 @@ const pages = [
   { path: "/cookies", changeFrequency: "yearly" as const, priority: 0.3 },
 ];
 
+// The Setgrid product site lives under /setgrid and has its own languages.
+const SETGRID_LANGS = ["en", "nl", "de", "fr", "es", "pt"] as const;
+const setgridPages = [
+  { path: "", priority: 0.9 },
+  { path: "/support", priority: 0.6 },
+  { path: "/terms", priority: 0.3 },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
+
+  for (const lang of SETGRID_LANGS) {
+    for (const page of setgridPages) {
+      entries.push({
+        url: `${BASE_URL}/setgrid/${lang}${page.path}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: page.priority,
+      });
+    }
+  }
 
   for (const locale of LOCALES) {
     for (const page of pages) {
