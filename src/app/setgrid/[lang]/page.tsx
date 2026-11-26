@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SetgridPhone from "@/components/setgrid/phone";
 import SetgridShell from "@/components/setgrid/shell";
 import SetgridSupportForm from "@/components/setgrid/support-form";
 import {
@@ -85,21 +85,15 @@ export default async function SetgridPage({ params }: Params) {
 
         <div className="flex justify-center gap-4 md:justify-end">
           {["1-workout", "5-food"].map((shot, index) => (
-            <div
+            <SetgridPhone
               key={shot}
-              className={`sg-phone w-[46%] max-w-[230px] ${
+              src={`/setgrid/shots/${lang}/${shot}.jpg`}
+              alt=""
+              priority={index === 0}
+              className={`w-[46%] max-w-[230px] ${
                 index === 1 ? "mt-10 hidden sm:block" : ""
               }`}
-            >
-              <Image
-                src={`/setgrid/shots/${lang}/${shot}.jpg`}
-                alt=""
-                width={800}
-                height={1422}
-                priority={index === 0}
-                className="h-auto w-full"
-              />
-            </div>
+            />
           ))}
         </div>
       </section>
@@ -118,16 +112,11 @@ export default async function SetgridPage({ params }: Params) {
                 index % 2 ? "md:[&>div:first-child]:order-2" : ""
               }`}
             >
-              <div className="sg-phone mx-auto w-full max-w-[260px]">
-                <Image
-                  src={`/setgrid/shots/${lang}/${SETGRID_SHOTS[index]}.jpg`}
-                  alt={feature.title}
-                  width={800}
-                  height={1422}
-                  loading="lazy"
-                  className="h-auto w-full"
-                />
-              </div>
+              <SetgridPhone
+                src={`/setgrid/shots/${lang}/${SETGRID_SHOTS[index]}.jpg`}
+                alt={feature.title}
+                className="mx-auto w-full max-w-[260px]"
+              />
               <div>
                 <h3 className="text-xl font-semibold tracking-tight">
                   {feature.title}
