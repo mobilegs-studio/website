@@ -6,7 +6,7 @@ const de: SetgridContent = {
     description:
       "Setgrid ist Trainingslog und Ernährungscoach in einem: Sätze in Sekunden erfassen, automatische Progression, Kalorien per Foto und jede Woche eine KI-Auswertung.",
   },
-  nav: { features: "Funktionen", faq: "Fragen", support: "Support", terms: "AGB" },
+  nav: { features: "Funktionen", faq: "Fragen", support: "Support", terms: "AGB", privacy: "Datenschutz" },
   hero: {
     badge: "Gesundheit & Fitness · iPhone, Android und Web",
     headline: "Dein Trainingslog und Ernährungscoach in einer App",
@@ -54,7 +54,7 @@ const de: SetgridContent = {
     },
     {
       q: "Auf welchen Geräten läuft die App?",
-      a: "iPhone, Android und im Browser, mit synchronisierten Daten. Für die Apple Watch gibt es eine App, um Sätze direkt beim Training zu erfassen.",
+      a: "iPhone, Android und im Browser. Jedes Gerät hält seine Daten lokal, was du auf dem Telefon erfasst, bleibt also auf dem Telefon. Für die Apple Watch gibt es eine App, um Sätze direkt beim Training zu erfassen.",
     },
     {
       q: "Kann ich sie schon herunterladen?",
@@ -78,7 +78,7 @@ const de: SetgridContent = {
     },
     {
       q: "Wo liegen meine Daten und kann ich sie löschen?",
-      a: "Sie liegen bei Cloudflare in der EU und werden nur genutzt, damit die App läuft. Löschen kannst du alles unter Einstellungen → Datenschutz → Alle meine Daten löschen, oder per E-Mail.",
+      a: "Nur auf deinem eigenen Gerät. Wir erhalten sie nie und behalten keine Kopie. Alles löschen kannst du unter Einstellungen → Datenschutz und deine Daten → Alle meine Daten löschen, oder indem du die App löschst.",
     },
     {
       q: "Ist das medizinischer Rat?",
@@ -124,12 +124,14 @@ const de: SetgridContent = {
         p: "Setgrid ist eine App, um Training und Ernährung festzuhalten und den eigenen Fortschritt zu verfolgen. Sie ist für die persönliche Nutzung gedacht.",
       },
       {
-        h: "3. Dein Konto",
-        p: "Für die Nutzung brauchst du eine Anmeldung. Behalte sie für dich: Was mit deiner Anmeldung passiert, gilt als von dir getan. Sag uns Bescheid, wenn jemand anderes sie nutzt.",
+        h: "3. Kein Konto",
+        p:
+          "Für Setgrid brauchst du kein Konto bei uns. Alles, was du erfasst, bleibt auf deinem eigenen Gerät — es gibt nichts, wofür du dich anmelden müsstest, und kein Passwort, das wir verlieren könnten.",
       },
       {
         h: "4. Deine Daten bleiben deine",
-        p: "Deine Trainings, Messungen, Fotos und Notizen gehören dir. Du erlaubst uns, sie zu speichern und zu verarbeiten — allein dafür, die App für dich zu betreiben.",
+        p:
+          "Deine Trainings, Messungen, Fotos und Notizen gehören dir und bleiben auf deinem Gerät. Wir erhalten, speichern und verarbeiten sie nicht. Du kannst sie jederzeit selbst vollständig löschen.",
       },
       {
         h: "5. Kein medizinischer Rat",
@@ -166,6 +168,59 @@ const de: SetgridContent = {
       {
         h: "13. Recht",
         p: "Es gilt niederländisches Recht. Streitigkeiten gehen an ein zuständiges Gericht in den Niederlanden.",
+      },
+    ],
+  },
+  privacy: {
+    title: "Datenschutzerklärung",
+    updated: "Zuletzt aktualisiert: 26. November 2026",
+    intro:
+      "Setgrid speichert alles, was du erfasst, auf deinem eigenen Gerät. Es gibt kein Konto, wir erheben nichts und wir erhalten deine Daten nie. Diese Seite erklärt genau, was das bedeutet und wie das die DSGVO erfüllt.",
+    sections: [
+      {
+        h: "Die kurze Fassung",
+        p:
+          "Deine Trainings, Sätze, Gewicht, Maße, Mahlzeiten, Fotos, Ziele und Einstellungen liegen nur auf dem Gerät, auf dem du sie nutzt: im eigenen Speicher der App auf iPhone und Android oder im Speicher deines Browsers im Web. Es gibt kein Konto, keine Anmeldung bei uns und keine Kopie auf unseren Servern.",
+      },
+      {
+        h: "Wer wir sind",
+        p:
+          "Setgrid wird von Mobile Growth Studio, Hilversum, Niederlande, entwickelt. Weil die App uns nie personenbezogene Daten schickt, sind wir dafür nicht Verantwortliche im Sinne der DSGVO. Für diese Website sind wir es. Du erreichst uns unter info@mobilegrowthstudio.com.",
+      },
+      {
+        h: "Was wir nie erheben",
+        p:
+          "Keinen Namen, keine E-Mail-Adresse, kein Konto, keine Geräte- oder Werbe-IDs. In Setgrid steckt kein Tracking, keine Analyse und keine Werbesoftware. Nichts über dich wird verkauft oder weitergegeben, denn wir haben nichts zu verkaufen oder weiterzugeben.",
+      },
+      {
+        h: "Apple Health",
+        p:
+          "Wenn du es selbst einschaltest, schreibt Setgrid deine Trainings, dein Gewicht und deinen Taillenumfang in Apple Health auf deinem Telefon und liest zurück, was deine Uhr aufgezeichnet hat. Das geschieht vollständig auf dem Gerät. Wir sehen es nie, und du kannst die Erlaubnis jederzeit in den Einstellungen deines Telefons zurücknehmen.",
+      },
+      {
+        h: "Der Claude-Coach, und der ist optional",
+        p:
+          "Fortschrittsanalyse, Essensfotos, Essenspläne und Rezepte sind die einzigen Funktionen, die etwas von deinem Gerät wegschicken, und nur in dem Moment, in dem du eine davon nutzt. Die für diese eine Frage nötigen Daten — deine letzten Trainings und Mahlzeiten oder das Foto deines Tellers — gehen an den Setgrid-Server, der sie an die Claude-API von Anthropic weitergibt und die Antwort zurückliefert. Sie werden nur für diese Antwort genutzt, danach nicht gespeichert und nicht zum Trainieren von Modellen verwendet. Lässt du das Serverfeld in den Einstellungen leer, bleibt die Funktion aus.",
+      },
+      {
+        h: "Kalender-Export",
+        p:
+          "Die Kalenderdatei mit deinen geplanten und erledigten Trainings entsteht auf deinem eigenen Gerät und geht dann an das Teilen-Menü oder in deine Downloads. Sie wird nirgendwohin hochgeladen; wohin sie danach geht, entscheidest du.",
+      },
+      {
+        h: "Deine Rechte nach der DSGVO",
+        p:
+          "Die DSGVO gibt dir das Recht auf Auskunft, Berichtigung, Datenübertragbarkeit und Löschung. Weil alles auf deinem Gerät liegt, nimmst du diese Rechte direkt in der App wahr: jeder Eintrag ist sichtbar und änderbar, deine Trainings exportierst du als Kalenderdatei, und Einstellungen → Datenschutz und deine Daten → Alle meine Daten löschen entfernt alles, genau wie das Löschen der App. Wir können nichts für dich herausgeben, berichtigen oder löschen — aus dem einfachen Grund, dass wir es nicht haben.",
+      },
+      {
+        h: "Diese Website",
+        p:
+          "mobilegrowthstudio.com läuft bei Vercel und setzt keine Tracking- oder Werbe-Cookies. Nutzt du das Support-Formular, gehen dein Name, deine E-Mail-Adresse und deine Nachricht per E-Mail (über Resend) an uns, damit wir antworten können, und werden nicht länger aufbewahrt, als das erfordert.",
+      },
+      {
+        h: "Änderungen und Fragen",
+        p:
+          "Ändert sich diese Erklärung, steht die neue Fassung mit neuem Datum auf dieser Seite. Fragen oder eine Beschwerde: info@mobilegrowthstudio.com. Du kannst dich auch bei der niederländischen Datenschutzbehörde (Autoriteit Persoonsgegevens) beschweren.",
       },
     ],
   },

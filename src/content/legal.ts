@@ -93,7 +93,16 @@ export const legal: Record<"nl" | "en" | "de", LegalContent> = {
           ],
         },
         {
-          heading: "9. Wijzigingen",
+          heading: "9. Onze apps: alles blijft op je eigen apparaat",
+          body: [
+            "Onze apps, waaronder Setgrid, slaan alles wat je erin bijhoudt alleen op het apparaat zelf op: trainingen, metingen, maaltijden, foto's, doelen en instellingen. Er is geen account, geen login en geen kopie op onze servers. Wij ontvangen deze gegevens niet en zijn er dus ook geen verwerkingsverantwoordelijke voor onder de AVG.",
+            "Eén functie is een uitzondering, en die is optioneel: de AI-coach. Gebruik je die, dan gaan alleen de gegevens die voor die ene vraag nodig zijn naar de Claude API van Anthropic, die het antwoord teruggeeft. Ze worden daarna niet bewaard en niet gebruikt om modellen te trainen.",
+            "Omdat alles op je eigen apparaat staat, oefen je je AVG-rechten rechtstreeks in de app uit: inzien, aanpassen, exporteren en wissen (Instellingen → Privacy en je gegevens → Al mijn gegevens wissen, of de app verwijderen).",
+            "Het volledige privacybeleid van Setgrid staat op mobilegrowthstudio.com/setgrid/nl/privacy.",
+          ],
+        },
+        {
+          heading: "10. Wijzigingen",
           body: [
             "We kunnen deze privacyverklaring aanpassen. De meest actuele versie staat altijd op deze pagina, met bovenaan de datum van de laatste wijziging.",
           ],
@@ -295,7 +304,16 @@ export const legal: Record<"nl" | "en" | "de", LegalContent> = {
           ],
         },
         {
-          heading: "9. Changes",
+          heading: "9. Our apps: everything stays on your own device",
+          body: [
+            "Our apps, Setgrid among them, store everything you log only on the device itself: workouts, measurements, meals, photos, goals and settings. There is no account, no sign-in and no copy on our servers. We never receive this data, so we are not a controller of it under the GDPR.",
+            "One feature is the exception, and it is optional: the AI coach. If you use it, only the data needed for that single question goes to the Claude API of Anthropic, which returns the answer. It is not kept afterwards and is not used to train models.",
+            "Because everything is on your own device, you exercise your GDPR rights directly in the app: see it, change it, export it and erase it (Settings → Privacy and your data → Delete all my data, or by deleting the app).",
+            "Setgrid's full privacy policy is at mobilegrowthstudio.com/setgrid/en/privacy.",
+          ],
+        },
+        {
+          heading: "10. Changes",
           body: [
             "We may update this privacy policy. The most recent version is always available on this page, with the date of the last change at the top.",
           ],
@@ -497,7 +515,16 @@ export const legal: Record<"nl" | "en" | "de", LegalContent> = {
           ],
         },
         {
-          heading: "9. Änderungen",
+          heading: "9. Unsere Apps: alles bleibt auf Ihrem eigenen Gerät",
+          body: [
+            "Unsere Apps, darunter Setgrid, speichern alles, was Sie darin erfassen, ausschließlich auf dem Gerät selbst: Trainings, Messungen, Mahlzeiten, Fotos, Ziele und Einstellungen. Es gibt kein Konto, keine Anmeldung und keine Kopie auf unseren Servern. Wir erhalten diese Daten nie und sind dafür folglich auch nicht Verantwortliche im Sinne der DSGVO.",
+            "Eine Funktion ist die Ausnahme, und sie ist optional: der KI-Coach. Nutzen Sie ihn, gehen nur die für diese eine Frage nötigen Daten an die Claude-API von Anthropic, die die Antwort zurückliefert. Sie werden danach nicht gespeichert und nicht zum Trainieren von Modellen verwendet.",
+            "Weil alles auf Ihrem eigenen Gerät liegt, nehmen Sie Ihre DSGVO-Rechte direkt in der App wahr: ansehen, ändern, exportieren und löschen (Einstellungen → Datenschutz und deine Daten → Alle meine Daten löschen, oder die App löschen).",
+            "Die vollständige Datenschutzerklärung von Setgrid finden Sie unter mobilegrowthstudio.com/setgrid/de/privacy.",
+          ],
+        },
+        {
+          heading: "10. Änderungen",
           body: [
             "Wir können diese Datenschutzerklärung anpassen. Die aktuellste Version finden Sie stets auf dieser Seite, oben mit dem Datum der letzten Änderung.",
           ],

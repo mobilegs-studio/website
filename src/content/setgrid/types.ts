@@ -23,7 +23,7 @@ export const SETGRID_SHOTS = [
 
 export type SetgridContent = {
   meta: { title: string; description: string };
-  nav: { features: string; faq: string; support: string; terms: string };
+  nav: { features: string; faq: string; support: string; terms: string; privacy: string };
   hero: {
     badge: string;
     headline: string;
@@ -53,6 +53,13 @@ export type SetgridContent = {
     privacy: string;
   };
   terms: {
+    title: string;
+    updated: string;
+    intro: string;
+    sections: { h: string; p: string }[];
+  };
+  /** Same shape as terms. The wording must stay in step with the app's own Privacy screen. */
+  privacy: {
     title: string;
     updated: string;
     intro: string;

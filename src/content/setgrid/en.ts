@@ -6,7 +6,7 @@ const en: SetgridContent = {
     description:
       "Setgrid is a gym log and nutrition coach in one: log sets in seconds, automatic progression, photo calorie tracking and a weekly AI review.",
   },
-  nav: { features: "Features", faq: "Q&A", support: "Support", terms: "Terms" },
+  nav: { features: "Features", faq: "Q&A", support: "Support", terms: "Terms", privacy: "Privacy" },
   hero: {
     badge: "Health & Fitness · iPhone, Android and web",
     headline: "Your gym log and food coach in one app",
@@ -54,7 +54,7 @@ const en: SetgridContent = {
     },
     {
       q: "Which devices does it work on?",
-      a: "iPhone, Android and the browser, with your data synced between them. There is an Apple Watch app for logging sets during a workout.",
+      a: "iPhone, Android and the browser. Each one keeps its own data on the device, so what you log on your phone stays on your phone. There is an Apple Watch app for logging sets during a workout.",
     },
     {
       q: "Can I download it already?",
@@ -78,7 +78,7 @@ const en: SetgridContent = {
     },
     {
       q: "Where is my data and can I delete it?",
-      a: "It is stored with Cloudflare in the EU and only used to run the app. You can wipe everything from Settings → Privacy → Delete all my data, or ask by email.",
+      a: "Only on your own device. We never receive it and keep no copy. Wipe the lot from Settings → Privacy and your data → Delete all my data, or by deleting the app.",
     },
     {
       q: "Is this medical advice?",
@@ -123,12 +123,14 @@ const en: SetgridContent = {
         p: "Setgrid is an app for logging workouts and food and for following your own progress. It is meant for personal use.",
       },
       {
-        h: "3. Your account",
-        p: "You need a sign-in to use the app. Keep it to yourself: everything done with your sign-in counts as done by you. Tell us if you think someone else is using it.",
+        h: "3. No account",
+        p:
+          "Setgrid needs no account with us. Everything you log stays on your own device, so there is nothing to sign in to and no password for us to lose.",
       },
       {
         h: "4. Your data stays yours",
-        p: "Your workouts, measurements, photos and notes are yours. You give us permission to store and process them for the one purpose of running the app for you.",
+        p:
+          "Your workouts, measurements, photos and notes are yours and stay on your device. We do not receive them, store them or process them. You can erase all of them yourself at any time.",
       },
       {
         h: "5. No medical advice",
@@ -165,6 +167,59 @@ const en: SetgridContent = {
       {
         h: "13. Law",
         p: "Dutch law applies. Disputes go to a competent court in the Netherlands.",
+      },
+    ],
+  },
+  privacy: {
+    title: "Privacy policy",
+    updated: "Last updated: 26 November 2026",
+    intro:
+      "Setgrid keeps everything you log on your own device. There is no account, we collect nothing and we never receive your data. This page sets out exactly what that means, and how it meets the GDPR.",
+    sections: [
+      {
+        h: "The short version",
+        p:
+          "Your workouts, sets, weight, measurements, meals, photos, goals and settings are stored only on the device you use them on: the app's own storage on iPhone and Android, or your browser's storage on the web. There is no account, no sign-in with us and no copy on our servers.",
+      },
+      {
+        h: "Who we are",
+        p:
+          "Setgrid is made by Mobile Growth Studio, Hilversum, the Netherlands. Because the app never sends us personal data, we are not a controller of it under the GDPR. For this website we are. You can reach us at info@mobilegrowthstudio.com.",
+      },
+      {
+        h: "What we never collect",
+        p:
+          "No name, no e-mail address, no account, no device or advertising identifiers. Setgrid carries no tracking, no analytics and no advertising software. Nothing about you is sold or shared with anyone, because we have nothing to sell or share.",
+      },
+      {
+        h: "Apple Health",
+        p:
+          "If you switch it on yourself, Setgrid writes your workouts, weight and waist to Apple Health on your phone and reads back what your watch recorded. That exchange happens entirely on the device. We never see it, and you can withdraw the permission at any time in your phone's settings.",
+      },
+      {
+        h: "The Claude coach, and it is optional",
+        p:
+          "Progress analysis, meal photos, meal plans and recipes are the only features that send anything off your device, and only at the moment you use one. The data needed for that single question — your recent workouts and meals, or the photo of your plate — goes to the Setgrid server, which passes it to the Claude API of Anthropic and returns the answer. It is used for that answer only, is not kept afterwards, and is not used to train models. Leave the server field in Settings empty and the feature stays off.",
+      },
+      {
+        h: "Calendar export",
+        p:
+          "The calendar file with your planned and finished workouts is built on your own device and then handed to the share sheet or downloaded. It is not uploaded anywhere; where it goes next is your choice.",
+      },
+      {
+        h: "Your rights under the GDPR",
+        p:
+          "The GDPR gives you the right to see your data, correct it, take it with you and have it erased. Because everything is on your device, you use those rights directly in the app: every record is visible and editable, your workouts export as a calendar file, and Settings → Privacy and your data → Delete all my data erases the lot, as does deleting the app. We cannot hand over, correct or delete anything on your behalf, for the simple reason that we do not hold it.",
+      },
+      {
+        h: "This website",
+        p:
+          "mobilegrowthstudio.com is hosted by Vercel and sets no tracking or advertising cookies. If you use the support form, your name, e-mail address and message are sent to us by e-mail (through Resend) so that we can answer you, and are kept no longer than that needs.",
+      },
+      {
+        h: "Changes and questions",
+        p:
+          "If this policy changes, the new version appears on this page with a new date. Questions or a complaint: info@mobilegrowthstudio.com. You can also complain to the Dutch Data Protection Authority (Autoriteit Persoonsgegevens).",
       },
     ],
   },

@@ -9,8 +9,8 @@ import {
 
 type Props = {
   lang: SetgridLang;
-  /** Path inside /setgrid/<lang>, e.g. "" | "support" | "terms". */
-  page?: "" | "support" | "terms";
+  /** Path inside /setgrid/<lang>, e.g. "" | "support" | "terms" | "privacy". */
+  page?: "" | "support" | "terms" | "privacy";
   children: React.ReactNode;
 };
 
@@ -59,6 +59,16 @@ export default function SetgridShell({ lang, page = "", children }: Props) {
           >
             {t.nav.terms}
           </Link>
+          <Link
+            href={`${home}/privacy`}
+            className={
+              page === "privacy"
+                ? "text-[var(--sg-text)]"
+                : "hover:text-[var(--sg-text)]"
+            }
+          >
+            {t.nav.privacy}
+          </Link>
         </nav>
 
         <div className="ml-auto flex flex-wrap items-center gap-1 text-xs">
@@ -89,12 +99,9 @@ export default function SetgridShell({ lang, page = "", children }: Props) {
             <Link href={`${home}/terms`} className="hover:text-[var(--sg-text)]">
               {t.nav.terms}
             </Link>
-            <a
-              href="https://fittrack.fittrack-worker.workers.dev/privacy/"
-              className="hover:text-[var(--sg-text)]"
-            >
+            <Link href={`${home}/privacy`} className="hover:text-[var(--sg-text)]">
               {t.footer.privacy}
-            </a>
+            </Link>
             <Link href="/" className="hover:text-[var(--sg-text)]">
               {t.footer.back}
             </Link>
