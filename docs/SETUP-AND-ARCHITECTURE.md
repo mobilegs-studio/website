@@ -1,6 +1,6 @@
 # MGS Website — Setup & Architectuur
 
-> Laatst bijgewerkt: **24 november 2026 — 09:47**
+> Laatst bijgewerkt: **26 november 2026 — 14:05**
 > Dit document is de bron voor sitemap en architectuur (Notion wordt niet meer gebruikt). De git-hook `.githooks/post-commit` herinnert eraan dit bij te werken.
 
 ---
@@ -23,6 +23,18 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 | `/[locale]/voorwaarden` | `app/[locale]/voorwaarden/page.tsx` | Algemene voorwaarden (legal-doc) |
 | `/[locale]/cookies` | `app/[locale]/cookies/page.tsx` | Cookieverklaring (legal-doc) |
 
+### Setgrid-productsite (`/setgrid`, eigen talen: en, nl, de, fr, es, pt)
+Losstaande productsite voor de Setgrid-app (voorheen FitTrack). Staat bewust buiten `[locale]`: eigen look (`app/setgrid/setgrid.css`), eigen taalwissel, geen studio-navbar of -footer. De middleware slaat `/setgrid` over.
+
+| Route | Bestand | Omschrijving |
+|---|---|---|
+| `/setgrid` | `app/setgrid/page.tsx` | Stuurt door naar de taal uit `Accept-Language` |
+| `/setgrid/[lang]` | `app/setgrid/[lang]/page.tsx` | Hero, 7 functies met echte app-screenshots, Q&A (FAQPage JSON-LD), supportformulier |
+| `/setgrid/[lang]/support` | `app/setgrid/[lang]/support/page.tsx` | Klantenservice: hetzelfde formulier op een eigen pagina |
+| `/setgrid/[lang]/terms` | `app/setgrid/[lang]/terms/page.tsx` | Algemene voorwaarden van de app |
+
+Teksten: `src/content/setgrid/<lang>.ts` (één bestand per taal, type in `types.ts`). Beeld: `public/setgrid/shots/<lang>/1…7.jpg` + `public/setgrid/icon-512.png`, overgenomen uit de Play-store-assets van de app.
+
 ### Auth & account (nieuw deze sessie)
 | Route | Bestand | Omschrijving |
 |---|---|---|
@@ -40,6 +52,7 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 | Route | Bestand | Omschrijving |
 |---|---|---|
 | `/api/contact` | `app/api/contact/route.ts` | Contactformulier → Resend e-mail |
+| `/api/setgrid-support` | `app/api/setgrid-support/route.ts` | Setgrid-supportformulier → Resend e-mail naar info@mobilegrowthstudio.com (reply-to = afzender) |
 | `/api/stripe/checkout` | `app/api/stripe/checkout/route.ts` | POST: maakt Stripe Checkout Session (payment of subscription), redirect-URL terug |
 | `/api/stripe/webhook` | `app/api/stripe/webhook/route.ts` | POST: verifieert Stripe-handtekening, schrijft purchase/subscription via service-role |
 | `/api/download` | `app/api/download/route.ts` | GET `?slug=`: checkt login + `has_access`, redirect naar 60s signed URL uit privé-bucket |
@@ -50,7 +63,7 @@ Alle routes draaien onder `src/app`. Publieke pagina's zitten onder `[locale]` (
 | `/icon` | `app/icon.tsx` — favicon (Ascent-mark op brand-tile) |
 | `/sitemap.xml` | `app/sitemap.ts` |
 | `/robots.txt` | `app/robots.ts` |
-| Middleware (`proxy`) | `src/middleware.ts` — i18n redirect + Supabase sessie-refresh |
+| Middleware (`proxy`) | `src/middleware.ts` — i18n redirect + Supabase sessie-refresh; `/setgrid` wordt overgeslagen |
 
 ---
 
